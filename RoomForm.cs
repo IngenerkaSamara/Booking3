@@ -22,7 +22,7 @@ namespace Booking3
 
             if (RoomName == "Одноместный номер")
             {
-                pictureBox1.Load("../../Pictures/1-Seat.jpg");
+                pictureBox1.Load("../../Pictures/1-Seat.jpeg");
             }
             else if (RoomName == "Двухместный номер")
             {
@@ -33,6 +33,11 @@ namespace Booking3
         private void RoomForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Успешно");
         }
     }
 }

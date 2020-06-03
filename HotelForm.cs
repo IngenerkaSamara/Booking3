@@ -10,30 +10,56 @@ using System.Windows.Forms;
 
 namespace Booking3
 {
+    /// <summary>
+    /// Гостиница
+    /// </summary>
+    public struct Hotel
+    {
+        public string Name;
+        public string City;
+        public int Rating;
+        public string PictureAddress;
+        public PictureBox pb;
+        public Label lbl;
+
+        public Hotel(string _Name, string _City, int _Rating, string _Address)
+        {
+            Name = _Name;
+            City = _City;
+            Rating = _Rating;
+            PictureAddress = _Address;
+            pb = new PictureBox();
+            pb.Load("../../Pictures/" + _Address);
+            lbl = new Label();
+        }
+    }
+
     public partial class HotelForm : Form
     {
         string HotelName;
 
-        public HotelForm (string _HotelName)
+        public HotelForm (Hotel hotel)
         {
-            HotelName = _HotelName;
+            HotelName = hotel.Name;
             InitializeComponent();
 
-            if (HotelName == "Гостиница \"Апрель\"")
-            {
-                pictureBox1.Load("../../Pictures/093475.jpg");
-            }
-            else if (HotelName == "Гостиница \"Советская\"")
-            {
-                pictureBox1.Load("../../Pictures/875875.jpg");
-            }
-            else if (HotelName == "Хостел \"Так надо\"")
-            {
-                pictureBox1.Load("../../Pictures/16849602.jpg");
-            }
+            
+            pictureBox1.Image = hotel.pb.Image;            
+            Text = hotel.Name;
+            label4.Text = hotel.Name;
 
-            Text = HotelName;
-            label4.Text = HotelName;
+            //Рисование звезд
+            int x = 275;
+            for (int i = 0; i < hotel.Rating; i++)
+            {
+                PictureBox box = new PictureBox();
+                box.Location = new Point(x, 64);
+                box.Load("../../Pictures/star.png");
+                box.Size = new Size(33, 33);
+                box.SizeMode = PictureBoxSizeMode.StretchImage;
+                InfoPanel.Controls.Add(box);
+                x += 40;
+            }
         }
 
         private void HotelForm_Load(object sender, EventArgs e)
