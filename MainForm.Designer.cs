@@ -159,6 +159,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "Главная";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.FilterPanel.ResumeLayout(false);
             this.FilterPanel.PerformLayout();
             this.ResumeLayout(false);

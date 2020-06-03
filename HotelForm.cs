@@ -40,17 +40,20 @@ namespace Booking3
 
         public HotelForm (Hotel hotel)
         {
-            HotelName = hotel.Name;
             InitializeComponent();
 
-            
-            pictureBox1.Image = hotel.pb.Image;            
-            Text = hotel.Name;
-            label4.Text = hotel.Name;
+            List<string> hotels = MainForm.MySelect(
+                "SELECT Name, City, Image, Rating FROM hotels" +
+                " WHERE Name = '" + hotel.Name + "'");
+
+            HotelName = hotels[0];
+            pictureBox1.Load("../../Pictures/" + hotels[2]);            
+            Text = hotels[0];
+            label4.Text = hotels[0];
 
             //Рисование звезд
             int x = 275;
-            for (int i = 0; i < hotel.Rating; i++)
+            for (int i = 0; i < Convert.ToInt32(hotels[3]); i++)
             {
                 PictureBox box = new PictureBox();
                 box.Location = new Point(x, 64);

@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using System.Data.Common;
 using System.Windows.Forms;
 
 namespace Booking3
@@ -14,22 +17,45 @@ namespace Booking3
     {
         List<Hotel> hotels_list = new List<Hotel>();
 
+
+        /// <summary>
+        /// Select-запрос. Возвращает список строк
+        /// </summary>
+        public static List<string> MySelect(string cmdText)
+        {
+            List<string> list = new List<string>();
+
+            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
+
+            DbDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                    list.Add(reader.GetValue(i).ToString());
+            }
+
+            reader.Close();
+
+            return list;
+        }
+
+
         public MainForm()
         {
             InitializeComponent();
 
-            string[] lines = System.IO.File.ReadAllLines("Гостиницы.txt");
+            
+            List<string> hotels = MySelect("SELECT Name, City, Image, Rating FROM hotels");
 
-            foreach(string line in lines)
-            {
-                string[] parts = line.Split(new string[] { ", " }, StringSplitOptions.None);
-                if (parts.Length >= 4)
-                {
-                    Hotel hotel = new Hotel(parts[0], parts[1], 
-                        Convert.ToInt32(parts[2]), parts[3]);
-                    hotels_list.Add(hotel);
-                }
+            for (int i = 0; i < hotels.Count; i += 4)
+            { 
+                Hotel hotel = new Hotel(hotels[i], hotels[i+1],
+                        Convert.ToInt32(hotels[i + 3]), hotels[i + 2]);
+                hotels_list.Add(hotel);
             }
+
+
 
             int x = 15;
             foreach (Hotel hotel in hotels_list)
@@ -105,6 +131,11 @@ namespace Booking3
                 hotel.lbl.Visible = Visible;
                 hotel.pb.Visible = Visible;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
