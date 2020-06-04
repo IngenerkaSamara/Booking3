@@ -29,7 +29,12 @@ namespace Booking3
             Rating = _Rating;
             PictureAddress = _Address;
             pb = new PictureBox();
-            pb.Load("../../Pictures/" + _Address);
+            try
+            {
+                pb.Load("../../Pictures/" + _Address);
+            }
+            catch (Exception) { }
+
             lbl = new Label();
         }
     }
@@ -47,7 +52,12 @@ namespace Booking3
                 " WHERE Name = '" + hotel.Name + "'");
 
             HotelName = hotels[0];
-            pictureBox1.Load("../../Pictures/" + hotels[2]);            
+            try
+            {
+                pictureBox1.Load("../../Pictures/" + hotels[2]);
+            }
+            catch (Exception) { }
+
             Text = hotels[0];
             label4.Text = hotels[0];
 

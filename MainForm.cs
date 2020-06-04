@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data.Common;
 using System.Windows.Forms;
@@ -38,6 +37,16 @@ namespace Booking3
             reader.Close();
 
             return list;
+        }
+
+        /// <summary>
+        /// Insert/Update/Delete-запрос
+        /// </summary>
+        public static void MyUpdate(string cmdText)
+        {
+            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
+            cmd.ExecuteReader();
+            cmd.Dispose();
         }
 
 
@@ -136,6 +145,12 @@ namespace Booking3
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminForm af = new AdminForm();
+            af.Show();
         }
     }
 }

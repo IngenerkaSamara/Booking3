@@ -38,11 +38,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CityComboBox = new System.Windows.Forms.ComboBox();
             this.HotelsPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.FilterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // FilterPanel
             // 
+            this.FilterPanel.Controls.Add(this.button2);
             this.FilterPanel.Controls.Add(this.button1);
             this.FilterPanel.Controls.Add(this.dateTimePicker2);
             this.FilterPanel.Controls.Add(this.label3);
@@ -148,6 +150,16 @@
             this.HotelsPanel.Size = new System.Drawing.Size(630, 193);
             this.HotelsPanel.TabIndex = 1;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(404, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 33);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Вход в админку";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -178,6 +190,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel HotelsPanel;
+        private System.Windows.Forms.Button button2;
     }
 }
 
