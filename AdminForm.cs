@@ -22,5 +22,11 @@ namespace Booking3
             AdminHotelsForm af = new AdminHotelsForm();
             af.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminRoomsForm af = new AdminRoomsForm();
+            af.Show();
+        }
     }
 }
