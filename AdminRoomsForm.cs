@@ -15,6 +15,14 @@ namespace Booking3
         public AdminRoomsForm()
         {
             InitializeComponent();
+
+            List<string> hotels_list = MainForm.MySelect("SELECT Name, city, id FROM hotels");
+
+            comboBox1.Items.Clear();
+            for (int i = 0; i < hotels_list.Count; i += 3)
+            {
+                comboBox1.Items.Add(hotels_list[i] + /*" " + hotels_list[i + 1] +*/ " (" + hotels_list[i + 2] + ")");
+            }
         }
 
         string address = "";
@@ -25,30 +33,37 @@ namespace Booking3
             {
                 address = openFileDialog1.FileName;
                 pictureBox1.Load(address);
+                
+                System.IO.File.Copy(address, "../../Pictures/" + System.IO.Path.GetFileName(address));
+                address = System.IO.Path.GetFileName(address);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string[] parts = comboBox1.Text.Split(new char[] { '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+
             MainForm.MyUpdate(
-                "INSERT INTO room(Name, hotel, price, Image)" +
-                " VALUES('" + textBox1.Text + "', '" + textBox2.Text + "', '" +
+                "INSERT INTO room(Name, hotel, hotel_id, price, Image)" +
+                " VALUES('" + textBox1.Text + "', '" + parts[0] + "', '" + parts[1] + "', '" +
                                 textBox3.Text + "', '" + address + "')");
             MessageBox.Show("Сохранено");
+            AdminRoomsForm_Load(sender, e);
         }
 
         private void AdminRoomsForm_Load(object sender, EventArgs e)
         {
-            List<string> rooms_list = MainForm.MySelect("SELECT Name, hotel, price FROM room");
+            List<string> rooms_list = MainForm.MySelect("SELECT Name, hotel, price, id FROM room");
 
             panel2.Controls.Clear();
             int y = 15;
-            for (int i = 0; i < rooms_list.Count; i += 3)
+            for (int i = 0; i < rooms_list.Count; i += 4)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(0, y);
                 lbl.Size = new Size(200, 30);
                 lbl.Text = rooms_list[i];
+                lbl.Tag = rooms_list[i + 3];
                 panel2.Controls.Add(lbl);
 
                 Label lbl2 = new Label();
@@ -84,7 +99,7 @@ namespace Booking3
                 if (control.Location == new Point(0, y))
                 {
                     MainForm.MyUpdate(
-                        "DELETE FROM room WHERE Name = '" + control.Text + "'");
+                        "DELETE FROM room WHERE id = '" + control.Tag.ToString() + "'");
 
                     AdminRoomsForm_Load(sender, e);
                     return;

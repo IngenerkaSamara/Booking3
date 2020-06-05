@@ -26,6 +26,14 @@ namespace Booking3
             {
                 address = openFileDialog1.FileName;
                 pictureBox1.Load(address);
+
+                try
+                {
+                    System.IO.File.Copy(address, "../../Pictures/" + System.IO.Path.GetFileName(address));
+                }
+                catch (Exception) { }
+
+                address = System.IO.Path.GetFileName(address);
             }
         }
 
