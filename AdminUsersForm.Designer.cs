@@ -124,6 +124,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminUsersForm";
             this.Text = "AdminUsersForm";
+            this.Load += new System.EventHandler(this.AdminUsersForm_Load);
             this.FilterPanel.ResumeLayout(false);
             this.FilterPanel.PerformLayout();
             this.ResumeLayout(false);

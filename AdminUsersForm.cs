@@ -67,5 +67,10 @@ namespace Booking3
                 y += 30;
             }
         }
+
+        private void AdminUsersForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
