@@ -53,36 +53,13 @@ namespace Booking3
         public MainForm()
         {
             InitializeComponent();
-
+            Filter(null, null);   
             
-            List<string> hotels = MySelect("SELECT id, Name, City, Image, Rating FROM hotels");
-
-            int x = 15;
-            for (int i = 0; i < hotels.Count; i += 5)
-            {                 
-                PictureBox pb = new PictureBox();
-                try
-                {
-                    pb.Load("../../Pictures/" + hotels[i + 3]);
-                }
-                catch (Exception) { }
-                pb.Location = new Point(x, 10);
-                pb.Size = new Size(190, 120);
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.Tag = hotels[i];
-                pb.Click += new EventHandler(pictureBox1_Click);
-                HotelsPanel.Controls.Add(pb);
-
-                Label lbl = new Label();
-                lbl.Location = new Point(x, 140);
-                lbl.Size = new Size(200, 30);
-                lbl.Text = hotels[i + 1];
-                lbl.Tag = hotels[i];
-                lbl.Click += new EventHandler(label4_Click);
-                HotelsPanel.Controls.Add(lbl);
-
-                x += 205;
-            }            
+            List<string> cities = MySelect("SELECT DISTINCT Name FROM cities ORDER BY Name");
+            CityComboBox.Items.Clear();
+            CityComboBox.Items.Add("");
+            foreach (string city in cities)
+                CityComboBox.Items.Add(city);
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
@@ -110,21 +87,43 @@ namespace Booking3
         /// <summary>
         /// ФИльтр
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void Filter(object sender, EventArgs e)
         {
-            /*foreach (Hotel hotel in hotels_list)
-            {
-                bool Visible = true;
-                if (CityComboBox.Text != "" && CityComboBox.Text != hotel.City)
-                {
-                    Visible = false;
-                }
+            HotelsPanel.Controls.Clear();
+            string command = "SELECT id, Name, City, Image, Rating FROM hotels WHERE 1";
+            if (CityComboBox.Text != "")
+                command += " AND city = '" + CityComboBox.Text + "'";
+            if (RatingComboBox.Text != "")
+                command += " AND Rating >= " + RatingComboBox.Text;
 
-                hotel.lbl.Visible = Visible;
-                hotel.pb.Visible = Visible;
-            }*/
+            List<string> hotels = MySelect(command);
+
+            int x = 15;
+            for (int i = 0; i < hotels.Count; i += 5)
+            {
+                PictureBox pb = new PictureBox();
+                try
+                {
+                    pb.Load("../../Pictures/" + hotels[i + 3]);
+                }
+                catch (Exception) { }
+                pb.Location = new Point(x, 10);
+                pb.Size = new Size(190, 120);
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                pb.Tag = hotels[i];
+                pb.Click += new EventHandler(pictureBox1_Click);
+                HotelsPanel.Controls.Add(pb);
+
+                Label lbl = new Label();
+                lbl.Location = new Point(x, 140);
+                lbl.Size = new Size(200, 30);
+                lbl.Text = hotels[i + 1];
+                lbl.Tag = hotels[i];
+                lbl.Click += new EventHandler(label4_Click);
+                HotelsPanel.Controls.Add(lbl);
+
+                x += 205;
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -141,7 +140,8 @@ namespace Booking3
         private void button3_Click(object sender, EventArgs e)
         {
             List<string> user_data = MainForm.MySelect(
-                "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + "'");
+                "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + 
+                "' AND Password = '" + PasswordTextBox.Text + "'");
 
             //Авторизация успешна
             if (user_data.Count > 0)
@@ -152,6 +152,56 @@ namespace Booking3
                 AuthPanel.Controls.Add(HelloLabel);
                 HelloLabel.Text = "Привет, " + Login;
             }
+            else
+            {
+                user_data = MainForm.MySelect(
+                    "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + "'");
+
+                if (user_data.Count > 0)
+                    MessageBox.Show("Неправильный пароль");
+                else 
+                    MessageBox.Show("Вы не зарегистрированы");
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RatingComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

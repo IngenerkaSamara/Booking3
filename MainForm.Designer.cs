@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.FilterPanel = new System.Windows.Forms.Panel();
+            this.RatingComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,7 +44,7 @@
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginTextBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.HelloLabel = new System.Windows.Forms.Label();
@@ -52,6 +54,8 @@
             // 
             // FilterPanel
             // 
+            this.FilterPanel.Controls.Add(this.RatingComboBox);
+            this.FilterPanel.Controls.Add(this.label6);
             this.FilterPanel.Controls.Add(this.button1);
             this.FilterPanel.Controls.Add(this.dateTimePicker2);
             this.FilterPanel.Controls.Add(this.label3);
@@ -67,6 +71,34 @@
             this.FilterPanel.Size = new System.Drawing.Size(630, 114);
             this.FilterPanel.TabIndex = 0;
             // 
+            // RatingComboBox
+            // 
+            this.RatingComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RatingComboBox.FormattingEnabled = true;
+            this.RatingComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.RatingComboBox.Location = new System.Drawing.Point(83, 82);
+            this.RatingComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RatingComboBox.Name = "RatingComboBox";
+            this.RatingComboBox.Size = new System.Drawing.Size(162, 28);
+            this.RatingComboBox.TabIndex = 9;
+            this.RatingComboBox.SelectedIndexChanged += new System.EventHandler(this.RatingComboBox_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 86);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 20);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Рейтинг";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -76,7 +108,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Найти";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Filter);
             // 
             // dateTimePicker2
             // 
@@ -85,16 +117,18 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(173, 26);
             this.dateTimePicker2.TabIndex = 6;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(371, 54);
+            this.label3.Location = new System.Drawing.Point(258, 82);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Дата выезда";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // FilterButton
             // 
@@ -109,21 +143,23 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(192, 81);
+            this.dateTimePicker1.Location = new System.Drawing.Point(372, 49);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(173, 26);
             this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 54);
+            this.label2.Location = new System.Drawing.Point(258, 49);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Дата заезда";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -131,22 +167,25 @@
             this.label1.Location = new System.Drawing.Point(4, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 20);
+            this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Выберите город";
+            this.label1.Text = "Город";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // CityComboBox
             // 
+            this.CityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CityComboBox.FormattingEnabled = true;
             this.CityComboBox.Items.AddRange(new object[] {
             "Красноярск",
             "Ульяновск",
             "Хабаровск"});
-            this.CityComboBox.Location = new System.Drawing.Point(4, 79);
+            this.CityComboBox.Location = new System.Drawing.Point(83, 47);
             this.CityComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CityComboBox.Name = "CityComboBox";
-            this.CityComboBox.Size = new System.Drawing.Size(180, 28);
+            this.CityComboBox.Size = new System.Drawing.Size(162, 28);
             this.CityComboBox.TabIndex = 0;
+            this.CityComboBox.SelectedIndexChanged += new System.EventHandler(this.CityComboBox_SelectedIndexChanged);
             // 
             // AdminButton
             // 
@@ -172,7 +211,7 @@
             this.AuthPanel.AutoScroll = true;
             this.AuthPanel.Controls.Add(this.label5);
             this.AuthPanel.Controls.Add(this.label4);
-            this.AuthPanel.Controls.Add(this.textBox2);
+            this.AuthPanel.Controls.Add(this.PasswordTextBox);
             this.AuthPanel.Controls.Add(this.LoginTextBox);
             this.AuthPanel.Controls.Add(this.button3);
             this.AuthPanel.Controls.Add(this.AdminButton);
@@ -201,13 +240,13 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Логин";
             // 
-            // textBox2
+            // PasswordTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(244, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.PasswordTextBox.Location = new System.Drawing.Point(244, 3);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(100, 26);
+            this.PasswordTextBox.TabIndex = 11;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // LoginTextBox
             // 
@@ -272,10 +311,12 @@
         private System.Windows.Forms.Panel AuthPanel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox LoginTextBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label HelloLabel;
+        private System.Windows.Forms.ComboBox RatingComboBox;
+        private System.Windows.Forms.Label label6;
     }
 }
 
