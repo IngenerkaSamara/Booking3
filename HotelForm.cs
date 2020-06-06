@@ -42,16 +42,18 @@ namespace Booking3
     public partial class HotelForm : Form
     {
         string HotelName;
+        string id;
 
         public HotelForm (Hotel hotel)
         {
             InitializeComponent();
 
             List<string> hotels = MainForm.MySelect(
-                "SELECT Name, City, Image, Rating FROM hotels" +
+                "SELECT Name, City, Image, Rating, id FROM hotels" +
                 " WHERE Name = '" + hotel.Name + "'");
 
             HotelName = hotels[0];
+            id = hotels[4];
             try
             {
                 pictureBox1.Load("../../Pictures/" + hotels[2]);
@@ -97,6 +99,21 @@ namespace Booking3
             Label pb = (Label)sender;
             RoomForm rf = new RoomForm(HotelName, pb.Text);
             rf.Show();
+        }
+
+        private void OpinionPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void OpinionCLick(object sender, EventArgs e)
+        {
+            MainForm.MyUpdate("INSERT INTO rating(user, hotel_id, rate, comment) VALUES(" +
+                "'" + MainForm.Login + "', " +
+                "'" + id + "', " +
+                "'" + numericUpDown1.Value.ToString() + "', " +
+                "'" + textBox1.Text + "')");
+            MessageBox.Show("Спасибо");
         }
     }
 }

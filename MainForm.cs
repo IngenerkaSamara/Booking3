@@ -14,6 +14,7 @@ namespace Booking3
 {
     public partial class MainForm : Form
     {
+        public static string Login = "";
         List<Hotel> hotels_list = new List<Hotel>();
 
 
@@ -151,6 +152,22 @@ namespace Booking3
         {
             AdminForm af = new AdminForm();
             af.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<string> user_data = MainForm.MySelect(
+                "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + "'");
+
+            //Авторизация успешна
+            if (user_data.Count > 0)
+            {
+                Login = LoginTextBox.Text;
+                AuthPanel.Controls.Clear();
+                AuthPanel.Controls.Add(AdminButton);
+                AuthPanel.Controls.Add(HelloLabel);
+                HelloLabel.Text = "Привет, " + Login;
+            }
         }
     }
 }

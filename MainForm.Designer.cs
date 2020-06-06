@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.FilterPanel = new System.Windows.Forms.Panel();
+            this.AdminButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,13 +39,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CityComboBox = new System.Windows.Forms.ComboBox();
             this.HotelsPanel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AuthPanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.LoginTextBox = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.HelloLabel = new System.Windows.Forms.Label();
             this.FilterPanel.SuspendLayout();
+            this.AuthPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // FilterPanel
             // 
-            this.FilterPanel.Controls.Add(this.button2);
             this.FilterPanel.Controls.Add(this.button1);
             this.FilterPanel.Controls.Add(this.dateTimePicker2);
             this.FilterPanel.Controls.Add(this.label3);
@@ -54,11 +61,21 @@
             this.FilterPanel.Controls.Add(this.label1);
             this.FilterPanel.Controls.Add(this.CityComboBox);
             this.FilterPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.FilterPanel.Location = new System.Drawing.Point(0, 0);
+            this.FilterPanel.Location = new System.Drawing.Point(0, 35);
             this.FilterPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FilterPanel.Name = "FilterPanel";
             this.FilterPanel.Size = new System.Drawing.Size(630, 114);
             this.FilterPanel.TabIndex = 0;
+            // 
+            // AdminButton
+            // 
+            this.AdminButton.Location = new System.Drawing.Point(486, 2);
+            this.AdminButton.Name = "AdminButton";
+            this.AdminButton.Size = new System.Drawing.Size(141, 33);
+            this.AdminButton.TabIndex = 8;
+            this.AdminButton.Text = "Вход в админку";
+            this.AdminButton.UseVisualStyleBackColor = true;
+            this.AdminButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -145,20 +162,78 @@
             // 
             this.HotelsPanel.AutoScroll = true;
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HotelsPanel.Location = new System.Drawing.Point(0, 114);
+            this.HotelsPanel.Location = new System.Drawing.Point(0, 149);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(630, 193);
+            this.HotelsPanel.Size = new System.Drawing.Size(630, 158);
             this.HotelsPanel.TabIndex = 1;
             // 
-            // button2
+            // AuthPanel
             // 
-            this.button2.Location = new System.Drawing.Point(404, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 33);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Вход в админку";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AuthPanel.AutoScroll = true;
+            this.AuthPanel.Controls.Add(this.label5);
+            this.AuthPanel.Controls.Add(this.label4);
+            this.AuthPanel.Controls.Add(this.textBox2);
+            this.AuthPanel.Controls.Add(this.LoginTextBox);
+            this.AuthPanel.Controls.Add(this.button3);
+            this.AuthPanel.Controls.Add(this.AdminButton);
+            this.AuthPanel.Controls.Add(this.HelloLabel);
+            this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AuthPanel.Location = new System.Drawing.Point(0, 0);
+            this.AuthPanel.Name = "AuthPanel";
+            this.AuthPanel.Size = new System.Drawing.Size(630, 35);
+            this.AuthPanel.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(350, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 31);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Вход";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // LoginTextBox
+            // 
+            this.LoginTextBox.Location = new System.Drawing.Point(65, 5);
+            this.LoginTextBox.Name = "LoginTextBox";
+            this.LoginTextBox.Size = new System.Drawing.Size(100, 26);
+            this.LoginTextBox.TabIndex = 10;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(244, 3);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.TabIndex = 11;
+            this.textBox2.UseSystemPasswordChar = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Логин";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(171, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Пароль";
+            // 
+            // HelloLabel
+            // 
+            this.HelloLabel.AutoSize = true;
+            this.HelloLabel.Location = new System.Drawing.Point(171, 9);
+            this.HelloLabel.Name = "HelloLabel";
+            this.HelloLabel.Size = new System.Drawing.Size(51, 20);
+            this.HelloLabel.TabIndex = 14;
+            this.HelloLabel.Text = "label6";
             // 
             // MainForm
             // 
@@ -167,6 +242,7 @@
             this.ClientSize = new System.Drawing.Size(630, 307);
             this.Controls.Add(this.HotelsPanel);
             this.Controls.Add(this.FilterPanel);
+            this.Controls.Add(this.AuthPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
@@ -174,6 +250,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.FilterPanel.ResumeLayout(false);
             this.FilterPanel.PerformLayout();
+            this.AuthPanel.ResumeLayout(false);
+            this.AuthPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -190,7 +268,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel HotelsPanel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AdminButton;
+        private System.Windows.Forms.Panel AuthPanel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox LoginTextBox;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label HelloLabel;
     }
 }
 
