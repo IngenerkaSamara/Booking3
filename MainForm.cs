@@ -15,7 +15,6 @@ namespace Booking3
     public partial class MainForm : Form
     {
         public static string Login = "";
-        List<Hotel> hotels_list = new List<Hotel>();
 
 
         /// <summary>
@@ -56,35 +55,34 @@ namespace Booking3
             InitializeComponent();
 
             
-            List<string> hotels = MySelect("SELECT Name, City, Image, Rating FROM hotels");
-
-            for (int i = 0; i < hotels.Count; i += 4)
-            { 
-                Hotel hotel = new Hotel(hotels[i], hotels[i+1],
-                        Convert.ToInt32(hotels[i + 3]), hotels[i + 2]);
-                hotels_list.Add(hotel);
-            }
-
-
+            List<string> hotels = MySelect("SELECT id, Name, City, Image, Rating FROM hotels");
 
             int x = 15;
-            foreach (Hotel hotel in hotels_list)
-            {
-                hotel.pb.Location = new Point(x, 10);
-                hotel.pb.Size = new Size(190, 120);
-                hotel.pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                hotel.pb.Tag = hotel.Name;
-                hotel.pb.Click += new EventHandler(pictureBox1_Click);
-                HotelsPanel.Controls.Add(hotel.pb);
+            for (int i = 0; i < hotels.Count; i += 5)
+            {                 
+                PictureBox pb = new PictureBox();
+                try
+                {
+                    pb.Load("../../Pictures/" + hotels[i + 3]);
+                }
+                catch (Exception) { }
+                pb.Location = new Point(x, 10);
+                pb.Size = new Size(190, 120);
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                pb.Tag = hotels[i];
+                pb.Click += new EventHandler(pictureBox1_Click);
+                HotelsPanel.Controls.Add(pb);
 
-                hotel.lbl.Location = new Point(x, 140);
-                hotel.lbl.Size = new Size(200, 30);
-                hotel.lbl.Text = hotel.Name;
-                hotel.lbl.Click += new EventHandler(label4_Click);
-                HotelsPanel.Controls.Add(hotel.lbl);
+                Label lbl = new Label();
+                lbl.Location = new Point(x, 140);
+                lbl.Size = new Size(200, 30);
+                lbl.Text = hotels[i + 1];
+                lbl.Tag = hotels[i];
+                lbl.Click += new EventHandler(label4_Click);
+                HotelsPanel.Controls.Add(lbl);
 
                 x += 205;
-            }
+            }            
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
@@ -97,30 +95,16 @@ namespace Booking3
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            PictureBox pb = (PictureBox)sender;
-            
-            foreach (Hotel hotel in hotels_list)
-            {
-                if (hotel.pb.Image == pb.Image)
-                {
-                    HotelForm hf = new HotelForm(hotel);
-                    hf.Show();
-                }
-            }
+            PictureBox pb = (PictureBox)sender;            
+            HotelForm hf = new HotelForm(pb.Tag.ToString());
+            hf.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             Label pb = (Label)sender;
-
-            foreach (Hotel hotel in hotels_list)
-            {
-                if (hotel.Name == pb.Text)
-                {
-                    HotelForm hf = new HotelForm(hotel);
-                    hf.Show();
-                }
-            }
+            HotelForm hf = new HotelForm(pb.Tag.ToString());
+            hf.Show();
         }
 
         /// <summary>
@@ -130,7 +114,7 @@ namespace Booking3
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (Hotel hotel in hotels_list)
+            /*foreach (Hotel hotel in hotels_list)
             {
                 bool Visible = true;
                 if (CityComboBox.Text != "" && CityComboBox.Text != hotel.City)
@@ -140,7 +124,7 @@ namespace Booking3
 
                 hotel.lbl.Visible = Visible;
                 hotel.pb.Visible = Visible;
-            }
+            }*/
         }
 
         private void MainForm_Load(object sender, EventArgs e)

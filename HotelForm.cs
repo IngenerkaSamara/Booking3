@@ -10,50 +10,21 @@ using System.Windows.Forms;
 
 namespace Booking3
 {
-    /// <summary>
-    /// Гостиница
-    /// </summary>
-    public struct Hotel
-    {
-        public string Name;
-        public string City;
-        public int Rating;
-        public string PictureAddress;
-        public PictureBox pb;
-        public Label lbl;
-
-        public Hotel(string _Name, string _City, int _Rating, string _Address)
-        {
-            Name = _Name;
-            City = _City;
-            Rating = _Rating;
-            PictureAddress = _Address;
-            pb = new PictureBox();
-            try
-            {
-                pb.Load("../../Pictures/" + _Address);
-            }
-            catch (Exception) { }
-
-            lbl = new Label();
-        }
-    }
-
     public partial class HotelForm : Form
     {
         string HotelName;
         string id;
 
-        public HotelForm (Hotel hotel)
+        public HotelForm(string hotel_id)
         {
             InitializeComponent();
 
             List<string> hotels = MainForm.MySelect(
                 "SELECT Name, City, Image, Rating, id FROM hotels" +
-                " WHERE Name = '" + hotel.Name + "'");
+                " WHERE id = '" + hotel_id + "'");
 
             HotelName = hotels[0];
-            id = hotels[4];
+            id = hotel_id;
             try
             {
                 pictureBox1.Load("../../Pictures/" + hotels[2]);
@@ -74,6 +45,38 @@ namespace Booking3
                 box.SizeMode = PictureBoxSizeMode.StretchImage;
                 InfoPanel.Controls.Add(box);
                 x += 40;
+            }
+
+            //Номера
+            List<string> rooms = MainForm.MySelect("SELECT id, name, price, image FROM room WHERE hotel_id = " + id);
+
+            x = 15;
+            HotelsPanel.Controls.Clear();
+            for (int i = 0; i < rooms.Count; i+= 4)
+            {
+                PictureBox pb = new PictureBox();
+                try
+                {
+                    pb.Load("../../Pictures/" + rooms[i + 3]);
+                }
+                catch (Exception) { }
+                pb.Location = new Point(x, 10);
+                pb.Size = new Size(190, 120);
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                pb.Tag = rooms[i];
+                //pb.Click += new EventHandler(pictureBox1_Click);
+                HotelsPanel.Controls.Add(pb);
+
+                Label lbl = new Label();
+                lbl.Font = new Font("Arial", 10);
+                lbl.Location = new Point(x, 140);
+                lbl.Size = new Size(200, 30);
+                lbl.Text = rooms[i + 1] + " (" + rooms[i+2] +")";
+                lbl.Tag = rooms[i];
+                //lbl.Click += new EventHandler(label4_Click);
+                HotelsPanel.Controls.Add(lbl);
+
+                x += 205;
             }
         }
 
