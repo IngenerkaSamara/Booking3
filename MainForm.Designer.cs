@@ -42,12 +42,13 @@
             this.AdminButton = new System.Windows.Forms.Button();
             this.HotelsPanel = new System.Windows.Forms.Panel();
             this.AuthPanel = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.LoginLabel = new System.Windows.Forms.Label();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginTextBox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.HelloLabel = new System.Windows.Forms.Label();
+            this.AccountButton = new System.Windows.Forms.Button();
             this.FilterPanel.SuspendLayout();
             this.AuthPanel.SuspendLayout();
             this.SuspendLayout();
@@ -195,6 +196,7 @@
             this.AdminButton.TabIndex = 8;
             this.AdminButton.Text = "Вход в админку";
             this.AdminButton.UseVisualStyleBackColor = true;
+            this.AdminButton.Visible = false;
             this.AdminButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // HotelsPanel
@@ -209,11 +211,12 @@
             // AuthPanel
             // 
             this.AuthPanel.AutoScroll = true;
-            this.AuthPanel.Controls.Add(this.label5);
-            this.AuthPanel.Controls.Add(this.label4);
+            this.AuthPanel.Controls.Add(this.AccountButton);
+            this.AuthPanel.Controls.Add(this.PasswordLabel);
+            this.AuthPanel.Controls.Add(this.LoginLabel);
             this.AuthPanel.Controls.Add(this.PasswordTextBox);
             this.AuthPanel.Controls.Add(this.LoginTextBox);
-            this.AuthPanel.Controls.Add(this.button3);
+            this.AuthPanel.Controls.Add(this.LoginButton);
             this.AuthPanel.Controls.Add(this.AdminButton);
             this.AuthPanel.Controls.Add(this.HelloLabel);
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -222,23 +225,23 @@
             this.AuthPanel.Size = new System.Drawing.Size(630, 35);
             this.AuthPanel.TabIndex = 2;
             // 
-            // label5
+            // PasswordLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(171, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Пароль";
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Location = new System.Drawing.Point(171, 10);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(67, 20);
+            this.PasswordLabel.TabIndex = 13;
+            this.PasswordLabel.Text = "Пароль";
             // 
-            // label4
+            // LoginLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Логин";
+            this.LoginLabel.AutoSize = true;
+            this.LoginLabel.Location = new System.Drawing.Point(4, 8);
+            this.LoginLabel.Name = "LoginLabel";
+            this.LoginLabel.Size = new System.Drawing.Size(55, 20);
+            this.LoginLabel.TabIndex = 12;
+            this.LoginLabel.Text = "Логин";
             // 
             // PasswordTextBox
             // 
@@ -255,15 +258,15 @@
             this.LoginTextBox.Size = new System.Drawing.Size(100, 26);
             this.LoginTextBox.TabIndex = 10;
             // 
-            // button3
+            // LoginButton
             // 
-            this.button3.Location = new System.Drawing.Point(350, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 31);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Вход";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.LoginButton.Location = new System.Drawing.Point(350, 0);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(75, 31);
+            this.LoginButton.TabIndex = 9;
+            this.LoginButton.Text = "Вход";
+            this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginClick);
             // 
             // HelloLabel
             // 
@@ -273,6 +276,17 @@
             this.HelloLabel.Size = new System.Drawing.Size(51, 20);
             this.HelloLabel.TabIndex = 14;
             this.HelloLabel.Text = "label6";
+            // 
+            // AccountButton
+            // 
+            this.AccountButton.Location = new System.Drawing.Point(0, 2);
+            this.AccountButton.Name = "AccountButton";
+            this.AccountButton.Size = new System.Drawing.Size(157, 33);
+            this.AccountButton.TabIndex = 15;
+            this.AccountButton.Text = "Личный кабинет";
+            this.AccountButton.UseVisualStyleBackColor = true;
+            this.AccountButton.Visible = false;
+            this.AccountButton.Click += new System.EventHandler(this.AccountButton_Click);
             // 
             // MainForm
             // 
@@ -309,14 +323,15 @@
         private System.Windows.Forms.Panel HotelsPanel;
         private System.Windows.Forms.Button AdminButton;
         private System.Windows.Forms.Panel AuthPanel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label PasswordLabel;
+        private System.Windows.Forms.Label LoginLabel;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox LoginTextBox;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label HelloLabel;
         private System.Windows.Forms.ComboBox RatingComboBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button AccountButton;
     }
 }
 

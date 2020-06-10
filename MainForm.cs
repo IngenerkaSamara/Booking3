@@ -15,6 +15,7 @@ namespace Booking3
     public partial class MainForm : Form
     {
         public static string Login = "";
+        public static bool IsAdmin = false;
 
 
         /// <summary>
@@ -137,31 +138,64 @@ namespace Booking3
             af.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void LoginClick(object sender, EventArgs e)
         {
-            List<string> user_data = MainForm.MySelect(
-                "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + 
-                "' AND Password = '" + PasswordTextBox.Text + "'");
-
-            //Авторизация успешна
-            if (user_data.Count > 0)
+            //Вход
+            if (Login == "")
             {
-                Login = LoginTextBox.Text;
-                AuthPanel.Controls.Clear();
-                AuthPanel.Controls.Add(AdminButton);
-                AuthPanel.Controls.Add(HelloLabel);
-                HelloLabel.Text = "Привет, " + Login;
+                List<string> user_data = MainForm.MySelect(
+                    "SELECT admin FROM users WHERE Login = '" + LoginTextBox.Text +
+                    "' AND Password = '" + PasswordTextBox.Text + "'");
+
+                //Авторизация успешна
+                if (user_data.Count > 0)
+                {
+                    //Глобальные переменные
+                    Login = LoginTextBox.Text;
+                    IsAdmin = (user_data[0] == "1");
+
+                    //Компоненты на форме
+                    AuthPanel.Controls.Clear();
+                    AdminButton.Visible = (user_data[0] == "1");
+                    AuthPanel.Controls.Add(AdminButton);
+
+                    AuthPanel.Controls.Add(HelloLabel);
+                    HelloLabel.Text = "Привет, " + Login;
+
+                    AuthPanel.Controls.Add(LoginButton);
+                    LoginButton.Text = "Выход";
+
+                    AuthPanel.Controls.Add(AccountButton);
+                    AccountButton.Visible = true;
+                }
+                else
+                {
+                    user_data = MainForm.MySelect(
+                        "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + "'");
+
+                    if (user_data.Count > 0)
+                        MessageBox.Show("Неправильный пароль");
+                    else
+                        MessageBox.Show("Вы не зарегистрированы");
+                }
             }
+            //Выход
             else
             {
-                user_data = MainForm.MySelect(
-                    "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + "'");
+                //Глобальные переменные
+                Login = "";
+                IsAdmin = false;
 
-                if (user_data.Count > 0)
-                    MessageBox.Show("Неправильный пароль");
-                else 
-                    MessageBox.Show("Вы не зарегистрированы");
+                //Компоненты на форме
+                AuthPanel.Controls.Clear();
+                AuthPanel.Controls.Add(LoginLabel);
+                AuthPanel.Controls.Add(LoginTextBox);
+                AuthPanel.Controls.Add(PasswordLabel);
+                AuthPanel.Controls.Add(PasswordTextBox);
+                AuthPanel.Controls.Add(LoginButton);
+                LoginButton.Text = "Вход";
             }
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -202,6 +236,14 @@ namespace Booking3
         private void CityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AccountButton_Click(object sender, EventArgs e)
+        {
+            AccountForm af = new AccountForm();
+            af.ShowDialog();
+
+            HelloLabel.Text = "Привет, " + Login;
         }
     }
 }

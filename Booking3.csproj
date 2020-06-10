@@ -50,28 +50,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs">
+    <Compile Include="AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
+    <Compile Include="AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminHotelsForm.cs">
+    <Compile Include="Admin\AdminHotelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminHotelsForm.Designer.cs">
+    <Compile Include="Admin\AdminHotelsForm.Designer.cs">
       <DependentUpon>AdminHotelsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminRoomsForm.cs">
+    <Compile Include="Admin\AdminRoomsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminRoomsForm.Designer.cs">
+    <Compile Include="Admin\AdminRoomsForm.Designer.cs">
       <DependentUpon>AdminRoomsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminUsersForm.cs">
+    <Compile Include="Admin\AdminUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminUsersForm.Designer.cs">
+    <Compile Include="Admin\AdminUsersForm.Designer.cs">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HotelForm.cs">
@@ -100,16 +106,19 @@
     <Compile Include="RoomForm.Designer.cs">
       <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminForm.resx">
+    <EmbeddedResource Include="AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminHotelsForm.resx">
+    <EmbeddedResource Include="Admin\AdminHotelsForm.resx">
       <DependentUpon>AdminHotelsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminRoomsForm.resx">
+    <EmbeddedResource Include="Admin\AdminRoomsForm.resx">
       <DependentUpon>AdminRoomsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminUsersForm.resx">
+    <EmbeddedResource Include="Admin\AdminUsersForm.resx">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HotelForm.resx">

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.FilterPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.AgeTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.CityComboBox = new System.Windows.Forms.ComboBox();
-            this.AgeTextBox = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.FilterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,15 +51,12 @@
             this.FilterPanel.Size = new System.Drawing.Size(656, 84);
             this.FilterPanel.TabIndex = 0;
             // 
-            // panel2
+            // AgeTextBox
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 84);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(656, 221);
-            this.panel2.TabIndex = 2;
+            this.AgeTextBox.Location = new System.Drawing.Point(82, 43);
+            this.AgeTextBox.Name = "AgeTextBox";
+            this.AgeTextBox.Size = new System.Drawing.Size(161, 26);
+            this.AgeTextBox.TabIndex = 18;
             // 
             // label6
             // 
@@ -106,12 +103,15 @@
             this.CityComboBox.Size = new System.Drawing.Size(162, 28);
             this.CityComboBox.TabIndex = 10;
             // 
-            // AgeTextBox
+            // panel2
             // 
-            this.AgeTextBox.Location = new System.Drawing.Point(82, 43);
-            this.AgeTextBox.Name = "AgeTextBox";
-            this.AgeTextBox.Size = new System.Drawing.Size(161, 26);
-            this.AgeTextBox.TabIndex = 18;
+            this.panel2.AutoScroll = true;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 84);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(656, 221);
+            this.panel2.TabIndex = 2;
             // 
             // AdminUsersForm
             // 
@@ -123,7 +123,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminUsersForm";
-            this.Text = "AdminUsersForm";
+            this.Text = "Управление пользователями";
             this.Load += new System.EventHandler(this.AdminUsersForm_Load);
             this.FilterPanel.ResumeLayout(false);
             this.FilterPanel.PerformLayout();

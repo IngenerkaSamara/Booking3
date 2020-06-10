@@ -107,7 +107,7 @@
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfoPanel.Location = new System.Drawing.Point(0, 0);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(663, 189);
+            this.InfoPanel.Size = new System.Drawing.Size(663, 233);
             this.InfoPanel.TabIndex = 9;
             // 
             // OpinionPanel
@@ -118,7 +118,7 @@
             this.OpinionPanel.Controls.Add(this.numericUpDown1);
             this.OpinionPanel.Controls.Add(this.textBox1);
             this.OpinionPanel.Controls.Add(this.label6);
-            this.OpinionPanel.Location = new System.Drawing.Point(258, 72);
+            this.OpinionPanel.Location = new System.Drawing.Point(258, 116);
             this.OpinionPanel.Name = "OpinionPanel";
             this.OpinionPanel.Size = new System.Drawing.Size(402, 112);
             this.OpinionPanel.TabIndex = 5;
@@ -176,9 +176,9 @@
             this.HotelsPanel.Controls.Add(this.label3);
             this.HotelsPanel.Controls.Add(this.pictureBox7);
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HotelsPanel.Location = new System.Drawing.Point(0, 189);
+            this.HotelsPanel.Location = new System.Drawing.Point(0, 233);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(663, 182);
+            this.HotelsPanel.Size = new System.Drawing.Size(663, 198);
             this.HotelsPanel.TabIndex = 10;
             // 
             // label5
@@ -229,7 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 371);
+            this.ClientSize = new System.Drawing.Size(663, 431);
             this.Controls.Add(this.HotelsPanel);
             this.Controls.Add(this.InfoPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);

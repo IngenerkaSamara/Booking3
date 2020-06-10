@@ -21,6 +21,8 @@ namespace Booking3
             CityComboBox.Items.Add("");
             foreach (string city in cities)
                 CityComboBox.Items.Add(city);
+
+            button1_Click(null, null);
         }
 
         private void button1_Click(object sender, EventArgs e)

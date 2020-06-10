@@ -19,6 +19,8 @@ namespace Booking3
         {
             InitializeComponent();
 
+            OpinionPanel.Visible = (MainForm.Login != "");
+
             List<string> hotels = MainForm.MySelect(
                 "SELECT Name, City, Image, Rating, id FROM hotels" +
                 " WHERE id = '" + hotel_id + "'");
