@@ -16,7 +16,7 @@ namespace Booking3
         {
             InitializeComponent();
 
-            List<string> hotels_list = MainForm.MySelect("SELECT Name, city, id FROM hotels");
+            List<string> hotels_list = SQLClass.Select("SELECT Name, city, id FROM hotels");
 
             comboBox1.Items.Clear();
             for (int i = 0; i < hotels_list.Count; i += 3)
@@ -43,7 +43,7 @@ namespace Booking3
         {
             string[] parts = comboBox1.Text.Split(new char[] { '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
 
-            MainForm.MyUpdate(
+            SQLClass.Update(
                 "INSERT INTO room(Name, hotel, hotel_id, price, Image)" +
                 " VALUES('" + textBox1.Text + "', '" + parts[0] + "', '" + parts[1] + "', '" +
                                 textBox3.Text + "', '" + address + "')");
@@ -53,7 +53,7 @@ namespace Booking3
 
         private void AdminRoomsForm_Load(object sender, EventArgs e)
         {
-            List<string> rooms_list = MainForm.MySelect("SELECT Name, hotel, price, id FROM room");
+            List<string> rooms_list = SQLClass.Select("SELECT Name, hotel, price, id FROM room");
 
             panel2.Controls.Clear();
             int y = 15;
@@ -98,7 +98,7 @@ namespace Booking3
             {
                 if (control.Location == new Point(0, y))
                 {
-                    MainForm.MyUpdate(
+                    SQLClass.Update(
                         "DELETE FROM room WHERE id = '" + control.Tag.ToString() + "'");
 
                     AdminRoomsForm_Load(sender, e);

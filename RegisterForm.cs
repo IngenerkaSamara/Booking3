@@ -16,7 +16,7 @@ namespace Booking3
         {
             InitializeComponent();
 
-            List<string> cities = MainForm.MySelect("SELECT DISTINCT Name FROM cities ORDER BY Name");
+            List<string> cities = SQLClass.Select("SELECT DISTINCT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
@@ -25,11 +25,11 @@ namespace Booking3
 
         private void button3_Click(object sender, EventArgs e)
         {
-            List<string> exist = MainForm.MySelect("SELECT Login FROM users WHERE login = '" + LoginTextBox.Text + "'");
+            List<string> exist = SQLClass.Select("SELECT Login FROM users WHERE login = '" + LoginTextBox.Text + "'");
             if (exist.Count > 0)
                 MessageBox.Show("Вы уже зарегистрированы");
             else
-                MainForm.MyUpdate("INSERT INTO users(login, password, name, age, city) VALUES(" +
+                SQLClass.Update("INSERT INTO users(login, password, name, age, city) VALUES(" +
                     "'" + LoginTextBox.Text + "'," +
                     "'" + PasswordTextBox.Text + "'," +
                     "'" + textBox1.Text + "'," +

@@ -6,8 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Data.Common;
 using System.Windows.Forms;
 
 namespace Booking3
@@ -18,45 +16,13 @@ namespace Booking3
         public static bool IsAdmin = false;
 
 
-        /// <summary>
-        /// Select-запрос. Возвращает список строк
-        /// </summary>
-        public static List<string> MySelect(string cmdText)
-        {
-            List<string> list = new List<string>();
-
-            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
-
-            DbDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                for (int i = 0; i < reader.FieldCount; i++)
-                    list.Add(reader.GetValue(i).ToString());
-            }
-
-            reader.Close();
-
-            return list;
-        }
-
-        /// <summary>
-        /// Insert/Update/Delete-запрос
-        /// </summary>
-        public static void MyUpdate(string cmdText)
-        {
-            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
-            cmd.ExecuteReader();
-            cmd.Dispose();
-        }
-
 
         public MainForm()
         {
             InitializeComponent();
             Filter(null, null);   
             
-            List<string> cities = MySelect("SELECT DISTINCT Name FROM cities ORDER BY Name");
+            List<string> cities = SQLClass.Select("SELECT DISTINCT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
@@ -71,18 +37,26 @@ namespace Booking3
                 FilterPanel.Size = new Size(FilterPanel.Size.Width, FilterButton.Size.Height);
         }
 
+        /// <summary>
+        /// Открытие гостиницы
+        /// </summary>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;            
             HotelForm hf = new HotelForm(pb.Tag.ToString());
-            hf.Show();
+            hf.ShowDialog();
+            Filter(sender, e);
         }
 
+        /// <summary>
+        /// Открытие гостиницы
+        /// </summary>
         private void label4_Click(object sender, EventArgs e)
         {
             Label pb = (Label)sender;
             HotelForm hf = new HotelForm(pb.Tag.ToString());
-            hf.Show();
+            hf.ShowDialog();
+            Filter(sender, e);
         }
 
         /// <summary>
@@ -97,7 +71,7 @@ namespace Booking3
             if (RatingComboBox.Text != "")
                 command += " AND Rating >= " + RatingComboBox.Text;
 
-            List<string> hotels = MySelect(command);
+            List<string> hotels = SQLClass.Select(command);
 
             int x = 15;
             for (int i = 0; i < hotels.Count; i += 5)
@@ -143,7 +117,7 @@ namespace Booking3
             //Вход
             if (Login == "")
             {
-                List<string> user_data = MainForm.MySelect(
+                List<string> user_data = SQLClass.Select(
                     "SELECT admin FROM users WHERE Login = '" + LoginTextBox.Text +
                     "' AND Password = '" + PasswordTextBox.Text + "'");
 
@@ -170,7 +144,7 @@ namespace Booking3
                 }
                 else
                 {
-                    user_data = MainForm.MySelect(
+                    user_data = SQLClass.Select(
                         "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + "'");
 
                     if (user_data.Count > 0)

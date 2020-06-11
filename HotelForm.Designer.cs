@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HotelForm));
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.OpinionPanel = new System.Windows.Forms.Panel();
@@ -45,6 +43,9 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.InfoPanel.SuspendLayout();
             this.OpinionPanel.SuspendLayout();
@@ -53,17 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label4.Location = new System.Drawing.Point(4, 5);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(216, 26);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Гостиница \"Апрель\"";
             // 
             // pictureBox1
             // 
@@ -76,16 +66,6 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "Гостиница \"Апрель\"";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(254, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(333, 60);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "У нас самые лучшие номера. \r\nПокупай - не пожалеешь. \r\nТараканов выморили, вахтов" +
-    "иков выгнали";
             // 
             // label2
             // 
@@ -100,10 +80,11 @@
             // 
             // InfoPanel
             // 
+            this.InfoPanel.Controls.Add(this.textBox2);
+            this.InfoPanel.Controls.Add(this.button1);
             this.InfoPanel.Controls.Add(this.OpinionPanel);
             this.InfoPanel.Controls.Add(this.pictureBox1);
-            this.InfoPanel.Controls.Add(this.label4);
-            this.InfoPanel.Controls.Add(this.label1);
+            this.InfoPanel.Controls.Add(this.textBox3);
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfoPanel.Location = new System.Drawing.Point(0, 0);
             this.InfoPanel.Name = "InfoPanel";
@@ -225,6 +206,38 @@
             this.pictureBox7.Tag = "Одноместный номер";
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(554, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 32);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.textBox2.Location = new System.Drawing.Point(3, 7);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(244, 25);
+            this.textBox2.TabIndex = 7;
+            this.textBox2.Text = "Гостиница \"Апрель\"";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Location = new System.Drawing.Point(258, 3);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(402, 72);
+            this.textBox3.TabIndex = 8;
+            // 
             // HotelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -252,10 +265,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.Panel HotelsPanel;
@@ -269,5 +279,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

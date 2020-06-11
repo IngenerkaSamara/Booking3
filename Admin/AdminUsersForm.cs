@@ -16,7 +16,7 @@ namespace Booking3
         {
             InitializeComponent();
 
-            List<string> cities = MainForm.MySelect("SELECT DISTINCT Name FROM cities ORDER BY Name");
+            List<string> cities = SQLClass.Select("SELECT DISTINCT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
@@ -37,7 +37,7 @@ namespace Booking3
 
             command += " ORDER BY Login";
 
-            List<string> users = MainForm.MySelect(command);
+            List<string> users = SQLClass.Select(command);
 
             int y = 0;
             for (int i = 0; i < users.Count; i += 4)

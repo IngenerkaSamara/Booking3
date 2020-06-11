@@ -12,22 +12,23 @@ namespace Booking3
 {
     public partial class RoomForm : Form
     {
-        public RoomForm(string HotelName, string RoomName)
+        public RoomForm(string RoomId)
         {
             InitializeComponent();
 
-            Text = HotelName + ": " + RoomName;
-            label2.Text = RoomName;
-            label4.Text = HotelName;
+            List<string> room_data = SQLClass.Select(
+                "SELECT hotel, name, price, image, quantity FROM room WHERE id = " + RoomId);
 
-            if (RoomName == "Одноместный номер")
+            Text = room_data[0] + ": " + room_data[1];
+            label2.Text = room_data[1];
+            label4.Text = room_data[0];
+            label6.Text = room_data[2];
+
+            try
             {
-                pictureBox1.Load("../../Pictures/1-Seat.jpeg");
+                pictureBox1.Load("../../Pictures/" + room_data[3]);
             }
-            else if (RoomName == "Двухместный номер")
-            {
-                pictureBox1.Load("../../Pictures/2-Seat.jpg");
-            }
+            catch (Exception) { }
         }
 
         private void RoomForm_Load(object sender, EventArgs e)

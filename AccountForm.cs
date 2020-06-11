@@ -16,13 +16,13 @@ namespace Booking3
         {
             InitializeComponent();
 
-            List<string> cities = MainForm.MySelect("SELECT DISTINCT Name FROM cities ORDER BY Name");
+            List<string> cities = SQLClass.Select("SELECT DISTINCT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
                 CityComboBox.Items.Add(city);
 
-            List<string> user_data = MainForm.MySelect("SELECT login, name, city, age, password FROM users" +
+            List<string> user_data = SQLClass.Select("SELECT login, name, city, age, password FROM users" +
                 " WHERE login = '" + MainForm.Login + "'");
 
             if (user_data.Count > 0)
@@ -49,7 +49,7 @@ namespace Booking3
                 return;
             }
 
-            List<string> existUser = MainForm.MySelect(
+            List<string> existUser = SQLClass.Select(
                 "SELECT * FROM users WHERE login = '" + LoginTextBox.Text + "'");
             if (existUser.Count > 0)
             {
@@ -58,7 +58,7 @@ namespace Booking3
             }
             #endregion
 
-            MainForm.MyUpdate("UPDATE users SET" +
+            SQLClass.Update("UPDATE users SET" +
                 " name = '" + textBox2.Text + "'," +
                 " city = '" + CityComboBox.Text + "'," +
                 " age = '" + textBox1.Text + "'," +
@@ -66,11 +66,11 @@ namespace Booking3
                 " password = '" + PasswordTextBox.Text + "'" +
                 " WHERE login = '" + MainForm.Login + "'");
 
-            MainForm.MyUpdate("UPDATE booking SET" +
+            SQLClass.Update("UPDATE booking SET" +
                 " user = '" + LoginTextBox.Text + "'" +
                 " WHERE user = '" + MainForm.Login + "'");
 
-            MainForm.MyUpdate("UPDATE rating SET" +
+            SQLClass.Update("UPDATE rating SET" +
                 " user = '" + LoginTextBox.Text + "'" +
                 " WHERE user = '" + MainForm.Login + "'");
 
