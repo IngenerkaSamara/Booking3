@@ -65,7 +65,7 @@ namespace Booking3
         private void Filter(object sender, EventArgs e)
         {
             HotelsPanel.Controls.Clear();
-            string command = "SELECT id, Name, City, Image, Rating FROM hotels WHERE 1";
+            string command = "SELECT id, Name, City, Image, Rating FROM  " + SQLClass.HOTELS + "  WHERE 1";
             if (CityComboBox.Text != "")
                 command += " AND city = '" + CityComboBox.Text + "'";
             if (RatingComboBox.Text != "")

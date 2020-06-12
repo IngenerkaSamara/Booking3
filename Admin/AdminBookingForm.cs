@@ -24,7 +24,7 @@ namespace Booking3.Admin
                         "booking.dateTo, room.name, hotels.name" +
                 " FROM booking" +
                     " JOIN room ON room.id = booking.room_id" +
-                    " JOIN hotels ON hotels.id = room.hotel_id" +
+                    " JOIN " + SQLClass.HOTELS + " hotels ON hotels.id = room.hotel_id" +
                 " ORDER BY booking.dateFrom");
 
             panel2.Controls.Clear();

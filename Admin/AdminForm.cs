@@ -40,5 +40,11 @@ namespace Booking3
             Admin.AdminBookingForm af = new Admin.AdminBookingForm();
             af.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Admin.AdminLogForm af = new Admin.AdminLogForm();
+            af.Show();
+        }
     }
 }

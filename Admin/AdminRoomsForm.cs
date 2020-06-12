@@ -16,7 +16,7 @@ namespace Booking3
         {
             InitializeComponent();
 
-            List<string> hotels_list = SQLClass.Select("SELECT Name, city, id FROM hotels");
+            List<string> hotels_list = SQLClass.Select("SELECT Name, city, id FROM " + SQLClass.HOTELS);
 
             comboBox1.Items.Clear();
             for (int i = 0; i < hotels_list.Count; i += 3)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
@@ -15,8 +16,22 @@ namespace Booking3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            SQLClass.CONN = new MySqlConnection(SQLClass.CONNECTION_STRING);
-            SQLClass.CONN.Open();
+            try
+            { 
+                SQLClass.CONN = new MySqlConnection(SQLClass.CONNECTION_STRING);
+                SQLClass.CONN.Open();
+            }
+            catch (Exception ex)
+            {
+                if (!File.Exists(Path.GetTempPath() + "/booking.txt"))
+                    File.Create(Path.GetTempPath() + "/booking.txt");
+
+                File.AppendAllText(Path.GetTempPath() + "/booking.txt",
+                    "Ошибка" + Environment.NewLine +
+                    DateTime.Now.ToString() + Environment.NewLine +
+                    ex.Message + Environment.NewLine + Environment.NewLine);
+                MessageBox.Show("Ошибка");
+            }
 
             Application.Run(new MainForm());
 

@@ -30,7 +30,7 @@ namespace Booking3
 
 
             List<string> hotels = SQLClass.Select(
-                "SELECT Name, City, Image, Rating, id, description FROM hotels" +
+                "SELECT Name, City, Image, Rating, id, description FROM " + SQLClass.HOTELS +
                 " WHERE id = '" + hotel_id + "'");
 
             HotelName = hotels[0];
@@ -147,7 +147,7 @@ namespace Booking3
         private void button1_Click(object sender, EventArgs e)
         {
             SQLClass.Update(
-                "UPDATE hotels" +
+                "UPDATE  " + SQLClass.HOTELS + 
                 " SET name = '" + textBox2.Text + "', " +
                 " description = '" + textBox3.Text + "'" +
                 " WHERE id = '" + id + "'");
