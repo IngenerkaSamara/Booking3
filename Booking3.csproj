@@ -56,6 +56,12 @@
     <Compile Include="AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminBookingForm.Designer.cs">
+      <DependentUpon>AdminBookingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="SQLClass.cs" />
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminBookingForm.resx">
+      <DependentUpon>AdminBookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
