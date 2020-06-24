@@ -92,12 +92,6 @@
     <Compile Include="Admin\AdminUsersForm.Designer.cs">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HotelForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HotelForm.Designer.cs">
-      <DependentUpon>HotelForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,18 +106,24 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RoomForm.Designer.cs">
-      <DependentUpon>RoomForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SQLClass.cs" />
     <Compile Include="UserControls\HotelsListUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\HotelsListUC.Designer.cs">
       <DependentUpon>HotelsListUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HotelUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HotelUC.Designer.cs">
+      <DependentUpon>HotelUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RoomUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RoomUC.Designer.cs">
+      <DependentUpon>RoomUC.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
@@ -146,9 +146,6 @@
     <EmbeddedResource Include="Admin\AdminUsersForm.resx">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HotelForm.resx">
-      <DependentUpon>HotelForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,11 +161,14 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RoomForm.resx">
-      <DependentUpon>RoomForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HotelsListUC.resx">
       <DependentUpon>HotelsListUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HotelUC.resx">
+      <DependentUpon>HotelUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RoomUC.resx">
+      <DependentUpon>RoomUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

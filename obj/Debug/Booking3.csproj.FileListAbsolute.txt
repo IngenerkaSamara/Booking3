@@ -19,10 +19,8 @@ C:\Users\Abra\source\repos\Booking2\Booking3\bin\Debug\MySql.Data.xml
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csprojAssemblyReference.cache
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AdminForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AdminHotelsForm.resources
-C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.HotelForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.MainForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Properties.Resources.resources
-C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.RoomForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.GenerateResource.cache
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.CoreCompileInputs.cache
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.CopyComplete
@@ -35,3 +33,5 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AccountForm.reso
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminBookingForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminLogForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.HotelsListUC.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.HotelUC.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.RoomUC.resources

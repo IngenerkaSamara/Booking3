@@ -40,9 +40,10 @@ namespace Booking3.UserControls
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            HotelForm hf = new HotelForm(pb.Tag.ToString());
-            hf.ShowDialog();
-            Filter(sender, e);
+            UserControls.HotelUC hf = new UserControls.HotelUC(pb.Tag.ToString());
+            Controls.Clear();
+            Controls.Add(hf);
+            hf.Dock = DockStyle.Fill;
         }
 
         /// <summary>
@@ -51,9 +52,10 @@ namespace Booking3.UserControls
         private void label4_Click(object sender, EventArgs e)
         {
             Label pb = (Label)sender;
-            HotelForm hf = new HotelForm(pb.Tag.ToString());
-            hf.ShowDialog();
-            Filter(sender, e);
+            UserControls.HotelUC hf = new UserControls.HotelUC(pb.Tag.ToString());
+            Controls.Clear();
+            Controls.Add(hf);
+            hf.Dock = DockStyle.Fill;
         }
 
         /// <summary>
