@@ -119,6 +119,12 @@
       <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLClass.cs" />
+    <Compile Include="UserControls\HotelsListUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HotelsListUC.Designer.cs">
+      <DependentUpon>HotelsListUC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HotelsListUC.resx">
+      <DependentUpon>HotelsListUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -20,15 +20,21 @@ namespace Booking3
         public MainForm()
         {
             InitializeComponent();
-            Filter(null, null);   
+
+            UserControls.HotelsListUC listUC = new UserControls.HotelsListUC();
+            listUC.Dock = DockStyle.Fill;
+            HotelsPanel.Controls.Clear();
+            HotelsPanel.Controls.Add(listUC);
+
+            /*Filter(null, null);   
             
             List<string> cities = SQLClass.Select("SELECT DISTINCT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
-                CityComboBox.Items.Add(city);
+                CityComboBox.Items.Add(city);*/
         }
-
+        /*
         private void FilterButton_Click(object sender, EventArgs e)
         {
             if (FilterPanel.Size.Height < 50)
@@ -100,7 +106,7 @@ namespace Booking3
                 x += 205;
             }
         }
-
+        */
         private void MainForm_Load(object sender, EventArgs e)
         {
 

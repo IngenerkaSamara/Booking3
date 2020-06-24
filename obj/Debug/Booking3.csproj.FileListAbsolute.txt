@@ -34,3 +34,4 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.RegisterForm.res
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AccountForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminBookingForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminLogForm.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.HotelsListUC.resources
