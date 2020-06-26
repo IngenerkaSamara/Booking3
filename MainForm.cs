@@ -36,19 +36,21 @@ namespace Booking3
 
 
                 List<string> hotels = SQLClass.Select(
-                    "SELECT DISTINCT name FROM hotels" +
+                    "SELECT DISTINCT name, id FROM hotels" +
                     " WHERE city='" + node.Text + "' ORDER BY name");
-                foreach (string hotel in hotels)
+                for (int i = 0; i < hotels.Count; i += 2)
                 {
-                    TreeNode node2 = new TreeNode(hotel);
+                    TreeNode node2 = new TreeNode(hotels[i]);
+                    node2.Tag = hotels[i + 1];
                     node.Nodes.Add(node2);
 
                     List<string> rooms = SQLClass.Select(
-                        "SELECT DISTINCT name FROM room" +
+                        "SELECT DISTINCT id, name FROM room" +
                         " WHERE hotel='" + node2.Text + "' ORDER BY name");
-                    foreach (string room in rooms)
+                    for (int j = 0; j < rooms.Count; j += 2)
                     {
-                        TreeNode node3 = new TreeNode(room);
+                        TreeNode node3 = new TreeNode(rooms[j]);
+                        node3.Tag = rooms[j + 1];
                         node2.Nodes.Add(node3);
                     }
                 }
@@ -128,6 +130,44 @@ namespace Booking3
             af.ShowDialog();
 
             HelloLabel.Text = "Привет, " + Login;
+        }       
+
+        /// <summary>
+        /// Клик на дерево
+        /// </summary>
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            #region Выбран город
+            if (e.Node.Level == 1 && e.Node.Parent.Text == "Города")
+            {
+                UserControls.HotelsListUC listUC = new UserControls.HotelsListUC();
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+
+                //e.Node.Text;
+            }
+            #endregion
+
+            #region Выбрана гостиница
+            if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Города")
+            {
+                UserControls.HotelUC listUC = new UserControls.HotelUC(e.Node.Tag.ToString());
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            #endregion
+
+            #region Выбрана комната
+            if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Города")
+            {
+                UserControls.RoomUC listUC = new UserControls.RoomUC(e.Node.Tag.ToString());
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            #endregion
         }
     }
 }
