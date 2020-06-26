@@ -12,18 +12,27 @@ namespace Booking3.UserControls
 {
     public partial class HotelsListUC : UserControl
     {
-        public HotelsListUC()
+        public HotelsListUC(string City = "")
         {
             InitializeComponent();
-
-            Filter(null, null);
-
+                                 
             List<string> cities = SQLClass.Select(
                 "SELECT DISTINCT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
                 CityComboBox.Items.Add(city);
+
+            //Ищем город
+            for (int i = 0; i < CityComboBox.Items.Count; i++)
+            { 
+                if (CityComboBox.Items[i].ToString() == City)
+                {
+                    CityComboBox.SelectedIndex = i;
+                }
+            }
+
+            Filter(null, null);
         }
 
         private void FilterButton_Click(object sender, EventArgs e)

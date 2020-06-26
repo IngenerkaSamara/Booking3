@@ -56,13 +56,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 301);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminBookingForm";
-            this.Text = "AdminBookingForm";
+            this.Size = new System.Drawing.Size(799, 301);
             this.Load += new System.EventHandler(this.AdminBookingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

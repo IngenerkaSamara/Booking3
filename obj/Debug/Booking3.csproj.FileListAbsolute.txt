@@ -17,8 +17,6 @@ C:\Users\Abra\source\repos\Booking2\Booking3\bin\Debug\MySql.Data.dll
 C:\Users\Abra\source\repos\Booking2\Booking3\bin\Debug\Google.Protobuf.dll
 C:\Users\Abra\source\repos\Booking2\Booking3\bin\Debug\MySql.Data.xml
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csprojAssemblyReference.cache
-C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AdminForm.resources
-C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AdminHotelsForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.MainForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Properties.Resources.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.GenerateResource.cache
@@ -26,7 +24,6 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.CoreCompi
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.CopyComplete
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.exe
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.pdb
-C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AdminRoomsForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AdminUsersForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.RegisterForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AccountForm.resources
@@ -35,3 +32,6 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminLogFo
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.HotelsListUC.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.HotelUC.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.RoomUC.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminForm.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminHotelsForm.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminRoomsForm.resources

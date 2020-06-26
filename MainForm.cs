@@ -45,8 +45,8 @@ namespace Booking3
                     node.Nodes.Add(node2);
 
                     List<string> rooms = SQLClass.Select(
-                        "SELECT DISTINCT id, name FROM room" +
-                        " WHERE hotel='" + node2.Text + "' ORDER BY name");
+                        "SELECT DISTINCT name, id FROM room" +
+                        " WHERE hotel_id='" + node2.Tag.ToString() + "' ORDER BY name");
                     for (int j = 0; j < rooms.Count; j += 2)
                     {
                         TreeNode node3 = new TreeNode(rooms[j]);
@@ -56,12 +56,7 @@ namespace Booking3
                 }
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AdminForm af = new AdminForm();
-            af.Show();
-        }
+        
 
         private void LoginClick(object sender, EventArgs e)
         {
@@ -140,17 +135,16 @@ namespace Booking3
             #region Выбран город
             if (e.Node.Level == 1 && e.Node.Parent.Text == "Города")
             {
-                UserControls.HotelsListUC listUC = new UserControls.HotelsListUC();
+                UserControls.HotelsListUC listUC = 
+                    new UserControls.HotelsListUC(e.Node.Text);
                 listUC.Dock = DockStyle.Fill;
                 HotelsPanel.Controls.Clear();
                 HotelsPanel.Controls.Add(listUC);
-
-                //e.Node.Text;
             }
             #endregion
 
             #region Выбрана гостиница
-            if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Города")
+            else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Города")
             {
                 UserControls.HotelUC listUC = new UserControls.HotelUC(e.Node.Tag.ToString());
                 listUC.Dock = DockStyle.Fill;
@@ -160,7 +154,7 @@ namespace Booking3
             #endregion
 
             #region Выбрана комната
-            if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Города")
+            else if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Города")
             {
                 UserControls.RoomUC listUC = new UserControls.RoomUC(e.Node.Tag.ToString());
                 listUC.Dock = DockStyle.Fill;
@@ -168,6 +162,59 @@ namespace Booking3
                 HotelsPanel.Controls.Add(listUC);
             }
             #endregion
+
+            #region Выбрана админка
+            else if (e.Node.Level == 0 && e.Node.Text == "Админка")
+            {
+                Admin.AdminForm listUC = new Admin.AdminForm();
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            else if (e.Node.Level == 1 &&
+                e.Node.Parent.Text == "Админка" &&
+                e.Node.Text == "Гостиницы")
+            {
+                Admin.AdminHotelsForm listUC = new Admin.AdminHotelsForm();
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            else if (e.Node.Level == 1 &&
+                e.Node.Parent.Text == "Админка" &&
+                e.Node.Text == "Комнаты")
+            {
+                Admin.AdminRoomsForm listUC = new Admin.AdminRoomsForm();
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            #endregion
+
+        }
+
+        /// <summary>
+        /// Скрытие админского узла
+        /// </summary>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (IsAdmin && treeView1.Nodes.Count == 1)
+            {
+                TreeNode node = new TreeNode("Админка");
+                treeView1.Nodes.Add(node);
+
+
+                TreeNode node2 = new TreeNode("Гостиницы");
+                node.Nodes.Add(node2);
+                TreeNode node3 = new TreeNode("Комнаты");
+                node.Nodes.Add(node3);
+                TreeNode node4 = new TreeNode("Пользователи");
+                node.Nodes.Add(node4);
+            }
+            else if (!IsAdmin && treeView1.Nodes.Count > 1)
+            {
+                treeView1.Nodes.RemoveAt(1);
+            }
         }
     }
 }

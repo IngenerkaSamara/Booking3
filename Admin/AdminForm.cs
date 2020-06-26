@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Booking3
+namespace Booking3.Admin
 {
-    public partial class AdminForm : Form
+    public partial class AdminForm : UserControl
     {
         public AdminForm()
         {

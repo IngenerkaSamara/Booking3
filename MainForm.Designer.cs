@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Города");
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Города");
             this.AdminButton = new System.Windows.Forms.Button();
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.AccountButton = new System.Windows.Forms.Button();
@@ -41,20 +42,20 @@
             this.HotelsPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.AuthPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // AdminButton
             // 
-            this.AdminButton.Location = new System.Drawing.Point(678, 0);
+            this.AdminButton.Location = new System.Drawing.Point(804, 2);
             this.AdminButton.Name = "AdminButton";
             this.AdminButton.Size = new System.Drawing.Size(141, 33);
             this.AdminButton.TabIndex = 8;
             this.AdminButton.Text = "Вход в админку";
             this.AdminButton.UseVisualStyleBackColor = true;
             this.AdminButton.Visible = false;
-            this.AdminButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // AuthPanel
             // 
@@ -70,7 +71,7 @@
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AuthPanel.Location = new System.Drawing.Point(0, 0);
             this.AuthPanel.Name = "AuthPanel";
-            this.AuthPanel.Size = new System.Drawing.Size(822, 35);
+            this.AuthPanel.Size = new System.Drawing.Size(948, 35);
             this.AuthPanel.TabIndex = 2;
             // 
             // AccountButton
@@ -140,9 +141,9 @@
             // 
             this.HotelsPanel.AutoScroll = true;
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HotelsPanel.Location = new System.Drawing.Point(227, 3);
+            this.HotelsPanel.Location = new System.Drawing.Point(262, 3);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(592, 399);
+            this.HotelsPanel.Size = new System.Drawing.Size(683, 399);
             this.HotelsPanel.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -157,7 +158,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(822, 405);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(948, 405);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // treeView1
@@ -165,19 +166,24 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Узел0";
-            treeNode1.Text = "Города";
+            treeNode3.Name = "Узел0";
+            treeNode3.Text = "Города";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.treeView1.Size = new System.Drawing.Size(218, 399);
+            treeNode3});
+            this.treeView1.Size = new System.Drawing.Size(253, 399);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 440);
+            this.ClientSize = new System.Drawing.Size(948, 440);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.AuthPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -205,6 +211,7 @@
         private System.Windows.Forms.Panel HotelsPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

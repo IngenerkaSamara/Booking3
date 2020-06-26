@@ -1,4 +1,4 @@
-﻿namespace Booking3
+﻿namespace Booking3.Admin
 {
     partial class AdminRoomsForm
     {
