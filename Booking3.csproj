@@ -56,38 +56,44 @@
     <Compile Include="AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AdminBookingForm.cs">
+    <Compile Include="Admin\AdminDesignForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminDesignForm.Designer.cs">
+      <DependentUpon>AdminDesignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminBookingForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Admin\AdminBookingForm.Designer.cs">
       <DependentUpon>AdminBookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Admin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminHotelsForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Admin\AdminHotelsForm.Designer.cs">
       <DependentUpon>AdminHotelsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminLogForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Admin\AdminLogForm.Designer.cs">
       <DependentUpon>AdminLogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminRoomsForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Admin\AdminRoomsForm.Designer.cs">
       <DependentUpon>AdminRoomsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminUsersForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Admin\AdminUsersForm.Designer.cs">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
@@ -127,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminDesignForm.resx">
+      <DependentUpon>AdminDesignForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminBookingForm.resx">
       <DependentUpon>AdminBookingForm.cs</DependentUpon>

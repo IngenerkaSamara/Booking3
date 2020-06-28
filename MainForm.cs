@@ -76,8 +76,6 @@ namespace Booking3
 
                     //Компоненты на форме
                     AuthPanel.Controls.Clear();
-                    AdminButton.Visible = (user_data[0] == "1");
-                    AuthPanel.Controls.Add(AdminButton);
 
                     AuthPanel.Controls.Add(HelloLabel);
                     HelloLabel.Text = "Привет, " + Login;
@@ -246,6 +244,12 @@ namespace Booking3
             {
                 treeView1.Nodes.RemoveAt(1);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WindowsFormsApp14.AdminDesignForm af = new WindowsFormsApp14.AdminDesignForm();
+            af.ShowDialog();
         }
     }
 }

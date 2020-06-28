@@ -35,3 +35,4 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminForm.
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminHotelsForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminRoomsForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminUsersForm.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\WindowsFormsApp14.AdminDesignForm.resources
