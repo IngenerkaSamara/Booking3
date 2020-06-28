@@ -24,7 +24,6 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.CoreCompi
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.csproj.CopyComplete
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.exe
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.pdb
-C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AdminUsersForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.RegisterForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.AccountForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminBookingForm.resources
@@ -35,3 +34,4 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.Roo
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminHotelsForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminRoomsForm.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminUsersForm.resources

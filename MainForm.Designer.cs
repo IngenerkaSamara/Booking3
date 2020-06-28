@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Города");
-            this.AdminButton = new System.Windows.Forms.Button();
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Города");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.AccountButton = new System.Windows.Forms.Button();
             this.PasswordLabel = new System.Windows.Forms.Label();
@@ -47,16 +46,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // AdminButton
-            // 
-            this.AdminButton.Location = new System.Drawing.Point(804, 2);
-            this.AdminButton.Name = "AdminButton";
-            this.AdminButton.Size = new System.Drawing.Size(141, 33);
-            this.AdminButton.TabIndex = 8;
-            this.AdminButton.Text = "Вход в админку";
-            this.AdminButton.UseVisualStyleBackColor = true;
-            this.AdminButton.Visible = false;
-            // 
             // AuthPanel
             // 
             this.AuthPanel.AutoScroll = true;
@@ -66,7 +55,6 @@
             this.AuthPanel.Controls.Add(this.PasswordTextBox);
             this.AuthPanel.Controls.Add(this.LoginTextBox);
             this.AuthPanel.Controls.Add(this.LoginButton);
-            this.AuthPanel.Controls.Add(this.AdminButton);
             this.AuthPanel.Controls.Add(this.HelloLabel);
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AuthPanel.Location = new System.Drawing.Point(0, 0);
@@ -166,10 +154,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "Узел0";
-            treeNode3.Text = "Города";
+            treeNode2.Name = "Узел0";
+            treeNode2.Text = "Города";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(253, 399);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -199,7 +187,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button AdminButton;
         private System.Windows.Forms.Panel AuthPanel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Label LoginLabel;

@@ -189,6 +189,33 @@ namespace Booking3
                 HotelsPanel.Controls.Clear();
                 HotelsPanel.Controls.Add(listUC);
             }
+            else if (e.Node.Level == 1 &&
+                e.Node.Parent.Text == "Админка" &&
+                e.Node.Text == "Бронирования")
+            {
+                Admin.AdminBookingForm listUC = new Admin.AdminBookingForm();
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            else if (e.Node.Level == 1 &&
+                e.Node.Parent.Text == "Админка" &&
+                e.Node.Text == "Ошибки")
+            {
+                Admin.AdminLogForm listUC = new Admin.AdminLogForm();
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            else if (e.Node.Level == 1 &&
+                e.Node.Parent.Text == "Админка" &&
+                e.Node.Text == "Пользователи")
+            {
+                Admin.AdminUsersForm listUC = new Admin.AdminUsersForm();
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
             #endregion
 
         }
@@ -210,6 +237,10 @@ namespace Booking3
                 node.Nodes.Add(node3);
                 TreeNode node4 = new TreeNode("Пользователи");
                 node.Nodes.Add(node4);
+                TreeNode node5 = new TreeNode("Бронирования");
+                node.Nodes.Add(node5);
+                TreeNode node6 = new TreeNode("Ошибки");
+                node.Nodes.Add(node6);
             }
             else if (!IsAdmin && treeView1.Nodes.Count > 1)
             {
