@@ -55,6 +55,8 @@ namespace Booking3
                     }
                 }
             }
+
+            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
         }
         
 
@@ -250,6 +252,8 @@ namespace Booking3
         {
             WindowsFormsApp14.AdminDesignForm af = new WindowsFormsApp14.AdminDesignForm();
             af.ShowDialog();
+
+            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
         }
     }
 }

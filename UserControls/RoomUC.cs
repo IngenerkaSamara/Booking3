@@ -34,6 +34,8 @@ namespace Booking3.UserControls
                 pictureBox1.Load("../../Pictures/" + room_data[3]);
             }
             catch (Exception) { }
+
+            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
         }
 
         private void RoomForm_Load(object sender, EventArgs e)
