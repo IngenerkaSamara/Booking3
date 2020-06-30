@@ -47,7 +47,8 @@ namespace Booking3
 
                 File.AppendAllText(Path.GetTempPath() + "/booking.txt",
                     "Ошибка" + Environment.NewLine +
-                    DateTime.Now.ToString() + Environment.NewLine + 
+                    DateTime.Now.ToString() + Environment.NewLine +
+                    cmdText + Environment.NewLine + 
                     ex.Message + " " + cmdText + Environment.NewLine + Environment.NewLine);
                 MessageBox.Show("Ошибка");
             }
@@ -74,6 +75,7 @@ namespace Booking3
                 File.AppendAllText(Path.GetTempPath() + "/booking.txt",
                     "Ошибка" + Environment.NewLine +
                     DateTime.Now.ToString() + Environment.NewLine +
+                    cmdText + Environment.NewLine +
                     ex.Message + Environment.NewLine + Environment.NewLine);
                 MessageBox.Show("Ошибка");
             }

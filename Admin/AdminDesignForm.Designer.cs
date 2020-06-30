@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ButtonLayoutCombo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ButtonPictureButton = new System.Windows.Forms.Button();
+            this.ButtonColorButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.ButtonFontButton = new System.Windows.Forms.Button();
@@ -40,12 +44,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.TextBoxFontButton = new System.Windows.Forms.Button();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.ButtonColorButton = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ButtonPictureButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ButtonLayoutCombo = new System.Windows.Forms.ComboBox();
+            this.ButtonDeletePictureButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ButtonDeletePictureButton);
             this.tabPage1.Controls.Add(this.ButtonLayoutCombo);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.ButtonPictureButton);
@@ -80,6 +82,56 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Дизайн кнопок";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ButtonLayoutCombo
+            // 
+            this.ButtonLayoutCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ButtonLayoutCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.ButtonLayoutCombo.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ButtonLayoutCombo.FormattingEnabled = true;
+            this.ButtonLayoutCombo.Items.AddRange(new object[] {
+            "Никакой",
+            "Какой-то",
+            "Во всю кнопку",
+            "Во всю кнопку с пропорциями",
+            "По центру"});
+            this.ButtonLayoutCombo.Location = new System.Drawing.Point(149, 160);
+            this.ButtonLayoutCombo.Name = "ButtonLayoutCombo";
+            this.ButtonLayoutCombo.Size = new System.Drawing.Size(216, 32);
+            this.ButtonLayoutCombo.TabIndex = 8;
+            this.ButtonLayoutCombo.SelectedIndexChanged += new System.EventHandler(this.ButtonLayoutCombo_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label3.Location = new System.Drawing.Point(157, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 24);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Положение";
+            // 
+            // ButtonPictureButton
+            // 
+            this.ButtonPictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.ButtonPictureButton.Location = new System.Drawing.Point(8, 133);
+            this.ButtonPictureButton.Name = "ButtonPictureButton";
+            this.ButtonPictureButton.Size = new System.Drawing.Size(128, 59);
+            this.ButtonPictureButton.TabIndex = 6;
+            this.ButtonPictureButton.Text = "Картинка";
+            this.ButtonPictureButton.UseVisualStyleBackColor = true;
+            this.ButtonPictureButton.Click += new System.EventHandler(this.ButtonPictureButton_Click);
+            // 
+            // ButtonColorButton
+            // 
+            this.ButtonColorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.ButtonColorButton.Location = new System.Drawing.Point(8, 75);
+            this.ButtonColorButton.Name = "ButtonColorButton";
+            this.ButtonColorButton.Size = new System.Drawing.Size(128, 52);
+            this.ButtonColorButton.TabIndex = 5;
+            this.ButtonColorButton.Text = "Цвет";
+            this.ButtonColorButton.UseVisualStyleBackColor = true;
+            this.ButtonColorButton.Click += new System.EventHandler(this.ButtonColorButton_Click);
             // 
             // label2
             // 
@@ -117,7 +169,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(559, 279);
+            this.tabPage2.Size = new System.Drawing.Size(454, 279);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Дизайн панелей и форм";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -126,7 +178,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(559, 279);
+            this.tabPage3.Size = new System.Drawing.Size(454, 279);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Дизайн лейблов";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -177,59 +229,20 @@
             // 
             this.fontDialog1.ShowColor = true;
             // 
-            // ButtonColorButton
-            // 
-            this.ButtonColorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.ButtonColorButton.Location = new System.Drawing.Point(8, 75);
-            this.ButtonColorButton.Name = "ButtonColorButton";
-            this.ButtonColorButton.Size = new System.Drawing.Size(128, 52);
-            this.ButtonColorButton.TabIndex = 5;
-            this.ButtonColorButton.Text = "Цвет";
-            this.ButtonColorButton.UseVisualStyleBackColor = true;
-            this.ButtonColorButton.Click += new System.EventHandler(this.ButtonColorButton_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // ButtonPictureButton
+            // ButtonDeletePictureButton
             // 
-            this.ButtonPictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.ButtonPictureButton.Location = new System.Drawing.Point(8, 133);
-            this.ButtonPictureButton.Name = "ButtonPictureButton";
-            this.ButtonPictureButton.Size = new System.Drawing.Size(128, 59);
-            this.ButtonPictureButton.TabIndex = 6;
-            this.ButtonPictureButton.Text = "Картинка";
-            this.ButtonPictureButton.UseVisualStyleBackColor = true;
-            this.ButtonPictureButton.Click += new System.EventHandler(this.ButtonPictureButton_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label3.Location = new System.Drawing.Point(157, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 24);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Положение";
-            // 
-            // ButtonLayoutCombo
-            // 
-            this.ButtonLayoutCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ButtonLayoutCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.ButtonLayoutCombo.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.ButtonLayoutCombo.FormattingEnabled = true;
-            this.ButtonLayoutCombo.Items.AddRange(new object[] {
-            "Никакой",
-            "Какой-то",
-            "Во всю кнопку",
-            "Во всю кнопку с пропорциями",
-            "По центру"});
-            this.ButtonLayoutCombo.Location = new System.Drawing.Point(149, 160);
-            this.ButtonLayoutCombo.Name = "ButtonLayoutCombo";
-            this.ButtonLayoutCombo.Size = new System.Drawing.Size(216, 32);
-            this.ButtonLayoutCombo.TabIndex = 8;
-            this.ButtonLayoutCombo.SelectedIndexChanged += new System.EventHandler(this.ButtonLayoutCombo_SelectedIndexChanged);
+            this.ButtonDeletePictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.ButtonDeletePictureButton.Location = new System.Drawing.Point(371, 133);
+            this.ButtonDeletePictureButton.Name = "ButtonDeletePictureButton";
+            this.ButtonDeletePictureButton.Size = new System.Drawing.Size(71, 59);
+            this.ButtonDeletePictureButton.TabIndex = 9;
+            this.ButtonDeletePictureButton.Text = "X";
+            this.ButtonDeletePictureButton.UseVisualStyleBackColor = true;
+            this.ButtonDeletePictureButton.Click += new System.EventHandler(this.ButtonDeletePictureButton_Click);
             // 
             // AdminDesignForm
             // 
@@ -238,7 +251,7 @@
             this.ClientSize = new System.Drawing.Size(462, 305);
             this.Controls.Add(this.tabControl1);
             this.Name = "AdminDesignForm";
-            this.Text = "AdminButtonForm";
+            this.Text = "Дизайн форм и компонентов";
             this.Load += new System.EventHandler(this.AdminDesignForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -269,5 +282,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox ButtonLayoutCombo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button ButtonDeletePictureButton;
     }
 }
