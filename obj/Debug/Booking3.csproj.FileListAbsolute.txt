@@ -36,3 +36,4 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminHotel
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminRoomsForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminUsersForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\WindowsFormsApp14.AdminDesignForm.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.UniqueButton.resources

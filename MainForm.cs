@@ -57,6 +57,8 @@ namespace Booking3
             }
 
             WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
+            WindowsFormsApp14.AdminDesignForm.BUTTON_CMS = contextMenuStrip1;
+            WindowsFormsApp14.AdminDesignForm.ApplyMenu(this);
         }
         
 
@@ -86,7 +88,9 @@ namespace Booking3
                     LoginButton.Text = "Выход";
 
                     AuthPanel.Controls.Add(AccountButton);
+                    AuthPanel.Controls.Add(buttonDefaultDesign);
                     AccountButton.Visible = true;
+                    WindowsFormsApp14.AdminDesignForm.ApplyMenu(this);
                 }
                 else
                 {
@@ -113,9 +117,10 @@ namespace Booking3
                 AuthPanel.Controls.Add(PasswordLabel);
                 AuthPanel.Controls.Add(PasswordTextBox);
                 AuthPanel.Controls.Add(LoginButton);
+                AuthPanel.Controls.Add(buttonDefaultDesign);
                 LoginButton.Text = "Вход";
+                WindowsFormsApp14.AdminDesignForm.ApplyMenu(this);
             }
-
         }
 
 
@@ -230,7 +235,6 @@ namespace Booking3
                 TreeNode node = new TreeNode("Админка");
                 treeView1.Nodes.Add(node);
 
-
                 TreeNode node2 = new TreeNode("Гостиницы");
                 node.Nodes.Add(node2);
                 TreeNode node3 = new TreeNode("Комнаты");
@@ -254,6 +258,19 @@ namespace Booking3
             af.ShowDialog();
 
             WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
+        }
+
+        private void дизайнКнопкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                ContextMenuStrip cms = (ContextMenuStrip)(item.GetCurrentParent());
+                Button btn = (Button)(cms.SourceControl);
+                Admin.UniqueButton f = new Admin.UniqueButton(btn);
+                f.ShowDialog();
+            }
+            catch (Exception) { }
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ButtonDeletePictureButton = new System.Windows.Forms.Button();
             this.ButtonLayoutCombo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ButtonPictureButton = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ButtonDeletePictureButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -82,6 +82,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Дизайн кнопок";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ButtonDeletePictureButton
+            // 
+            this.ButtonDeletePictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.ButtonDeletePictureButton.Location = new System.Drawing.Point(371, 133);
+            this.ButtonDeletePictureButton.Name = "ButtonDeletePictureButton";
+            this.ButtonDeletePictureButton.Size = new System.Drawing.Size(71, 59);
+            this.ButtonDeletePictureButton.TabIndex = 9;
+            this.ButtonDeletePictureButton.Text = "X";
+            this.ButtonDeletePictureButton.UseVisualStyleBackColor = true;
+            this.ButtonDeletePictureButton.Click += new System.EventHandler(this.ButtonDeletePictureButton_Click);
             // 
             // ButtonLayoutCombo
             // 
@@ -152,6 +163,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Button";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ButtonFontButton
             // 
@@ -232,17 +244,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // ButtonDeletePictureButton
-            // 
-            this.ButtonDeletePictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.ButtonDeletePictureButton.Location = new System.Drawing.Point(371, 133);
-            this.ButtonDeletePictureButton.Name = "ButtonDeletePictureButton";
-            this.ButtonDeletePictureButton.Size = new System.Drawing.Size(71, 59);
-            this.ButtonDeletePictureButton.TabIndex = 9;
-            this.ButtonDeletePictureButton.Text = "X";
-            this.ButtonDeletePictureButton.UseVisualStyleBackColor = true;
-            this.ButtonDeletePictureButton.Click += new System.EventHandler(this.ButtonDeletePictureButton_Click);
             // 
             // AdminDesignForm
             // 

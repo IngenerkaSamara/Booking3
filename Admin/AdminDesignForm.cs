@@ -12,6 +12,13 @@ namespace WindowsFormsApp14
 {
     public partial class AdminDesignForm : Form
     {
+        #region ContextMenu
+        /// <summary>
+        /// Меню кнопок
+        /// </summary>
+        public static ContextMenuStrip BUTTON_CMS;
+        #endregion
+
         #region TextBox
         /// <summary>
         /// Цвет текста текстбоксов
@@ -147,6 +154,23 @@ namespace WindowsFormsApp14
             }
             catch (Exception) { }
         }
+
+        /// <summary>
+        /// Меню ко всем кнопкам, текстбоксам формы
+        /// </summary>
+        public static void ApplyMenu(Control Form)
+        {
+            foreach (Control ctrl in Form.Controls)
+            {
+                if (ctrl is Button && Booking3.MainForm.IsAdmin)
+                {
+                    ctrl.ContextMenuStrip = BUTTON_CMS;
+                }
+                else
+                    ApplyMenu(ctrl);
+            }
+        }
+        
         /// <summary>
         /// Применение дизайна ко всем кнопкам, текстбоксам формы
         /// </summary>
@@ -168,7 +192,7 @@ namespace WindowsFormsApp14
                     ApplyDesign(ctrl);
             }
         }
-
+        
         private void AdminDesignForm_Load(object sender, EventArgs e)
         {
             textBox1.Font = TEXTBOX_FONT;
@@ -316,5 +340,10 @@ namespace WindowsFormsApp14
                 "'" + BUTTON_LAYOUT.ToString() + "')");
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
