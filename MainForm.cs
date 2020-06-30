@@ -56,9 +56,9 @@ namespace Booking3
                 }
             }
 
-            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
-            WindowsFormsApp14.AdminDesignForm.BUTTON_CMS = contextMenuStrip1;
-            WindowsFormsApp14.AdminDesignForm.ApplyMenu(this);
+            Admin.AdminDesignForm.ApplyDesign(this);
+            Admin.AdminDesignForm.BUTTON_CMS = contextMenuStrip1;
+            Admin.AdminDesignForm.ApplyMenu(this);
         }
         
 
@@ -90,7 +90,7 @@ namespace Booking3
                     AuthPanel.Controls.Add(AccountButton);
                     AuthPanel.Controls.Add(buttonDefaultDesign);
                     AccountButton.Visible = true;
-                    WindowsFormsApp14.AdminDesignForm.ApplyMenu(this);
+                    Admin.AdminDesignForm.ApplyMenu(this);
                 }
                 else
                 {
@@ -119,7 +119,7 @@ namespace Booking3
                 AuthPanel.Controls.Add(LoginButton);
                 AuthPanel.Controls.Add(buttonDefaultDesign);
                 LoginButton.Text = "Вход";
-                WindowsFormsApp14.AdminDesignForm.ApplyMenu(this);
+                Admin.AdminDesignForm.ApplyMenu(this);
             }
         }
 
@@ -254,10 +254,10 @@ namespace Booking3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WindowsFormsApp14.AdminDesignForm af = new WindowsFormsApp14.AdminDesignForm();
+            Admin.AdminDesignForm af = new Admin.AdminDesignForm();
             af.ShowDialog();
 
-            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
+            Admin.AdminDesignForm.ApplyDesign(this);
         }
 
         private void дизайнКнопкиToolStripMenuItem_Click(object sender, EventArgs e)

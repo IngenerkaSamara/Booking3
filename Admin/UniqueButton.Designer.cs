@@ -50,6 +50,7 @@
             this.ButtonDeletePictureButton.TabIndex = 17;
             this.ButtonDeletePictureButton.Text = "X";
             this.ButtonDeletePictureButton.UseVisualStyleBackColor = true;
+            this.ButtonDeletePictureButton.Click += new System.EventHandler(this.ButtonDeletePictureButton_Click);
             // 
             // ButtonLayoutCombo
             // 
@@ -67,6 +68,7 @@
             this.ButtonLayoutCombo.Name = "ButtonLayoutCombo";
             this.ButtonLayoutCombo.Size = new System.Drawing.Size(216, 32);
             this.ButtonLayoutCombo.TabIndex = 16;
+            this.ButtonLayoutCombo.SelectedIndexChanged += new System.EventHandler(this.ButtonLayoutCombo_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -87,6 +89,7 @@
             this.ButtonPictureButton.TabIndex = 14;
             this.ButtonPictureButton.Text = "Картинка";
             this.ButtonPictureButton.UseVisualStyleBackColor = true;
+            this.ButtonPictureButton.Click += new System.EventHandler(this.ButtonPictureButton_Click);
             // 
             // ButtonColorButton
             // 
@@ -97,6 +100,7 @@
             this.ButtonColorButton.TabIndex = 13;
             this.ButtonColorButton.Text = "Цвет";
             this.ButtonColorButton.UseVisualStyleBackColor = true;
+            this.ButtonColorButton.Click += new System.EventHandler(this.ButtonColorButton_Click);
             // 
             // label2
             // 
@@ -128,6 +132,7 @@
             this.ButtonFontButton.TabIndex = 10;
             this.ButtonFontButton.Text = "Шрифт";
             this.ButtonFontButton.UseVisualStyleBackColor = true;
+            this.ButtonFontButton.Click += new System.EventHandler(this.ButtonFontButton_Click);
             // 
             // fontDialog1
             // 

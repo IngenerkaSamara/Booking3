@@ -104,7 +104,8 @@ namespace Booking3.UserControls
             }
             #endregion
 
-            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
+            Admin.AdminDesignForm.ApplyDesign(this);
+            Admin.AdminDesignForm.ApplyMenu(this);
         }
 
         private void HotelForm_Load(object sender, EventArgs e)

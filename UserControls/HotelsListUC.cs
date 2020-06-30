@@ -33,7 +33,7 @@ namespace Booking3.UserControls
             }
 
             Filter(null, null);
-            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
+            Admin.AdminDesignForm.ApplyDesign(this);
         }
 
         private void FilterButton_Click(object sender, EventArgs e)

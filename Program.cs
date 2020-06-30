@@ -20,7 +20,7 @@ namespace Booking3
             { 
                 SQLClass.CONN = new MySqlConnection(SQLClass.CONNECTION_STRING);
                 SQLClass.CONN.Open();
-                WindowsFormsApp14.AdminDesignForm.ReadDefaultDesign();
+                Admin.AdminDesignForm.ReadDefaultDesign();
             }
             catch (Exception ex)
             {

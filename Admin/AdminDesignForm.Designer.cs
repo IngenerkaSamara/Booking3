@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp14
+﻿namespace Booking3.Admin
 {
     partial class AdminDesignForm
     {

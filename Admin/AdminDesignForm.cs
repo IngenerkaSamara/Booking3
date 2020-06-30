@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp14
+namespace Booking3.Admin
 {
     public partial class AdminDesignForm : Form
     {
@@ -94,7 +94,7 @@ namespace WindowsFormsApp14
             try
             {
                 BUTTON_PICTURE_ADDRESS =
-                    Booking3.SQLClass.Select("SELECT value FROM defaultdesign" +
+                    SQLClass.Select("SELECT value FROM defaultdesign" +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='PICTURE_ADDRESS'")[0];
                 BUTTON_PICTURE = Image.FromFile(BUTTON_PICS_DIR + "\\" + BUTTON_PICTURE_ADDRESS);
             }
@@ -104,14 +104,14 @@ namespace WindowsFormsApp14
             try
             {
                 string color =
-                    Booking3.SQLClass.Select("SELECT value FROM defaultdesign" +
+                    SQLClass.Select("SELECT value FROM defaultdesign" +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='FONT_COLOR'")[0];
 
                 BUTTON_FONT_COLOR = Color.FromArgb(Convert.ToInt32(color));
 
                 string font =
-                    Booking3.SQLClass.Select("SELECT value FROM defaultdesign" +
+                    SQLClass.Select("SELECT value FROM defaultdesign" +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='FONT'")[0];
 
@@ -125,7 +125,7 @@ namespace WindowsFormsApp14
             try
             {
                 string color =
-                    Booking3.SQLClass.Select("SELECT value FROM defaultdesign" +
+                    SQLClass.Select("SELECT value FROM defaultdesign" +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='COLOR'")[0];
 
@@ -137,7 +137,7 @@ namespace WindowsFormsApp14
             try
             {
                 string layout =
-                    Booking3.SQLClass.Select("SELECT value FROM defaultdesign" +
+                    SQLClass.Select("SELECT value FROM defaultdesign" +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='LAYOUT'")[0];
 
@@ -151,6 +151,87 @@ namespace WindowsFormsApp14
                     BUTTON_LAYOUT = ImageLayout.Tile;
                 else if (layout == "Zoom")
                     BUTTON_LAYOUT = ImageLayout.Zoom;
+            }
+            catch (Exception) { }
+        }
+
+
+        /// <summary>
+        /// ЧТение дизайна кнопки из БД
+        /// </summary>
+        public static void ReadUniqueButtonDesign(Button btn)
+        {
+            //Картинка
+            try
+            {
+                string address =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button' AND parameter='PICTURE_ADDRESS'"+
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+                btn.BackgroundImage = Image.FromFile(BUTTON_PICS_DIR + "\\" + address);
+            }
+            catch (Exception) { }
+
+            //Шрифт
+            try
+            {
+                string color =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button'" +
+                    " AND parameter='FONT_COLOR'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+
+                btn.ForeColor = Color.FromArgb(Convert.ToInt32(color));
+
+                string font =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button'" +
+                    " AND parameter='FONT'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+
+                string[] parts = font.Split(new char[] { ';' });
+
+                btn.Font = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+            }
+            catch (Exception) { }
+
+            //Цвет
+            try
+            {
+                string color =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button'" +
+                    " AND parameter='COLOR'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+
+                btn.BackColor = Color.FromArgb(Convert.ToInt32(color));
+            }
+            catch (Exception) { }
+
+            //Положение картинки
+            try
+            {
+                string layout =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button'" +
+                    " AND parameter='LAYOUT'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+
+                if (layout == "Center")
+                    btn.BackgroundImageLayout = ImageLayout.Center;
+                else if (layout == "None")
+                    btn.BackgroundImageLayout = ImageLayout.None;
+                else if (layout == "Stretch")
+                    btn.BackgroundImageLayout = ImageLayout.Stretch;
+                else if (layout == "Tile")
+                    btn.BackgroundImageLayout = ImageLayout.Tile;
+                else if (layout == "Zoom")
+                    btn.BackgroundImageLayout = ImageLayout.Zoom;
             }
             catch (Exception) { }
         }
@@ -186,6 +267,7 @@ namespace WindowsFormsApp14
                     ctrl.BackColor = BUTTON_COLOR;
                     ctrl.BackgroundImage = BUTTON_PICTURE;
                     ctrl.BackgroundImageLayout = BUTTON_LAYOUT;
+                    ReadUniqueButtonDesign((Button)ctrl);
                 }
                 #endregion
                 else
@@ -221,19 +303,19 @@ namespace WindowsFormsApp14
 
                 AdminDesignForm_Load(null, null);
 
-                Booking3.SQLClass.Update("DELETE FROM defaultDesign" +
+                SQLClass.Update("DELETE FROM defaultDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND parameter='FONT'");
-                Booking3.SQLClass.Update("DELETE FROM defaultDesign" +
+                SQLClass.Update("DELETE FROM defaultDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND parameter='FONT_COLOR'");
 
-                Booking3.SQLClass.Update("INSERT INTO defaultDesign" +
+                SQLClass.Update("INSERT INTO defaultDesign" +
                     "(type, parameter, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'FONT', " +
                     "'" + BUTTON_FONT.Name + ";" + BUTTON_FONT.Size.ToString() + "')");
-                Booking3.SQLClass.Update("INSERT INTO defaultDesign" +
+                SQLClass.Update("INSERT INTO defaultDesign" +
                     "(type, parameter, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'FONT_COLOR', " +
@@ -254,11 +336,11 @@ namespace WindowsFormsApp14
 
                 AdminDesignForm_Load(null, null);
 
-                Booking3.SQLClass.Update("DELETE FROM defaultDesign" +
+                SQLClass.Update("DELETE FROM defaultDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND parameter='COLOR'");
 
-                Booking3.SQLClass.Update("INSERT INTO defaultDesign" +
+                SQLClass.Update("INSERT INTO defaultDesign" +
                     "(type, parameter, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'COLOR', " +
@@ -288,11 +370,11 @@ namespace WindowsFormsApp14
 
                 AdminDesignForm_Load(null, null);
 
-                Booking3.SQLClass.Update("DELETE FROM defaultDesign" +
+                SQLClass.Update("DELETE FROM defaultDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND parameter='PICTURE_ADDRESS'");
 
-                Booking3.SQLClass.Update("INSERT INTO defaultDesign" +
+                SQLClass.Update("INSERT INTO defaultDesign" +
                     "(type, parameter, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'PICTURE_ADDRESS', " +
@@ -305,7 +387,7 @@ namespace WindowsFormsApp14
         /// </summary>
         private void ButtonDeletePictureButton_Click(object sender, EventArgs e)
         {
-            Booking3.SQLClass.Update("DELETE FROM defaultDesign" +
+            SQLClass.Update("DELETE FROM defaultDesign" +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND parameter='PICTURE_ADDRESS'");
         }
@@ -329,11 +411,11 @@ namespace WindowsFormsApp14
             AdminDesignForm_Load(null, null);
 
 
-            Booking3.SQLClass.Update("DELETE FROM defaultDesign" +
+            SQLClass.Update("DELETE FROM defaultDesign" +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND parameter='LAYOUT'");
 
-            Booking3.SQLClass.Update("INSERT INTO defaultDesign" +
+            SQLClass.Update("INSERT INTO defaultDesign" +
                 "(type, parameter, value) values (" +
                 "'" + button1.GetType() + "', " +
                 "'LAYOUT', " +

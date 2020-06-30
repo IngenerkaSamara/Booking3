@@ -35,7 +35,7 @@ namespace Booking3.UserControls
             }
             catch (Exception) { }
 
-            WindowsFormsApp14.AdminDesignForm.ApplyDesign(this);
+            Admin.AdminDesignForm.ApplyDesign(this);
         }
 
         private void RoomForm_Load(object sender, EventArgs e)
