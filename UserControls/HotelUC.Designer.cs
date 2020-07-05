@@ -46,6 +46,9 @@
             this.OpinionPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.HotelsPanel.SuspendLayout();
@@ -53,6 +56,8 @@
             this.InfoPanel.SuspendLayout();
             this.OpinionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -95,9 +100,9 @@
             this.HotelsPanel.Controls.Add(this.label3);
             this.HotelsPanel.Controls.Add(this.pictureBox7);
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HotelsPanel.Location = new System.Drawing.Point(0, 233);
+            this.HotelsPanel.Location = new System.Drawing.Point(3, 3);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(665, 179);
+            this.HotelsPanel.Size = new System.Drawing.Size(651, 140);
             this.HotelsPanel.TabIndex = 12;
             // 
             // label2
@@ -232,12 +237,45 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(402, 72);
             this.textBox3.TabIndex = 8;
+            this.textBox3.Text = "Тут должно быть описание";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 233);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(665, 179);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.HotelsPanel);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(657, 146);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Номера";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(657, 146);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Отзывы";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // HotelUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.HotelsPanel);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.InfoPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -253,6 +291,8 @@
             this.OpinionPanel.ResumeLayout(false);
             this.OpinionPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -276,5 +316,8 @@
         private System.Windows.Forms.Panel OpinionPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

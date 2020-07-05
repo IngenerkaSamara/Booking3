@@ -104,6 +104,23 @@ namespace Booking3.UserControls
             }
             #endregion
 
+            #region Отзывы
+
+            List<string> testims = SQLClass.Select(
+                "SELECT rate, comment FROM rating" +
+                " WHERE hotel_id = " + id);
+
+            for (int i = 0; i < testims.Count; i+= 2)
+            {
+                Label lbl = new Label();
+                lbl.Text = "Оценка: " + testims[i] + Environment.NewLine +
+                    "Отзыв: " + testims[i + 1];
+                lbl.Size = new Size(400, 50);
+                lbl.Location = new Point(0, 25 * i);
+                tabPage2.Controls.Add(lbl);
+            }
+            #endregion
+
             Admin.AdminDesignForm.ApplyDesign(this);
             Admin.AdminDesignForm.ApplyMenu(this);
         }
@@ -136,13 +153,18 @@ namespace Booking3.UserControls
             hf.Dock = DockStyle.Fill;
         }
 
+        /// <summary>
+        /// Оставить отзыв
+        /// </summary>
         private void OpinionCLick(object sender, EventArgs e)
         {
-            SQLClass.Update("INSERT INTO rating(user, hotel_id, rate, comment) VALUES(" +
+            SQLClass.Update("INSERT INTO rating" +
+                "(user, hotel_id, rate, comment) values (" +
                 "'" + MainForm.Login + "', " +
                 "'" + id + "', " +
                 "'" + numericUpDown1.Value.ToString() + "', " +
                 "'" + textBox1.Text + "')");
+
             MessageBox.Show("Спасибо");
         }
 
