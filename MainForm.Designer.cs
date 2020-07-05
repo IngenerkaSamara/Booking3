@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Города");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Города");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.buttonDefaultDesign = new System.Windows.Forms.Button();
             this.AccountButton = new System.Windows.Forms.Button();
@@ -38,29 +38,29 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginTextBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.дизайнКнопкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelloLabel = new System.Windows.Forms.Label();
             this.HotelsPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.дизайнКнопкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
             // 
             this.AuthPanel.AutoScroll = true;
             this.AuthPanel.Controls.Add(this.buttonDefaultDesign);
-            this.AuthPanel.Controls.Add(this.AccountButton);
             this.AuthPanel.Controls.Add(this.PasswordLabel);
             this.AuthPanel.Controls.Add(this.LoginLabel);
             this.AuthPanel.Controls.Add(this.PasswordTextBox);
             this.AuthPanel.Controls.Add(this.LoginTextBox);
             this.AuthPanel.Controls.Add(this.LoginButton);
             this.AuthPanel.Controls.Add(this.HelloLabel);
+            this.AuthPanel.Controls.Add(this.AccountButton);
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AuthPanel.Location = new System.Drawing.Point(0, 0);
             this.AuthPanel.Name = "AuthPanel";
@@ -132,6 +132,20 @@
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.дизайнКнопкиToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(158, 26);
+            // 
+            // дизайнКнопкиToolStripMenuItem
+            // 
+            this.дизайнКнопкиToolStripMenuItem.Name = "дизайнКнопкиToolStripMenuItem";
+            this.дизайнКнопкиToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.дизайнКнопкиToolStripMenuItem.Text = "Дизайн кнопки";
+            this.дизайнКнопкиToolStripMenuItem.Click += new System.EventHandler(this.дизайнКнопкиToolStripMenuItem_Click);
+            // 
             // HelloLabel
             // 
             this.HelloLabel.AutoSize = true;
@@ -170,10 +184,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Узел0";
-            treeNode2.Text = "Города";
+            treeNode1.Name = "Узел0";
+            treeNode1.Text = "Города";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(253, 399);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -182,20 +196,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.дизайнКнопкиToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
-            // 
-            // дизайнКнопкиToolStripMenuItem
-            // 
-            this.дизайнКнопкиToolStripMenuItem.Name = "дизайнКнопкиToolStripMenuItem";
-            this.дизайнКнопкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.дизайнКнопкиToolStripMenuItem.Text = "Дизайн кнопки";
-            this.дизайнКнопкиToolStripMenuItem.Click += new System.EventHandler(this.дизайнКнопкиToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -211,8 +211,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.AuthPanel.ResumeLayout(false);
             this.AuthPanel.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

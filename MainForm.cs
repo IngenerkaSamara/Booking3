@@ -90,6 +90,7 @@ namespace Booking3
                     AuthPanel.Controls.Add(AccountButton);
                     AuthPanel.Controls.Add(buttonDefaultDesign);
                     AccountButton.Visible = true;
+                    Admin.AdminDesignForm.ApplyDesign(this);
                     Admin.AdminDesignForm.ApplyMenu(this);
                 }
                 else
@@ -119,6 +120,7 @@ namespace Booking3
                 AuthPanel.Controls.Add(LoginButton);
                 AuthPanel.Controls.Add(buttonDefaultDesign);
                 LoginButton.Text = "Вход";
+                Admin.AdminDesignForm.ApplyDesign(this);
                 Admin.AdminDesignForm.ApplyMenu(this);
             }
         }

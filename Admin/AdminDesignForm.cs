@@ -154,8 +154,7 @@ namespace Booking3.Admin
             }
             catch (Exception) { }
         }
-
-
+        
         /// <summary>
         /// ЧТение дизайна кнопки из БД
         /// </summary>
@@ -166,10 +165,48 @@ namespace Booking3.Admin
             {
                 string address =
                     SQLClass.Select("SELECT value FROM uniqueDesign" +
-                    " WHERE type = 'System.Windows.Forms.Button' AND parameter='PICTURE_ADDRESS'"+
+                    " WHERE type = 'System.Windows.Forms.Button' AND parameter='PICTURE_ADDRESS'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + btn.FindForm().Name + "'")[0];
                 btn.BackgroundImage = Image.FromFile(BUTTON_PICS_DIR + "\\" + address);
+            }
+            catch (Exception) { }
+
+            //Положение
+            try
+            {
+                string location =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button' AND parameter='LOCATION'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+                string[] parts = location.Split(new char[] { ',' });
+                btn.Location = new Point(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]));
+            }
+            catch (Exception) { }
+
+            //Доступность админу
+            try
+            {
+                string admin =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button' AND parameter='ADMIN'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+                btn.AccessibleDescription = admin;
+            }
+            catch (Exception) { }
+
+            //Размер
+            try
+            {
+                string location =
+                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    " WHERE type = 'System.Windows.Forms.Button' AND parameter='SIZE'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + btn.FindForm().Name + "'")[0];
+                string[] parts = location.Split(new char[] { ',' });
+                btn.Size = new Size(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]));
             }
             catch (Exception) { }
 
@@ -268,6 +305,12 @@ namespace Booking3.Admin
                     ctrl.BackgroundImage = BUTTON_PICTURE;
                     ctrl.BackgroundImageLayout = BUTTON_LAYOUT;
                     ReadUniqueButtonDesign((Button)ctrl);
+
+                    //Скрываем кнопку, если она только для админов, а мы не он)
+                    if (!MainForm.IsAdmin && ctrl.AccessibleDescription == "1")
+                        ctrl.Visible = false;
+                    else
+                        ctrl.Visible = true;
                 }
                 #endregion
                 else

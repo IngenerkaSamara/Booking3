@@ -39,6 +39,12 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.SaveCoordsButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ButtonCoordsTextBox = new System.Windows.Forms.TextBox();
+            this.ButtonSizeTextBox = new System.Windows.Forms.TextBox();
+            this.ButtonAdminCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ButtonDeletePictureButton
@@ -142,11 +148,75 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // SaveCoordsButton
+            // 
+            this.SaveCoordsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.SaveCoordsButton.Location = new System.Drawing.Point(301, 197);
+            this.SaveCoordsButton.Name = "SaveCoordsButton";
+            this.SaveCoordsButton.Size = new System.Drawing.Size(128, 52);
+            this.SaveCoordsButton.TabIndex = 18;
+            this.SaveCoordsButton.Text = "Сохранить";
+            this.SaveCoordsButton.UseVisualStyleBackColor = true;
+            this.SaveCoordsButton.Click += new System.EventHandler(this.SaveCoordsButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label1.Location = new System.Drawing.Point(8, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 24);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Координаты";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label4.Location = new System.Drawing.Point(8, 221);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 24);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Размер";
+            // 
+            // ButtonCoordsTextBox
+            // 
+            this.ButtonCoordsTextBox.Location = new System.Drawing.Point(137, 197);
+            this.ButtonCoordsTextBox.Name = "ButtonCoordsTextBox";
+            this.ButtonCoordsTextBox.Size = new System.Drawing.Size(158, 26);
+            this.ButtonCoordsTextBox.TabIndex = 21;
+            this.ButtonCoordsTextBox.Text = "100, 200";
+            // 
+            // ButtonSizeTextBox
+            // 
+            this.ButtonSizeTextBox.Location = new System.Drawing.Point(137, 224);
+            this.ButtonSizeTextBox.Name = "ButtonSizeTextBox";
+            this.ButtonSizeTextBox.Size = new System.Drawing.Size(158, 26);
+            this.ButtonSizeTextBox.TabIndex = 22;
+            this.ButtonSizeTextBox.Text = "50? 50";
+            // 
+            // ButtonAdminCheckBox
+            // 
+            this.ButtonAdminCheckBox.AutoSize = true;
+            this.ButtonAdminCheckBox.Location = new System.Drawing.Point(12, 256);
+            this.ButtonAdminCheckBox.Name = "ButtonAdminCheckBox";
+            this.ButtonAdminCheckBox.Size = new System.Drawing.Size(178, 24);
+            this.ButtonAdminCheckBox.TabIndex = 23;
+            this.ButtonAdminCheckBox.Text = "Только для админа";
+            this.ButtonAdminCheckBox.UseVisualStyleBackColor = true;
+            this.ButtonAdminCheckBox.CheckedChanged += new System.EventHandler(this.ButtonAdminCheckBox_CheckedChanged);
+            // 
             // UniqueButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 193);
+            this.ClientSize = new System.Drawing.Size(441, 281);
+            this.Controls.Add(this.ButtonAdminCheckBox);
+            this.Controls.Add(this.ButtonSizeTextBox);
+            this.Controls.Add(this.ButtonCoordsTextBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SaveCoordsButton);
             this.Controls.Add(this.ButtonDeletePictureButton);
             this.Controls.Add(this.ButtonLayoutCombo);
             this.Controls.Add(this.label3);
@@ -178,5 +248,11 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button SaveCoordsButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox ButtonCoordsTextBox;
+        private System.Windows.Forms.TextBox ButtonSizeTextBox;
+        private System.Windows.Forms.CheckBox ButtonAdminCheckBox;
     }
 }

@@ -21,9 +21,13 @@ namespace Booking3.Admin
             button1.BackgroundImageLayout = btn.BackgroundImageLayout;
             button1.BackgroundImage = btn.BackgroundImage;
             button1.Font = btn.Font;
+            button1.Size = btn.Size;
+
+            ButtonCoordsTextBox.Text = btn.Location.X.ToString() + ", " + btn.Location.Y.ToString();
+            ButtonSizeTextBox.Text = btn.Size.Width.ToString() + ", " + btn.Size.Height.ToString();
         }
 
-        private void UniqueButton_Load(object sender, EventArgs e)
+    private void UniqueButton_Load(object sender, EventArgs e)
         {
 
         }
@@ -32,6 +36,7 @@ namespace Booking3.Admin
         {
 
         }
+
         #region Button
         /// <summary>
         /// Шрифт кнопок
@@ -185,7 +190,59 @@ namespace Booking3.Admin
                 "'" + btn.FindForm().Name + "', " +
                 "'" + button1.BackgroundImageLayout.ToString() + "')");
         }
-        #endregion
 
+        /// <summary>
+        /// Сохранение положения и координат
+        /// </summary>
+        private void SaveCoordsButton_Click(object sender, EventArgs e)
+        {
+            SQLClass.Update("DELETE FROM uniqueDesign" +
+                " WHERE type='" + button1.GetType() + "'" +
+                " AND name='" + btn.Name + "'" +
+                " AND form='" + btn.FindForm().Name + "'" +
+                " AND parameter='LOCATION'");
+            SQLClass.Update("DELETE FROM uniqueDesign" +
+                " WHERE type='" + button1.GetType() + "'" +
+                " AND name='" + btn.Name + "'" +
+                " AND form='" + btn.FindForm().Name + "'" +
+                " AND parameter='SIZE'");
+
+            SQLClass.Update("INSERT INTO uniqueDesign" +
+                "(type, parameter, name, form, value) values (" +
+                "'" + button1.GetType() + "', " +
+                "'LOCATION', " +
+                "'" + btn.Name + "', " +
+                "'" + btn.FindForm().Name + "', " +
+                "'" + ButtonCoordsTextBox.Text + "')");
+            SQLClass.Update("INSERT INTO uniqueDesign" +
+                "(type, parameter, name, form, value) values (" +
+                "'" + button1.GetType() + "', " +
+                "'SIZE', " +
+                "'" + btn.Name + "', " +
+                "'" + btn.FindForm().Name + "', " +
+                "'" + ButtonSizeTextBox.Text + "')");
+        }
+
+        /// <summary>
+        /// Доступность всем или админу
+        /// </summary>
+        private void ButtonAdminCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            SQLClass.Update("DELETE FROM uniqueDesign" +
+                   " WHERE type='" + button1.GetType() + "'" +
+                   " AND name='" + btn.Name + "'" +
+                   " AND form='" + btn.FindForm().Name + "'" +
+                   " AND parameter='ADMIN'");
+
+            SQLClass.Update("INSERT INTO uniqueDesign" +
+                "(type, parameter, name, form, value) values (" +
+                "'" + button1.GetType() + "', " +
+                "'ADMIN', " +
+                "'" + btn.Name + "', " +
+                "'" + btn.FindForm().Name + "', " +
+                "'" + ((ButtonAdminCheckBox.Checked) ? "1": "0") + "')");
+        }
+
+        #endregion
     }
 }
