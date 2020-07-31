@@ -71,7 +71,13 @@ namespace Booking3.UserControls
                 {
                     pb.Load("../../Pictures/" + rooms[i + 3]);
                 }
-                catch (Exception) { }
+                catch (Exception) {
+                    try
+                    {
+                        pb.Load("../../Pictures/2-Seat.jpg");
+                    }
+                    catch (Exception) { }
+                }
                 pb.Location = new Point(x, 10);
                 pb.Size = new Size(190, 120);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;

@@ -20,6 +20,11 @@ namespace Booking3
         public static string HOTELS = "hotels";
 
         /// <summary>
+        /// Таблица номеров
+        /// </summary>
+        public static string ROOM = "room";
+
+        /// <summary>
         /// Select-запрос. Возвращает список строк
         /// </summary>
         public static List<string> Select(string cmdText)
