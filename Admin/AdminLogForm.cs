@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Booking3.Admin
@@ -19,15 +13,35 @@ namespace Booking3.Admin
 
         private void AdminLogForm_Load(object sender, EventArgs e)
         {
-            string Text = File.ReadAllText(Path.GetTempPath() + "/booking.txt");
-
-            string[] lines = Text.Split(new string[] { "Ошибка" }, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (string error in lines)
+            //ПРоверка существования лог-файла
+            if (!File.Exists(Path.GetTempPath() + "/booking.txt"))
             {
-                string[] parts = error.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                File.Create(Path.GetTempPath() + "/booking.txt");
+            }
 
-                dataGridView1.Rows.Add(parts);
+            //Чтение лог-файла
+            try
+            {
+                string Text = File.ReadAllText(Path.GetTempPath() + "/booking.txt");
+
+                string[] lines = Text.Split(new string[] { "Ошибка" }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string error in lines)
+                {
+                    string[] parts = error.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+                    dataGridView1.Rows.Add(parts);
+                }
+            }
+            catch (Exception)
+            {
+                if (!File.Exists(Path.GetTempPath() + "/booking.txt"))
+                    File.Create(Path.GetTempPath() + "/booking.txt");
+
+                File.AppendAllText(Path.GetTempPath() + "/booking.txt",
+                    "Ошибка" + Environment.NewLine +
+                    DateTime.Now.ToString() + Environment.NewLine +
+                    "Не удалось открыть лог-файл" + Environment.NewLine + Environment.NewLine);
             }
         }
     }

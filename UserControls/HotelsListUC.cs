@@ -32,9 +32,10 @@ namespace Booking3.UserControls
                 }
             }
 
+            SortComboBox.SelectedIndex = 0;
+
             Filter(null, null);
             Admin.AdminDesignForm.ApplyDesign(this);
-            SortComboBox.SelectedIndex = 0;
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
@@ -104,11 +105,14 @@ namespace Booking3.UserControls
             #endregion
 
             if (SortComboBox.SelectedIndex == 0)
-                command += " ORDER BY room.Price ASC";
-            else if (SortComboBox.SelectedIndex == 0)
-                command += " ORDER BY room.Price DESC";
-            else if (SortComboBox.SelectedIndex == 0)
-                command += " ORDER BY hotels.rating DESC";
+                command += " GROUP BY hotels.id, hotels.name, hotels.image, hotels.rating" +
+                            " HAVING room.price = MIN(price) ORDER BY room.Price ASC";
+            else if (SortComboBox.SelectedIndex == 1)
+                command += " GROUP BY hotels.id, hotels.name, hotels.image, hotels.rating" +
+                            " HAVING room.price = MIN(price) ORDER BY room.Price DESC";
+            else if (SortComboBox.SelectedIndex == 2)
+                command += " GROUP BY hotels.id, hotels.name, hotels.image, hotels.rating" +
+                            " HAVING room.price = MIN(price) ORDER BY hotels.rating DESC";
 
             List<string> hotels = SQLClass.Select(command);
 

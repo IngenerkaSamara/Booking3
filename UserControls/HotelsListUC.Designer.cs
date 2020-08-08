@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.FilterPanel = new System.Windows.Forms.Panel();
+            this.SortComboBox = new System.Windows.Forms.ComboBox();
             this.OptionsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.CapacityComboBox = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CityComboBox = new System.Windows.Forms.ComboBox();
             this.HotelsPanel = new System.Windows.Forms.Panel();
-            this.SortComboBox = new System.Windows.Forms.ComboBox();
             this.FilterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,8 +69,23 @@
             this.FilterPanel.Location = new System.Drawing.Point(0, 0);
             this.FilterPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FilterPanel.Name = "FilterPanel";
-            this.FilterPanel.Size = new System.Drawing.Size(668, 180);
+            this.FilterPanel.Size = new System.Drawing.Size(684, 180);
             this.FilterPanel.TabIndex = 1;
+            // 
+            // SortComboBox
+            // 
+            this.SortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SortComboBox.FormattingEnabled = true;
+            this.SortComboBox.Items.AddRange(new object[] {
+            "Дешевые выше",
+            "Дорогие выше",
+            "По рейтингу"});
+            this.SortComboBox.Location = new System.Drawing.Point(554, 145);
+            this.SortComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SortComboBox.Name = "SortComboBox";
+            this.SortComboBox.Size = new System.Drawing.Size(126, 24);
+            this.SortComboBox.TabIndex = 14;
             // 
             // OptionsCheckedListBox
             // 
@@ -133,6 +148,7 @@
             // RatingComboBox
             // 
             this.RatingComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RatingComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.RatingComboBox.FormattingEnabled = true;
             this.RatingComboBox.Items.AddRange(new object[] {
             "1",
@@ -143,7 +159,7 @@
             this.RatingComboBox.Location = new System.Drawing.Point(386, 145);
             this.RatingComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RatingComboBox.Name = "RatingComboBox";
-            this.RatingComboBox.Size = new System.Drawing.Size(117, 28);
+            this.RatingComboBox.Size = new System.Drawing.Size(148, 24);
             this.RatingComboBox.TabIndex = 9;
             // 
             // label6
@@ -161,7 +177,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(554, 46);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 83);
+            this.button1.Size = new System.Drawing.Size(128, 83);
             this.button1.TabIndex = 7;
             this.button1.Text = "Найти";
             this.button1.UseVisualStyleBackColor = true;
@@ -241,25 +257,12 @@
             // HotelsPanel
             // 
             this.HotelsPanel.AutoScroll = true;
+            this.HotelsPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HotelsPanel.Location = new System.Drawing.Point(0, 180);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(668, 173);
+            this.HotelsPanel.Size = new System.Drawing.Size(684, 173);
             this.HotelsPanel.TabIndex = 2;
-            // 
-            // SortComboBox
-            // 
-            this.SortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SortComboBox.FormattingEnabled = true;
-            this.SortComboBox.Items.AddRange(new object[] {
-            "Сначала дешевые",
-            "Сначала дорогие",
-            "По рейтингу"});
-            this.SortComboBox.Location = new System.Drawing.Point(554, 145);
-            this.SortComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.SortComboBox.Name = "SortComboBox";
-            this.SortComboBox.Size = new System.Drawing.Size(110, 28);
-            this.SortComboBox.TabIndex = 14;
             // 
             // HotelsListUC
             // 
@@ -270,7 +273,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "HotelsListUC";
-            this.Size = new System.Drawing.Size(668, 353);
+            this.Size = new System.Drawing.Size(684, 353);
             this.FilterPanel.ResumeLayout(false);
             this.FilterPanel.PerformLayout();
             this.ResumeLayout(false);

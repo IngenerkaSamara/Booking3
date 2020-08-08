@@ -19,6 +19,9 @@ namespace Booking3.UserControls
         {
             InitializeComponent();
 
+            Admin.AdminDesignForm.ApplyDesign(this);
+            Admin.AdminDesignForm.ApplyMenu(this);
+
             #region Видимость админских компонент
             OpinionPanel.Visible = (MainForm.Login != "");
             button1.Visible = MainForm.IsAdmin;
@@ -126,9 +129,6 @@ namespace Booking3.UserControls
                 tabPage2.Controls.Add(lbl);
             }
             #endregion
-
-            Admin.AdminDesignForm.ApplyDesign(this);
-            Admin.AdminDesignForm.ApplyMenu(this);
         }
 
         private void HotelForm_Load(object sender, EventArgs e)

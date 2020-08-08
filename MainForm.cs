@@ -24,6 +24,10 @@ namespace Booking3
             listUC.Dock = DockStyle.Fill;
             HotelsPanel.Controls.Clear();
             HotelsPanel.Controls.Add(listUC);
+
+            //Скрываем кнопку личного кабинета
+            Login = "1";
+            LoginClick(null, null);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -140,9 +144,17 @@ namespace Booking3
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             #region Выбран город
-            if (e.Node.Level == 1 && e.Node.Parent.Text == "Города")
+            if (e.Node.Level == 0 && e.Node.Text == "Города")
             {
-                UserControls.HotelsListUC listUC = 
+                UserControls.HotelsListUC listUC =
+                    new UserControls.HotelsListUC("");
+                listUC.Dock = DockStyle.Fill;
+                HotelsPanel.Controls.Clear();
+                HotelsPanel.Controls.Add(listUC);
+            }
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Города")
+            {
+                UserControls.HotelsListUC listUC =
                     new UserControls.HotelsListUC(e.Node.Text);
                 listUC.Dock = DockStyle.Fill;
                 HotelsPanel.Controls.Clear();
