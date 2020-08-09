@@ -74,11 +74,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label6.Location = new System.Drawing.Point(493, 11);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(225, 26);
+            this.label6.Size = new System.Drawing.Size(200, 24);
             this.label6.TabIndex = 16;
             this.label6.Text = "Одноместный номер";
             // 
@@ -131,11 +131,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label2.Location = new System.Drawing.Point(255, 80);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 26);
+            this.label2.Size = new System.Drawing.Size(200, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Одноместный номер";
             // 
@@ -154,11 +154,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label4.Location = new System.Drawing.Point(255, 11);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(216, 26);
+            this.label4.Size = new System.Drawing.Size(192, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "Гостиница \"Апрель\"";
             // 

@@ -21,13 +21,15 @@ namespace Booking3.UserControls
             InitializeComponent();
 
             List<string> room_data = SQLClass.Select(
-                "SELECT hotel, name, price, image, quantity FROM room WHERE id = " + RoomId);
+                "SELECT hotels.name, room.name, room.price, room.image, room.quantity" +
+                " FROM " + SQLClass.ROOM + " JOIN " + SQLClass.HOTELS + " ON room.hotel_id = hotels.id" +
+                " WHERE room.id = " + RoomId);
 
             Text = room_data[0] + ": " + room_data[1];
             qty = Convert.ToInt32(room_data[4]);
             label2.Text = room_data[1];
             label4.Text = room_data[0];
-            label6.Text = room_data[2];
+            label6.Text = room_data[2] + " руб.";
 
             try
             {

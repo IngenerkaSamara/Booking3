@@ -27,7 +27,7 @@ namespace Booking3.Admin
             ButtonSizeTextBox.Text = btn.Size.Width.ToString() + ", " + btn.Size.Height.ToString();
         }
 
-    private void UniqueButton_Load(object sender, EventArgs e)
+        private void UniqueButton_Load(object sender, EventArgs e)
         {
 
         }

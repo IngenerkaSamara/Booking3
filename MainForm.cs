@@ -61,7 +61,7 @@ namespace Booking3
             }
 
             Admin.AdminDesignForm.ApplyDesign(this);
-            Admin.AdminDesignForm.BUTTON_CMS = contextMenuStrip1;
+            Admin.AdminDesignForm.BUTTON_CMS = designCMS;
             Admin.AdminDesignForm.ApplyMenu(this);
         }
         
@@ -143,6 +143,11 @@ namespace Booking3
         /// </summary>
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            if (e.Node == null)
+            {
+                return;
+            }
+
             #region Выбран город
             if (e.Node.Level == 0 && e.Node.Text == "Города")
             {
@@ -283,6 +288,29 @@ namespace Booking3
                 Button btn = (Button)(cms.SourceControl);
                 Admin.UniqueButton f = new Admin.UniqueButton(btn);
                 f.ShowDialog();
+            }
+            catch (Exception) { }
+        }
+
+        private void treeDesignMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Дерево, на которое кликнули
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                ContextMenuStrip cms = (ContextMenuStrip)(item.GetCurrentParent());
+                TreeView btn = (TreeView)(cms.SourceControl);
+
+                //ТейблПанель, на которой дерево лежит
+                TableLayoutPanel b = (TableLayoutPanel)btn.Parent;
+                TableLayoutPanelCellPosition pos = b.GetPositionFromControl(btn);
+              
+                //ФОрма с дизйном блока
+                Admin.TreeDesignForm f = new Admin.TreeDesignForm(btn);
+                f.ShowDialog();
+
+                //Применяем дизайн
+                b.ColumnStyles[pos.Column].Width = f.ctrl.Width;
             }
             catch (Exception) { }
         }
