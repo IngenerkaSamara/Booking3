@@ -8,12 +8,14 @@ namespace Booking3.Admin
     public partial class UniqueButton : Form
     {
         Button btn;
+        Control parent;
         string address = "";
 
-        public UniqueButton(Button _btn)
+        public UniqueButton(Button _btn, Control _parent)
         {
             InitializeComponent();
             btn = _btn;
+            parent = _parent;
 
             button1.Text = btn.Text;
             button1.BackColor = btn.BackColor;
@@ -56,12 +58,12 @@ namespace Booking3.Admin
                 SQLClass.Update("DELETE FROM uniqueDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'" +
+                    " AND form='" + parent.Name + "'" +
                     " AND parameter='FONT'");
                 SQLClass.Update("DELETE FROM uniqueDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'" +
+                    " AND form='" + parent.Name + "'" +
                     " AND parameter='FONT_COLOR'");
 
                 SQLClass.Update("INSERT INTO uniqueDesign" +
@@ -69,14 +71,14 @@ namespace Booking3.Admin
                     "'" + button1.GetType() + "', " +
                     "'FONT', " +
                     "'" + btn.Name + "', " +
-                    "'" + btn.FindForm().Name + "', " +
+                    "'" + parent.Name + "', " +
                     "'" + button1.Font.Name + ";" + button1.Font.Size.ToString() + "')");
                 SQLClass.Update("INSERT INTO uniqueDesign" +
                     "(type, parameter, name, form, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'FONT_COLOR', " +
                     "'" + btn.Name + "', " +
-                    "'" + btn.FindForm().Name + "', " +
+                    "'" + parent.Name + "', " +
                     "'" + button1.ForeColor.ToArgb() + "')");
             }
         }
@@ -97,7 +99,7 @@ namespace Booking3.Admin
                 SQLClass.Update("DELETE FROM uniqueDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'" +
+                    " AND form='" + parent.Name + "'" +
                     " AND parameter='COLOR'");
 
                 SQLClass.Update("INSERT INTO uniqueDesign" +
@@ -105,7 +107,7 @@ namespace Booking3.Admin
                     "'" + button1.GetType() + "', " +
                     "'COLOR', " +
                     "'" + btn.Name + "', " +
-                    "'" + btn.FindForm().Name + "', " +
+                    "'" + parent.Name + "', " +
                     "'" + button1.BackColor.ToArgb() + "')");
             }
         }
@@ -132,7 +134,7 @@ namespace Booking3.Admin
                 SQLClass.Update("DELETE FROM uniqueDesign" +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'" +
+                    " AND form='" + parent.Name + "'" +
                     " AND parameter='PICTURE_ADDRESS'");
 
                 SQLClass.Update("INSERT INTO uniqueDesign" +
@@ -140,7 +142,7 @@ namespace Booking3.Admin
                     "'" + button1.GetType() + "', " +
                     "'PICTURE_ADDRESS', " +
                     "'" + btn.Name + "', " +
-                    "'" + btn.FindForm().Name + "', " +
+                    "'" + parent.Name + "', " +
                     "'" + address + "')");
             }
         }
@@ -153,7 +155,7 @@ namespace Booking3.Admin
             SQLClass.Update("DELETE FROM uniqueDesign" +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
-                " AND form='" + btn.FindForm().Name + "'" +
+                " AND form='" + parent.Name + "'" +
                 " AND parameter='PICTURE_ADDRESS'");
         }
 
@@ -179,7 +181,7 @@ namespace Booking3.Admin
             SQLClass.Update("DELETE FROM uniqueDesign" +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
-                " AND form='" + btn.FindForm().Name + "'" +
+                " AND form='" + parent.Name + "'" +
                 " AND parameter='LAYOUT'");
 
             SQLClass.Update("INSERT INTO uniqueDesign" +
@@ -187,7 +189,7 @@ namespace Booking3.Admin
                 "'" + button1.GetType() + "', " +
                 "'LAYOUT', " +
                 "'" + btn.Name + "', " +
-                "'" + btn.FindForm().Name + "', " +
+                "'" + parent.Name + "', " +
                 "'" + button1.BackgroundImageLayout.ToString() + "')");
         }
 
@@ -199,12 +201,12 @@ namespace Booking3.Admin
             SQLClass.Update("DELETE FROM uniqueDesign" +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
-                " AND form='" + btn.FindForm().Name + "'" +
+                " AND form='" + parent.Name + "'" +
                 " AND parameter='LOCATION'");
             SQLClass.Update("DELETE FROM uniqueDesign" +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
-                " AND form='" + btn.FindForm().Name + "'" +
+                " AND form='" + parent.Name + "'" +
                 " AND parameter='SIZE'");
 
             SQLClass.Update("INSERT INTO uniqueDesign" +
@@ -212,14 +214,14 @@ namespace Booking3.Admin
                 "'" + button1.GetType() + "', " +
                 "'LOCATION', " +
                 "'" + btn.Name + "', " +
-                "'" + btn.FindForm().Name + "', " +
+                "'" + parent.Name + "', " +
                 "'" + ButtonCoordsTextBox.Text + "')");
             SQLClass.Update("INSERT INTO uniqueDesign" +
                 "(type, parameter, name, form, value) values (" +
                 "'" + button1.GetType() + "', " +
                 "'SIZE', " +
                 "'" + btn.Name + "', " +
-                "'" + btn.FindForm().Name + "', " +
+                "'" + parent.Name + "', " +
                 "'" + ButtonSizeTextBox.Text + "')");
         }
 
@@ -231,7 +233,7 @@ namespace Booking3.Admin
             SQLClass.Update("DELETE FROM uniqueDesign" +
                    " WHERE type='" + button1.GetType() + "'" +
                    " AND name='" + btn.Name + "'" +
-                   " AND form='" + btn.FindForm().Name + "'" +
+                   " AND form='" + parent.Name + "'" +
                    " AND parameter='ADMIN'");
 
             SQLClass.Update("INSERT INTO uniqueDesign" +
@@ -239,7 +241,7 @@ namespace Booking3.Admin
                 "'" + button1.GetType() + "', " +
                 "'ADMIN', " +
                 "'" + btn.Name + "', " +
-                "'" + btn.FindForm().Name + "', " +
+                "'" + parent.Name + "', " +
                 "'" + ((ButtonAdminCheckBox.Checked) ? "1": "0") + "')");
         }
 

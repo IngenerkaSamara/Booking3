@@ -299,7 +299,15 @@ namespace Booking3
                 ToolStripMenuItem item = (ToolStripMenuItem)sender;
                 ContextMenuStrip cms = (ContextMenuStrip)(item.GetCurrentParent());
                 Button btn = (Button)(cms.SourceControl);
-                Admin.UniqueButton f = new Admin.UniqueButton(btn);
+
+                //Ищем родительскую форму/UserControl
+                Control parent = btn;
+                while (!(parent is Form || parent is UserControl))
+                {
+                    parent = parent.Parent;
+                }
+
+                Admin.UniqueButton f = new Admin.UniqueButton(btn, parent);
                 f.ShowDialog();
             }
             catch (Exception) { }

@@ -160,6 +160,13 @@ namespace Booking3.Admin
         /// </summary>
         public static void ReadUniqueButtonDesign(Button btn)
         {
+            //Ищем родительскую форму/UserControl
+            Control parent = btn;
+            while (!(parent is Form || parent is UserControl))
+            {
+                parent = parent.Parent;
+            }
+
             //Картинка
             try
             {
@@ -167,7 +174,7 @@ namespace Booking3.Admin
                     SQLClass.Select("SELECT value FROM uniqueDesign" +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='PICTURE_ADDRESS'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
                 btn.BackgroundImage = Image.FromFile(BUTTON_PICS_DIR + "\\" + address);
             }
             catch (Exception) { }
@@ -179,7 +186,7 @@ namespace Booking3.Admin
                     SQLClass.Select("SELECT value FROM uniqueDesign" +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='LOCATION'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
                 string[] parts = location.Split(new char[] { ',' });
                 btn.Location = new Point(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]));
             }
@@ -192,7 +199,7 @@ namespace Booking3.Admin
                     SQLClass.Select("SELECT value FROM uniqueDesign" +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='ADMIN'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
                 btn.AccessibleDescription = admin;
             }
             catch (Exception) { }
@@ -204,7 +211,7 @@ namespace Booking3.Admin
                     SQLClass.Select("SELECT value FROM uniqueDesign" +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='SIZE'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
                 string[] parts = location.Split(new char[] { ',' });
                 btn.Size = new Size(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]));
             }
@@ -218,7 +225,7 @@ namespace Booking3.Admin
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='FONT_COLOR'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
 
                 btn.ForeColor = Color.FromArgb(Convert.ToInt32(color));
 
@@ -227,7 +234,7 @@ namespace Booking3.Admin
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='FONT'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
 
                 string[] parts = font.Split(new char[] { ';' });
 
@@ -243,7 +250,7 @@ namespace Booking3.Admin
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='COLOR'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
 
                 btn.BackColor = Color.FromArgb(Convert.ToInt32(color));
             }
@@ -257,7 +264,7 @@ namespace Booking3.Admin
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='LAYOUT'" +
                     " AND name='" + btn.Name + "'" +
-                    " AND form='" + btn.FindForm().Name + "'")[0];
+                    " AND form='" + parent.Name + "'")[0];
 
                 if (layout == "Center")
                     btn.BackgroundImageLayout = ImageLayout.Center;
