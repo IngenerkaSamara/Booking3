@@ -22,8 +22,8 @@ namespace Booking3.Admin
             List<string> hotels_list = SQLClass.Select(
                 "SELECT  booking.room_id, booking.user, booking.dateFrom, " +
                         "booking.dateTo, room.name, hotels.name" +
-                " FROM booking" +
-                    " JOIN room ON room.id = booking.room_id" +
+                " FROM "+ SQLClass.BOOKING + " booking" +
+                    " JOIN " + SQLClass.ROOM + " room ON room.id = booking.room_id" +
                     " JOIN " + SQLClass.HOTELS + " hotels ON hotels.id = room.hotel_id" +
                 " ORDER BY booking.dateFrom");
 
@@ -92,7 +92,7 @@ namespace Booking3.Admin
                 if (control.Location == new Point(0, y))
                 {
                     SQLClass.Update(
-                        "DELETE FROM booking" +
+                        "DELETE FROM " + SQLClass.BOOKING + 
                         " WHERE user = '" + control.Text + "'" +
                         " AND room_id = '" + control.Tag.ToString() + "'" +
                         " AND dateFrom = '" + Convert.ToDateTime(control.AccessibleName).ToString("yyyy-MM-dd") + "'" +

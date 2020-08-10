@@ -171,7 +171,7 @@ namespace Booking3.Admin
             try
             {
                 string address =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='PICTURE_ADDRESS'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'")[0];
@@ -183,7 +183,7 @@ namespace Booking3.Admin
             try
             {
                 string location =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='LOCATION'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'")[0];
@@ -196,7 +196,7 @@ namespace Booking3.Admin
             try
             {
                 string admin =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='ADMIN'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'")[0];
@@ -208,7 +208,7 @@ namespace Booking3.Admin
             try
             {
                 string location =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button' AND parameter='SIZE'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'")[0];
@@ -221,7 +221,7 @@ namespace Booking3.Admin
             try
             {
                 string color =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='FONT_COLOR'" +
                     " AND name='" + btn.Name + "'" +
@@ -230,7 +230,7 @@ namespace Booking3.Admin
                 btn.ForeColor = Color.FromArgb(Convert.ToInt32(color));
 
                 string font =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='FONT'" +
                     " AND name='" + btn.Name + "'" +
@@ -246,7 +246,7 @@ namespace Booking3.Admin
             try
             {
                 string color =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='COLOR'" +
                     " AND name='" + btn.Name + "'" +
@@ -260,7 +260,7 @@ namespace Booking3.Admin
             try
             {
                 string layout =
-                    SQLClass.Select("SELECT value FROM uniqueDesign" +
+                    SQLClass.Select("SELECT value FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type = 'System.Windows.Forms.Button'" +
                     " AND parameter='LAYOUT'" +
                     " AND name='" + btn.Name + "'" +

@@ -55,25 +55,25 @@ namespace Booking3.Admin
 
                 UniqueButton_Load(null, null);
 
-                SQLClass.Update("DELETE FROM uniqueDesign" +
+                SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'" +
                     " AND parameter='FONT'");
-                SQLClass.Update("DELETE FROM uniqueDesign" +
+                SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'" +
                     " AND parameter='FONT_COLOR'");
 
-                SQLClass.Update("INSERT INTO uniqueDesign" +
+                SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                     "(type, parameter, name, form, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'FONT', " +
                     "'" + btn.Name + "', " +
                     "'" + parent.Name + "', " +
                     "'" + button1.Font.Name + ";" + button1.Font.Size.ToString() + "')");
-                SQLClass.Update("INSERT INTO uniqueDesign" +
+                SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                     "(type, parameter, name, form, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'FONT_COLOR', " +
@@ -96,13 +96,13 @@ namespace Booking3.Admin
 
                 UniqueButton_Load(null, null);
 
-                SQLClass.Update("DELETE FROM uniqueDesign" +
+                SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'" +
                     " AND parameter='COLOR'");
 
-                SQLClass.Update("INSERT INTO uniqueDesign" +
+                SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                     "(type, parameter, name, form, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'COLOR', " +
@@ -131,13 +131,13 @@ namespace Booking3.Admin
 
                 UniqueButton_Load(null, null);
 
-                SQLClass.Update("DELETE FROM uniqueDesign" +
+                SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                     " WHERE type='" + button1.GetType() + "'" +
                     " AND name='" + btn.Name + "'" +
                     " AND form='" + parent.Name + "'" +
                     " AND parameter='PICTURE_ADDRESS'");
 
-                SQLClass.Update("INSERT INTO uniqueDesign" +
+                SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                     "(type, parameter, name, form, value) values (" +
                     "'" + button1.GetType() + "', " +
                     "'PICTURE_ADDRESS', " +
@@ -152,7 +152,7 @@ namespace Booking3.Admin
         /// </summary>
         private void ButtonDeletePictureButton_Click(object sender, EventArgs e)
         {
-            SQLClass.Update("DELETE FROM uniqueDesign" +
+            SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
                 " AND form='" + parent.Name + "'" +
@@ -178,13 +178,13 @@ namespace Booking3.Admin
             UniqueButton_Load(null, null);
 
 
-            SQLClass.Update("DELETE FROM uniqueDesign" +
+            SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
                 " AND form='" + parent.Name + "'" +
                 " AND parameter='LAYOUT'");
 
-            SQLClass.Update("INSERT INTO uniqueDesign" +
+            SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                 "(type, parameter, name, form, value) values (" +
                 "'" + button1.GetType() + "', " +
                 "'LAYOUT', " +
@@ -198,25 +198,25 @@ namespace Booking3.Admin
         /// </summary>
         private void SaveCoordsButton_Click(object sender, EventArgs e)
         {
-            SQLClass.Update("DELETE FROM uniqueDesign" +
+            SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
                 " AND form='" + parent.Name + "'" +
                 " AND parameter='LOCATION'");
-            SQLClass.Update("DELETE FROM uniqueDesign" +
+            SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                 " WHERE type='" + button1.GetType() + "'" +
                 " AND name='" + btn.Name + "'" +
                 " AND form='" + parent.Name + "'" +
                 " AND parameter='SIZE'");
 
-            SQLClass.Update("INSERT INTO uniqueDesign" +
+            SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                 "(type, parameter, name, form, value) values (" +
                 "'" + button1.GetType() + "', " +
                 "'LOCATION', " +
                 "'" + btn.Name + "', " +
                 "'" + parent.Name + "', " +
                 "'" + ButtonCoordsTextBox.Text + "')");
-            SQLClass.Update("INSERT INTO uniqueDesign" +
+            SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                 "(type, parameter, name, form, value) values (" +
                 "'" + button1.GetType() + "', " +
                 "'SIZE', " +
@@ -230,13 +230,13 @@ namespace Booking3.Admin
         /// </summary>
         private void ButtonAdminCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            SQLClass.Update("DELETE FROM uniqueDesign" +
+            SQLClass.Update("DELETE FROM " + SQLClass.UNIQUE_DESIGN +
                    " WHERE type='" + button1.GetType() + "'" +
                    " AND name='" + btn.Name + "'" +
                    " AND form='" + parent.Name + "'" +
                    " AND parameter='ADMIN'");
 
-            SQLClass.Update("INSERT INTO uniqueDesign" +
+            SQLClass.Update("INSERT INTO " + SQLClass.UNIQUE_DESIGN +
                 "(type, parameter, name, form, value) values (" +
                 "'" + button1.GetType() + "', " +
                 "'ADMIN', " +

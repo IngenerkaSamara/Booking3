@@ -16,7 +16,8 @@ namespace Booking3.Admin
         {
             InitializeComponent();
 
-            List<string> cities = SQLClass.Select("SELECT DISTINCT Name FROM cities ORDER BY Name");
+            List<string> cities = SQLClass.Select(
+                "SELECT DISTINCT Name FROM " + SQLClass.CITIES + " ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
@@ -29,7 +30,7 @@ namespace Booking3.Admin
         {
             panel2.Controls.Clear();
 
-            string command = "SELECT Login, Name, City, Age FROM Users WHERE 1";
+            string command = "SELECT Login, Name, City, Age FROM " + SQLClass.USERS + " WHERE 1";
             if (CityComboBox.Text != "")
                 command += " AND city= '" + CityComboBox.Text + "'";
             if (AgeTextBox.Text != "")

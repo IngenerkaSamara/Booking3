@@ -42,7 +42,8 @@ namespace Booking3.Admin
 
         private void AdminHotelsForm_Load(object sender, EventArgs e)
         {
-            List<string> hotels_list = SQLClass.Select("SELECT Name, City, Rating FROM " + SQLClass.HOTELS);
+            List<string> hotels_list = SQLClass.Select(
+                "SELECT Name, City, Rating FROM " + SQLClass.HOTELS);
 
             panel2.Controls.Clear();
             int y = 15;
@@ -87,7 +88,8 @@ namespace Booking3.Admin
                 if (control.Location == new Point(0, y))
                 {
                     SQLClass.Update(
-                        "DELETE FROM " + SQLClass.HOTELS + " WHERE Name = '" + control.Text + "'");
+                        "DELETE FROM " + SQLClass.HOTELS +
+                        " WHERE Name = '" + control.Text + "'");
                     
                     AdminHotelsForm_Load(sender, e);
                     return;

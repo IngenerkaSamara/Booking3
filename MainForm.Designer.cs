@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Города");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Города");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.AuthPanel = new System.Windows.Forms.Panel();
+            this.treeCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.treeDesignMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonDefaultDesign = new System.Windows.Forms.Button();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginLabel = new System.Windows.Forms.Label();
@@ -45,21 +47,19 @@
             this.HotelsPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.treeCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.treeDesignMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CopyRightPanel = new System.Windows.Forms.Panel();
-            this.CopyRightLabel = new System.Windows.Forms.Label();
-            this.SocialLabel = new System.Windows.Forms.Label();
-            this.VKPictureBox = new System.Windows.Forms.PictureBox();
             this.InstaPictureBox = new System.Windows.Forms.PictureBox();
+            this.VKPictureBox = new System.Windows.Forms.PictureBox();
+            this.SocialLabel = new System.Windows.Forms.Label();
+            this.CopyRightLabel = new System.Windows.Forms.Label();
             this.AuthPanel.SuspendLayout();
+            this.treeCMS.SuspendLayout();
             this.designCMS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.treeCMS.SuspendLayout();
             this.CopyRightPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -79,6 +79,20 @@
             this.AuthPanel.Name = "AuthPanel";
             this.AuthPanel.Size = new System.Drawing.Size(948, 35);
             this.AuthPanel.TabIndex = 2;
+            // 
+            // treeCMS
+            // 
+            this.treeCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.treeDesignMenuItem});
+            this.treeCMS.Name = "contextMenuStrip1";
+            this.treeCMS.Size = new System.Drawing.Size(151, 26);
+            // 
+            // treeDesignMenuItem
+            // 
+            this.treeDesignMenuItem.Name = "treeDesignMenuItem";
+            this.treeDesignMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.treeDesignMenuItem.Text = "Дизайн блока";
+            this.treeDesignMenuItem.Click += new System.EventHandler(this.treeDesignMenuItem_Click);
             // 
             // buttonDefaultDesign
             // 
@@ -198,27 +212,13 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Узел0";
-            treeNode2.Text = "Города";
+            treeNode1.Name = "Узел0";
+            treeNode1.Text = "Города";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(244, 415);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // treeCMS
-            // 
-            this.treeCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.treeDesignMenuItem});
-            this.treeCMS.Name = "contextMenuStrip1";
-            this.treeCMS.Size = new System.Drawing.Size(151, 26);
-            // 
-            // treeDesignMenuItem
-            // 
-            this.treeDesignMenuItem.Name = "treeDesignMenuItem";
-            this.treeDesignMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.treeDesignMenuItem.Text = "Дизайн блока";
-            this.treeDesignMenuItem.Click += new System.EventHandler(this.treeDesignMenuItem_Click);
             // 
             // timer1
             // 
@@ -240,25 +240,16 @@
             this.CopyRightPanel.TabIndex = 17;
             this.CopyRightPanel.Resize += new System.EventHandler(this.CopyRightPanel_Resize);
             // 
-            // CopyRightLabel
+            // InstaPictureBox
             // 
-            this.CopyRightLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CopyRightLabel.Location = new System.Drawing.Point(751, 0);
-            this.CopyRightLabel.Name = "CopyRightLabel";
-            this.CopyRightLabel.Size = new System.Drawing.Size(197, 35);
-            this.CopyRightLabel.TabIndex = 0;
-            this.CopyRightLabel.Text = "@Михаил Абрамов, 2020";
-            this.CopyRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // SocialLabel
-            // 
-            this.SocialLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SocialLabel.Location = new System.Drawing.Point(0, 0);
-            this.SocialLabel.Name = "SocialLabel";
-            this.SocialLabel.Size = new System.Drawing.Size(197, 35);
-            this.SocialLabel.TabIndex = 1;
-            this.SocialLabel.Text = "Наши соцсети";
-            this.SocialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.InstaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InstaPictureBox.Image")));
+            this.InstaPictureBox.Location = new System.Drawing.Point(289, 0);
+            this.InstaPictureBox.Name = "InstaPictureBox";
+            this.InstaPictureBox.Size = new System.Drawing.Size(42, 35);
+            this.InstaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.InstaPictureBox.TabIndex = 3;
+            this.InstaPictureBox.TabStop = false;
+            this.InstaPictureBox.Click += new System.EventHandler(this.InstaPictureBox_Click);
             // 
             // VKPictureBox
             // 
@@ -271,16 +262,25 @@
             this.VKPictureBox.TabStop = false;
             this.VKPictureBox.Click += new System.EventHandler(this.VKPictureBox_Click);
             // 
-            // InstaPictureBox
+            // SocialLabel
             // 
-            this.InstaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InstaPictureBox.Image")));
-            this.InstaPictureBox.Location = new System.Drawing.Point(262, 0);
-            this.InstaPictureBox.Name = "InstaPictureBox";
-            this.InstaPictureBox.Size = new System.Drawing.Size(54, 35);
-            this.InstaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.InstaPictureBox.TabIndex = 3;
-            this.InstaPictureBox.TabStop = false;
-            this.InstaPictureBox.Click += new System.EventHandler(this.InstaPictureBox_Click);
+            this.SocialLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SocialLabel.Location = new System.Drawing.Point(0, 0);
+            this.SocialLabel.Name = "SocialLabel";
+            this.SocialLabel.Size = new System.Drawing.Size(165, 35);
+            this.SocialLabel.TabIndex = 1;
+            this.SocialLabel.Text = "Наши соцсети";
+            this.SocialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CopyRightLabel
+            // 
+            this.CopyRightLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CopyRightLabel.Location = new System.Drawing.Point(751, 0);
+            this.CopyRightLabel.Name = "CopyRightLabel";
+            this.CopyRightLabel.Size = new System.Drawing.Size(197, 35);
+            this.CopyRightLabel.TabIndex = 0;
+            this.CopyRightLabel.Text = "@Михаил Абрамов, 2020";
+            this.CopyRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -297,12 +297,12 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.AuthPanel.ResumeLayout(false);
             this.AuthPanel.PerformLayout();
+            this.treeCMS.ResumeLayout(false);
             this.designCMS.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.treeCMS.ResumeLayout(false);
             this.CopyRightPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

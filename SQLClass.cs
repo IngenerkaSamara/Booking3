@@ -14,10 +14,16 @@ namespace Booking3
 
         public static MySqlConnection CONN;
 
+        #region Таблицы
         /// <summary>
-        /// Таблица людей
+        /// Таблица бронирований
         /// </summary>
         public static string BOOKING = "booking";
+
+        /// <summary>
+        /// Таблица городов
+        /// </summary>
+        public static string CITIES = "cities";
 
         /// <summary>
         /// Таблица гостиниц
@@ -28,6 +34,17 @@ namespace Booking3
         /// Таблица номеров
         /// </summary>
         public static string ROOM = "room";
+
+        /// <summary>
+        /// Таблица дизайна
+        /// </summary>
+        public static string UNIQUE_DESIGN = "uniqueDesign";
+
+        /// <summary>
+        /// Таблица людей
+        /// </summary>
+        public static string USERS = "users";
+        #endregion
 
         /// <summary>
         /// Select-запрос. Возвращает список строк

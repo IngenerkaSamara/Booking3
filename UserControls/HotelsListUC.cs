@@ -79,7 +79,8 @@ namespace Booking3.UserControls
             string command =
                 "SELECT hotels.id, hotels.name, hotels.image, hotels.rating, " +
                         "room.id, room.name, room.price, room.image" +
-                " FROM  " + SQLClass.ROOM + " JOIN " + SQLClass.HOTELS +
+                " FROM " + SQLClass.ROOM + " room" +
+                " JOIN " + SQLClass.HOTELS + " hotels" +
                 " ON room.hotel_id = hotels.id" +
                 " WHERE 1";
 

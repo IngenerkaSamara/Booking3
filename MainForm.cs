@@ -44,7 +44,8 @@ namespace Booking3
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            List<string> cities = SQLClass.Select("SELECT DISTINCT name FROM cities ORDER BY name");
+            List<string> cities = SQLClass.Select(
+                "SELECT DISTINCT name FROM " + SQLClass.CITIES + " ORDER BY name");
             foreach (string city in cities)
             {
                 TreeNode node = new TreeNode(city);
@@ -52,7 +53,7 @@ namespace Booking3
 
 
                 List<string> hotels = SQLClass.Select(
-                    "SELECT DISTINCT name, id FROM hotels" +
+                    "SELECT DISTINCT name, id FROM " + SQLClass.HOTELS +
                     " WHERE city='" + node.Text + "' ORDER BY name");
                 for (int i = 0; i < hotels.Count; i += 2)
                 {
@@ -61,7 +62,7 @@ namespace Booking3
                     node.Nodes.Add(node2);
 
                     List<string> rooms = SQLClass.Select(
-                        "SELECT DISTINCT name, id FROM room" +
+                        "SELECT DISTINCT name, id FROM " + SQLClass.ROOM +
                         " WHERE hotel_id='" + node2.Tag.ToString() + "' ORDER BY name");
                     for (int j = 0; j < rooms.Count; j += 2)
                     {
@@ -84,7 +85,7 @@ namespace Booking3
             if (Login == "")
             {
                 List<string> user_data = SQLClass.Select(
-                    "SELECT admin FROM users WHERE Login = '" + LoginTextBox.Text +
+                    "SELECT admin FROM " + SQLClass.USERS + " WHERE Login = '" + LoginTextBox.Text +
                     "' AND Password = '" + PasswordTextBox.Text + "'");
 
                 //Авторизация успешна
@@ -112,7 +113,7 @@ namespace Booking3
                 else
                 {
                     user_data = SQLClass.Select(
-                        "SELECT * FROM users WHERE Login = '" + LoginTextBox.Text + "'");
+                        "SELECT * FROM " + SQLClass.USERS + " WHERE Login = '" + LoginTextBox.Text + "'");
 
                     if (user_data.Count > 0)
                         MessageBox.Show("Неправильный пароль");

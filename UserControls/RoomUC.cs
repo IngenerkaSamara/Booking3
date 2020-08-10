@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Booking3.UserControls
@@ -22,7 +16,9 @@ namespace Booking3.UserControls
 
             List<string> room_data = SQLClass.Select(
                 "SELECT hotels.name, room.name, room.price, room.image, room.quantity" +
-                " FROM " + SQLClass.ROOM + " JOIN " + SQLClass.HOTELS + " ON room.hotel_id = hotels.id" +
+                " FROM " + SQLClass.ROOM + " room" +
+                " JOIN " + SQLClass.HOTELS + " hotels" +
+                " ON room.hotel_id = hotels.id" +
                 " WHERE room.id = " + RoomId);
 
             Text = room_data[0] + ": " + room_data[1];
@@ -57,7 +53,8 @@ namespace Booking3.UserControls
             DateTime dt = dateTimePicker1.Value;
             while (dt <= dateTimePicker2.Value.AddDays(0.5))
             {
-                List<string> existBooking = SQLClass.Select("SELECT COUNT(*) FROM " + SQLClass.BOOKING + 
+                List<string> existBooking = SQLClass.Select(
+                    "SELECT COUNT(*) FROM " + SQLClass.BOOKING + 
                     " WHERE dateFrom <= '" + dt.ToString("yyyy-MM-dd") + "'" +
                     " AND dateTo >= '" + dt.ToString("yyyy-MM-dd") + "'");
 
@@ -71,7 +68,8 @@ namespace Booking3.UserControls
             }
             #endregion
 
-            SQLClass.Update("INSERT INTO " + SQLClass.BOOKING + "(user, datefrom, dateto, room_id) VALUES(" +
+            SQLClass.Update("INSERT INTO " + SQLClass.BOOKING + 
+                "(user, datefrom, dateto, room_id) VALUES(" +
                 "'" + MainForm.Login + "', " +
                 "'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'," +
                 "'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'," +
