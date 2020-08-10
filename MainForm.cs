@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Booking3
@@ -271,6 +272,18 @@ namespace Booking3
             }
         }
 
+        private void VKPictureBox_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://vk.com/dtci_ru");
+        }
+
+        private void InstaPictureBox_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.instagram.com/ingenerka_73/");
+        }
+
+        #region Дизайн кнопок, блоков и т.д.
+
         private void button1_Click(object sender, EventArgs e)
         {
             Admin.AdminDesignForm af = new Admin.AdminDesignForm();
@@ -315,14 +328,30 @@ namespace Booking3
             catch (Exception) { }
         }
 
-        private void VKPictureBox_Click(object sender, EventArgs e)
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://vk.com/dtci_ru");
-        }
+            try
+            {
+                //Панель, на которую кликнули
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                ContextMenuStrip cms = (ContextMenuStrip)(item.GetCurrentParent());
+                Panel btn = (Panel)(cms.SourceControl);
 
-        private void InstaPictureBox_Click(object sender, EventArgs e)
+                //ФОрма с дизйном блока
+                Admin.CopyRightDesignForm f = new Admin.CopyRightDesignForm(btn);
+                f.ShowDialog();
+
+                //Применяем дизайн
+                btn.Size = f.ctrl.Size;
+            }
+            catch (Exception) { }
+        }
+        #endregion
+
+        private void CopyRightPanel_Resize(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.instagram.com/ingenerka_73/");
+            InstaPictureBox.Size = new Size(CopyRightLabel.Size.Height, CopyRightLabel.Size.Height);
+            VKPictureBox.Size = InstaPictureBox.Size;
         }
     }
 }

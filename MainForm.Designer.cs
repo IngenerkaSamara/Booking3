@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Города");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Города");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.buttonDefaultDesign = new System.Windows.Forms.Button();
@@ -53,6 +53,8 @@
             this.SocialLabel = new System.Windows.Forms.Label();
             this.VKPictureBox = new System.Windows.Forms.PictureBox();
             this.InstaPictureBox = new System.Windows.Forms.PictureBox();
+            this.copyRightCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.designCMS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -60,6 +62,7 @@
             this.CopyRightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).BeginInit();
+            this.copyRightCMS.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -197,10 +200,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Узел0";
-            treeNode1.Text = "Города";
+            treeNode2.Name = "Узел0";
+            treeNode2.Text = "Города";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(244, 415);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -227,6 +230,7 @@
             // CopyRightPanel
             // 
             this.CopyRightPanel.AutoScroll = true;
+            this.CopyRightPanel.ContextMenuStrip = this.copyRightCMS;
             this.CopyRightPanel.Controls.Add(this.InstaPictureBox);
             this.CopyRightPanel.Controls.Add(this.VKPictureBox);
             this.CopyRightPanel.Controls.Add(this.SocialLabel);
@@ -236,6 +240,7 @@
             this.CopyRightPanel.Name = "CopyRightPanel";
             this.CopyRightPanel.Size = new System.Drawing.Size(948, 35);
             this.CopyRightPanel.TabIndex = 17;
+            this.CopyRightPanel.Resize += new System.EventHandler(this.CopyRightPanel_Resize);
             // 
             // CopyRightLabel
             // 
@@ -279,6 +284,20 @@
             this.InstaPictureBox.TabStop = false;
             this.InstaPictureBox.Click += new System.EventHandler(this.InstaPictureBox_Click);
             // 
+            // copyRightCMS
+            // 
+            this.copyRightCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.copyRightCMS.Name = "contextMenuStrip1";
+            this.copyRightCMS.Size = new System.Drawing.Size(151, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Дизайн блока";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -300,6 +319,7 @@
             this.CopyRightPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).EndInit();
+            this.copyRightCMS.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -327,6 +347,8 @@
         private System.Windows.Forms.PictureBox VKPictureBox;
         private System.Windows.Forms.Label SocialLabel;
         private System.Windows.Forms.Label CopyRightLabel;
+        private System.Windows.Forms.ContextMenuStrip copyRightCMS;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
