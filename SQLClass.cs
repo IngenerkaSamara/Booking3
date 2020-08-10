@@ -15,6 +15,11 @@ namespace Booking3
         public static MySqlConnection CONN;
 
         /// <summary>
+        /// Таблица людей
+        /// </summary>
+        public static string BOOKING = "booking";
+
+        /// <summary>
         /// Таблица гостиниц
         /// </summary>
         public static string HOTELS = "hotels";

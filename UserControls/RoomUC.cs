@@ -57,9 +57,9 @@ namespace Booking3.UserControls
             DateTime dt = dateTimePicker1.Value;
             while (dt <= dateTimePicker2.Value.AddDays(0.5))
             {
-                List<string> existBooking = SQLClass.Select("SELECT COUNT(*) FROM booking " +
-                    "WHERE dateFrom <= '" + dt.ToString("yyyy-MM-dd") + "'" +
-                    "AND dateTo >= '" + dt.ToString("yyyy-MM-dd") + "'");
+                List<string> existBooking = SQLClass.Select("SELECT COUNT(*) FROM " + SQLClass.BOOKING + 
+                    " WHERE dateFrom <= '" + dt.ToString("yyyy-MM-dd") + "'" +
+                    " AND dateTo >= '" + dt.ToString("yyyy-MM-dd") + "'");
 
                 if (Convert.ToInt32(existBooking[0]) >= qty)
                 {
@@ -71,7 +71,7 @@ namespace Booking3.UserControls
             }
             #endregion
 
-            SQLClass.Update("INSERT INTO booking(user, datefrom, dateto, room_id) VALUES(" +
+            SQLClass.Update("INSERT INTO " + SQLClass.BOOKING + "(user, datefrom, dateto, room_id) VALUES(" +
                 "'" + MainForm.Login + "', " +
                 "'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'," +
                 "'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'," +

@@ -50,7 +50,6 @@
             // 
             // FilterPanel
             // 
-            this.FilterPanel.AutoScroll = true;
             this.FilterPanel.Controls.Add(this.SortComboBox);
             this.FilterPanel.Controls.Add(this.OptionsCheckedListBox);
             this.FilterPanel.Controls.Add(this.label5);

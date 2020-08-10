@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Города");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.buttonDefaultDesign = new System.Windows.Forms.Button();
             this.PasswordLabel = new System.Windows.Forms.Label();
@@ -44,13 +45,21 @@
             this.HotelsPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.treeCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.treeDesignMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.CopyRightPanel = new System.Windows.Forms.Panel();
+            this.CopyRightLabel = new System.Windows.Forms.Label();
+            this.SocialLabel = new System.Windows.Forms.Label();
+            this.VKPictureBox = new System.Windows.Forms.PictureBox();
+            this.InstaPictureBox = new System.Windows.Forms.PictureBox();
             this.AuthPanel.SuspendLayout();
             this.designCMS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.treeCMS.SuspendLayout();
+            this.CopyRightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -164,7 +173,7 @@
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HotelsPanel.Location = new System.Drawing.Point(253, 3);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(692, 399);
+            this.HotelsPanel.Size = new System.Drawing.Size(692, 415);
             this.HotelsPanel.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -179,7 +188,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(948, 405);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(948, 421);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // treeView1
@@ -192,14 +201,9 @@
             treeNode1.Text = "Города";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
-            this.treeView1.Size = new System.Drawing.Size(244, 399);
+            this.treeView1.Size = new System.Drawing.Size(244, 415);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // treeCMS
             // 
@@ -215,13 +219,74 @@
             this.treeDesignMenuItem.Text = "Дизайн блока";
             this.treeDesignMenuItem.Click += new System.EventHandler(this.treeDesignMenuItem_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // CopyRightPanel
+            // 
+            this.CopyRightPanel.AutoScroll = true;
+            this.CopyRightPanel.Controls.Add(this.InstaPictureBox);
+            this.CopyRightPanel.Controls.Add(this.VKPictureBox);
+            this.CopyRightPanel.Controls.Add(this.SocialLabel);
+            this.CopyRightPanel.Controls.Add(this.CopyRightLabel);
+            this.CopyRightPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CopyRightPanel.Location = new System.Drawing.Point(0, 456);
+            this.CopyRightPanel.Name = "CopyRightPanel";
+            this.CopyRightPanel.Size = new System.Drawing.Size(948, 35);
+            this.CopyRightPanel.TabIndex = 17;
+            // 
+            // CopyRightLabel
+            // 
+            this.CopyRightLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CopyRightLabel.Location = new System.Drawing.Point(751, 0);
+            this.CopyRightLabel.Name = "CopyRightLabel";
+            this.CopyRightLabel.Size = new System.Drawing.Size(197, 35);
+            this.CopyRightLabel.TabIndex = 0;
+            this.CopyRightLabel.Text = "@Михаил Абрамов, 2020";
+            this.CopyRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SocialLabel
+            // 
+            this.SocialLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SocialLabel.Location = new System.Drawing.Point(0, 0);
+            this.SocialLabel.Name = "SocialLabel";
+            this.SocialLabel.Size = new System.Drawing.Size(197, 35);
+            this.SocialLabel.TabIndex = 1;
+            this.SocialLabel.Text = "Наши соцсети";
+            this.SocialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // VKPictureBox
+            // 
+            this.VKPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("VKPictureBox.Image")));
+            this.VKPictureBox.Location = new System.Drawing.Point(212, 0);
+            this.VKPictureBox.Name = "VKPictureBox";
+            this.VKPictureBox.Size = new System.Drawing.Size(35, 35);
+            this.VKPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.VKPictureBox.TabIndex = 2;
+            this.VKPictureBox.TabStop = false;
+            this.VKPictureBox.Click += new System.EventHandler(this.VKPictureBox_Click);
+            // 
+            // InstaPictureBox
+            // 
+            this.InstaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InstaPictureBox.Image")));
+            this.InstaPictureBox.Location = new System.Drawing.Point(262, 0);
+            this.InstaPictureBox.Name = "InstaPictureBox";
+            this.InstaPictureBox.Size = new System.Drawing.Size(54, 35);
+            this.InstaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.InstaPictureBox.TabIndex = 3;
+            this.InstaPictureBox.TabStop = false;
+            this.InstaPictureBox.Click += new System.EventHandler(this.InstaPictureBox_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 440);
+            this.ClientSize = new System.Drawing.Size(948, 491);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.AuthPanel);
+            this.Controls.Add(this.CopyRightPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
@@ -232,6 +297,9 @@
             this.designCMS.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.treeCMS.ResumeLayout(false);
+            this.CopyRightPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,6 +322,11 @@
         private System.Windows.Forms.ToolStripMenuItem дизайнКнопкиToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip treeCMS;
         private System.Windows.Forms.ToolStripMenuItem treeDesignMenuItem;
+        private System.Windows.Forms.Panel CopyRightPanel;
+        private System.Windows.Forms.PictureBox InstaPictureBox;
+        private System.Windows.Forms.PictureBox VKPictureBox;
+        private System.Windows.Forms.Label SocialLabel;
+        private System.Windows.Forms.Label CopyRightLabel;
     }
 }
 

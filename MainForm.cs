@@ -314,5 +314,15 @@ namespace Booking3
             }
             catch (Exception) { }
         }
+
+        private void VKPictureBox_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://vk.com/dtci_ru");
+        }
+
+        private void InstaPictureBox_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.instagram.com/ingenerka_73/");
+        }
     }
 }
