@@ -53,8 +53,6 @@
             this.SocialLabel = new System.Windows.Forms.Label();
             this.VKPictureBox = new System.Windows.Forms.PictureBox();
             this.InstaPictureBox = new System.Windows.Forms.PictureBox();
-            this.copyRightCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.designCMS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -62,12 +60,12 @@
             this.CopyRightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).BeginInit();
-            this.copyRightCMS.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
             // 
             this.AuthPanel.AutoScroll = true;
+            this.AuthPanel.ContextMenuStrip = this.treeCMS;
             this.AuthPanel.Controls.Add(this.buttonDefaultDesign);
             this.AuthPanel.Controls.Add(this.PasswordLabel);
             this.AuthPanel.Controls.Add(this.LoginLabel);
@@ -230,7 +228,7 @@
             // CopyRightPanel
             // 
             this.CopyRightPanel.AutoScroll = true;
-            this.CopyRightPanel.ContextMenuStrip = this.copyRightCMS;
+            this.CopyRightPanel.ContextMenuStrip = this.treeCMS;
             this.CopyRightPanel.Controls.Add(this.InstaPictureBox);
             this.CopyRightPanel.Controls.Add(this.VKPictureBox);
             this.CopyRightPanel.Controls.Add(this.SocialLabel);
@@ -284,20 +282,6 @@
             this.InstaPictureBox.TabStop = false;
             this.InstaPictureBox.Click += new System.EventHandler(this.InstaPictureBox_Click);
             // 
-            // copyRightCMS
-            // 
-            this.copyRightCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.copyRightCMS.Name = "contextMenuStrip1";
-            this.copyRightCMS.Size = new System.Drawing.Size(151, 26);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem1.Text = "Дизайн блока";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -319,7 +303,6 @@
             this.CopyRightPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).EndInit();
-            this.copyRightCMS.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -347,8 +330,6 @@
         private System.Windows.Forms.PictureBox VKPictureBox;
         private System.Windows.Forms.Label SocialLabel;
         private System.Windows.Forms.Label CopyRightLabel;
-        private System.Windows.Forms.ContextMenuStrip copyRightCMS;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

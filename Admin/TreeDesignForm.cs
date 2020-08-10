@@ -21,6 +21,7 @@ namespace Booking3.Admin
             InitializeComponent();
 
             textBox1.Text = ctrl.Size.Width.ToString();
+            textBox2.Text = ctrl.Size.Height.ToString();
         }
 
         private void TreeDesignForm_Load(object sender, EventArgs e)
@@ -30,7 +31,8 @@ namespace Booking3.Admin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ctrl.Size = new Size(Convert.ToInt32(textBox1.Text), ctrl.Size.Height);
+            ctrl.Size = new Size(Convert.ToInt32(textBox1.Text), 
+                Convert.ToInt32(textBox2.Text));
         }
     }
 }

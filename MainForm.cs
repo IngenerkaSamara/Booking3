@@ -325,45 +325,48 @@ namespace Booking3
 
         private void treeDesignMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            //Блок, на который кликнули
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            ContextMenuStrip cms = (ContextMenuStrip)(item.GetCurrentParent());
+            Control btn = cms.SourceControl;
+
+            //Ищем родительскую панель
+            Control parent = btn;
+            while (!(parent is Panel || parent is TableLayoutPanel ||
+                parent is UserControl || parent is Form))
             {
-                //Дерево, на которое кликнули
-                ToolStripMenuItem item = (ToolStripMenuItem)sender;
-                ContextMenuStrip cms = (ContextMenuStrip)(item.GetCurrentParent());
-                TreeView btn = (TreeView)(cms.SourceControl);
-
-                //ТейблПанель, на которой дерево лежит
-                TableLayoutPanel b = (TableLayoutPanel)btn.Parent;
-                TableLayoutPanelCellPosition pos = b.GetPositionFromControl(btn);
-              
-                //ФОрма с дизйном блока
-                Admin.TreeDesignForm f = new Admin.TreeDesignForm(btn);
-                f.ShowDialog();
-
-                //Применяем дизайн
-                b.ColumnStyles[pos.Column].Width = f.ctrl.Width;
+                parent = parent.Parent;
             }
-            catch (Exception) { }
-        }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            try
+            //ФОрма с дизйном блока
+            Admin.TreeDesignForm f = new Admin.TreeDesignForm(btn);
+            f.ShowDialog();
+
+            //Применяем дизайн
+            if (parent is TableLayoutPanel)
+            { 
+                try
+                {
+                    //ТейблПанель, на которой дерево лежит
+                    TableLayoutPanel b = (TableLayoutPanel)parent;
+                    TableLayoutPanelCellPosition pos = b.GetPositionFromControl(btn);
+
+                    //Применяем дизайн
+                    b.ColumnStyles[pos.Column].Width = f.ctrl.Width;
+                    b.RowStyles[pos.Row].Height = f.ctrl.Height;
+                }
+                catch (Exception) { }
+            }
+            else
             {
-                //Панель, на которую кликнули
-                ToolStripMenuItem item = (ToolStripMenuItem)sender;
-                ContextMenuStrip cms = (ContextMenuStrip)(item.GetCurrentParent());
-                Panel btn = (Panel)(cms.SourceControl);
-
-                //ФОрма с дизйном блока
-                Admin.CopyRightDesignForm f = new Admin.CopyRightDesignForm(btn);
-                f.ShowDialog();
-
-                //Применяем дизайн
-                btn.Size = f.ctrl.Size;
+                try
+                {
+                    parent.Size = f.ctrl.Size;
+                }
+                catch (Exception) { }
             }
-            catch (Exception) { }
         }
+        
         #endregion
 
         private void CopyRightPanel_Resize(object sender, EventArgs e)

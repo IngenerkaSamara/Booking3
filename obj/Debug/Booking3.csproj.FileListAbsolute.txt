@@ -38,4 +38,3 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminUsers
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.UniqueButton.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminDesignForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.TreeDesignForm.resources
-C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.CopyRightDesignForm.resources
