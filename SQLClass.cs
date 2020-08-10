@@ -16,6 +16,11 @@ namespace Booking3
 
         #region Таблицы
         /// <summary>
+        /// Таблица дизайна
+        /// </summary>
+        public static string BLOCK_DESIGN = "blockDesign";
+
+        /// <summary>
         /// Таблица бронирований
         /// </summary>
         public static string BOOKING = "booking";
@@ -43,7 +48,7 @@ namespace Booking3
         /// <summary>
         /// Таблица людей
         /// </summary>
-        public static string USERS = "users";
+        public static string USERS = "users2";
         #endregion
 
         /// <summary>

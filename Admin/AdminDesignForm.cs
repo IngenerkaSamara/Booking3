@@ -154,7 +154,76 @@ namespace Booking3.Admin
             }
             catch (Exception) { }
         }
-        
+
+        /// <summary>
+        /// ЧТение дизайна блока из БД
+        /// </summary>
+        public static void ReadBlockDesign(Control btn)
+        {
+            //Ищем родительскую форму/UserControl
+            Control parent = btn;
+            while (!(parent is Form || parent is UserControl))
+            {
+                parent = parent.Parent;
+            }
+
+
+            //Размеры
+            try
+            {
+                string width =
+                    SQLClass.Select("SELECT value FROM " + SQLClass.BLOCK_DESIGN +
+                    " WHERE parameter='WIDTH'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + parent.Name + "'")[0];
+                string height =
+                    SQLClass.Select("SELECT value FROM " + SQLClass.BLOCK_DESIGN +
+                    " WHERE parameter='HEIGHT'" +
+                    " AND name='" + btn.Name + "'" +
+                    " AND form='" + parent.Name + "'")[0];
+
+                int Width = Convert.ToInt32(width);
+                int Height = Convert.ToInt32(height);
+
+
+                //Ищем родительскую панель
+                Control parent2 = btn;
+                while (!(parent2 is Panel || parent2 is TableLayoutPanel ||
+                    parent2 is UserControl || parent2 is Form))
+                {
+                    parent2 = parent2.Parent;
+                }
+
+
+
+                //Применяем дизайн
+                if (parent2 is TableLayoutPanel)
+                {
+                    try
+                    {
+                        //ТейблПанель, на которой дерево лежит
+                        TableLayoutPanel b = (TableLayoutPanel)parent2;
+                        TableLayoutPanelCellPosition pos = b.GetPositionFromControl(btn);
+
+                        //Применяем дизайн
+                        b.ColumnStyles[pos.Column].Width = Width;
+                        b.RowStyles[pos.Row].Height = Height;
+                    }
+                    catch (Exception) { }
+                }
+                else
+                {
+                    try
+                    {
+                        parent2.Size = new Size(Width, Height);
+                    }
+                    catch (Exception) { }
+                }
+            }
+            catch (Exception) { }
+
+        }
+
         /// <summary>
         /// ЧТение дизайна кнопки из БД
         /// </summary>
@@ -320,6 +389,12 @@ namespace Booking3.Admin
                         ctrl.Visible = true;
                 }
                 #endregion
+                //Дизайн блоков
+                else if (ctrl.AccessibleDescription == "Block")
+                {
+                    ReadBlockDesign(ctrl);
+                    ApplyDesign(ctrl);
+                }
                 else
                     ApplyDesign(ctrl);
             }

@@ -64,6 +64,7 @@
             // 
             // AuthPanel
             // 
+            this.AuthPanel.AccessibleDescription = "Block";
             this.AuthPanel.AutoScroll = true;
             this.AuthPanel.ContextMenuStrip = this.treeCMS;
             this.AuthPanel.Controls.Add(this.buttonDefaultDesign);
@@ -208,6 +209,7 @@
             // 
             // treeView1
             // 
+            this.treeView1.AccessibleDescription = "Block";
             this.treeView1.ContextMenuStrip = this.treeCMS;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
@@ -227,6 +229,7 @@
             // 
             // CopyRightPanel
             // 
+            this.CopyRightPanel.AccessibleDescription = "Block";
             this.CopyRightPanel.AutoScroll = true;
             this.CopyRightPanel.ContextMenuStrip = this.treeCMS;
             this.CopyRightPanel.Controls.Add(this.InstaPictureBox);
