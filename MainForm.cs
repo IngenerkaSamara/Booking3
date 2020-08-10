@@ -16,12 +16,23 @@ namespace Booking3
         /// Админ ли в системе
         /// </summary>
         public static bool IsAdmin = false;
-               
+
+        #region Юзерконтролы
+        /// <summary>
+        /// Список гостиниц
+        /// </summary>
+        UserControls.HotelsListUC listUC = new UserControls.HotelsListUC();
+        UserControls.HotelUC hotelUC;
+        UserControls.RoomUC roomUC;
+
+        #endregion
+
+
         public MainForm()
         {
             InitializeComponent();
-
-            UserControls.HotelsListUC listUC = new UserControls.HotelsListUC();
+            
+            //Отображаем список гостиниц
             listUC.Dock = DockStyle.Fill;
             HotelsPanel.Controls.Clear();
             HotelsPanel.Controls.Add(listUC);
@@ -149,19 +160,18 @@ namespace Booking3
                 return;
             }
 
-            #region Выбран город
-            if (e.Node.Level == 0 && e.Node.Text == "Города")
+            #region Выбран список гостиниц
+            if (e.Node.Level == 0 && e.Node.Text == "Города" &&
+                !HotelsPanel.Contains(listUC))
             {
-                UserControls.HotelsListUC listUC =
-                    new UserControls.HotelsListUC("");
+                listUC = new UserControls.HotelsListUC("");
                 listUC.Dock = DockStyle.Fill;
                 HotelsPanel.Controls.Clear();
                 HotelsPanel.Controls.Add(listUC);
             }
             else if (e.Node.Level == 1 && e.Node.Parent.Text == "Города")
             {
-                UserControls.HotelsListUC listUC =
-                    new UserControls.HotelsListUC(e.Node.Text);
+                listUC = new UserControls.HotelsListUC(e.Node.Text);
                 listUC.Dock = DockStyle.Fill;
                 HotelsPanel.Controls.Clear();
                 HotelsPanel.Controls.Add(listUC);
@@ -171,18 +181,18 @@ namespace Booking3
             #region Выбрана гостиница
             else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Города")
             {
-                UserControls.HotelUC listUC = new UserControls.HotelUC(e.Node.Tag.ToString());
-                listUC.Dock = DockStyle.Fill;
+                hotelUC = new UserControls.HotelUC(e.Node.Tag.ToString());
+                hotelUC.Dock = DockStyle.Fill;
                 HotelsPanel.Controls.Clear();
-                HotelsPanel.Controls.Add(listUC);
+                HotelsPanel.Controls.Add(hotelUC);
             }
             #endregion
 
             #region Выбрана комната
             else if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Города")
             {
-                UserControls.RoomUC listUC = new UserControls.RoomUC(e.Node.Tag.ToString());
-                listUC.Dock = DockStyle.Fill;
+                roomUC = new UserControls.RoomUC(e.Node.Tag.ToString());
+                roomUC.Dock = DockStyle.Fill;
                 HotelsPanel.Controls.Clear();
                 HotelsPanel.Controls.Add(listUC);
             }
