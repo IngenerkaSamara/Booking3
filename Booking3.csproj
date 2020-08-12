@@ -98,11 +98,11 @@
     <Compile Include="Admin\AdminUsersForm.Designer.cs">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\TreeDesignForm.cs">
+    <Compile Include="Admin\BlockDesignForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\TreeDesignForm.Designer.cs">
-      <DependentUpon>TreeDesignForm.cs</DependentUpon>
+    <Compile Include="Admin\BlockDesignForm.Designer.cs">
+      <DependentUpon>BlockDesignForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\UniqueButton.cs">
       <SubType>Form</SubType>
@@ -143,6 +143,12 @@
     <Compile Include="UserControls\RoomUC.Designer.cs">
       <DependentUpon>RoomUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SocialUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SocialUC.Designer.cs">
+      <DependentUpon>SocialUC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,8 +173,8 @@
     <EmbeddedResource Include="Admin\AdminUsersForm.resx">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\TreeDesignForm.resx">
-      <DependentUpon>TreeDesignForm.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\BlockDesignForm.resx">
+      <DependentUpon>BlockDesignForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\UniqueButton.resx">
       <DependentUpon>UniqueButton.cs</DependentUpon>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RoomUC.resx">
       <DependentUpon>RoomUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SocialUC.resx">
+      <DependentUpon>SocialUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

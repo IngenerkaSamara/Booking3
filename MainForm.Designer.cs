@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Города");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Города");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.treeCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.treeDesignMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,17 +48,10 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CopyRightPanel = new System.Windows.Forms.Panel();
-            this.InstaPictureBox = new System.Windows.Forms.PictureBox();
-            this.VKPictureBox = new System.Windows.Forms.PictureBox();
-            this.SocialLabel = new System.Windows.Forms.Label();
-            this.CopyRightLabel = new System.Windows.Forms.Label();
             this.AuthPanel.SuspendLayout();
             this.treeCMS.SuspendLayout();
             this.designCMS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.CopyRightPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -80,6 +72,7 @@
             this.AuthPanel.Name = "AuthPanel";
             this.AuthPanel.Size = new System.Drawing.Size(948, 35);
             this.AuthPanel.TabIndex = 2;
+            this.AuthPanel.Resize += new System.EventHandler(this.AuthPanel_Resize);
             // 
             // treeCMS
             // 
@@ -107,24 +100,26 @@
             // 
             // PasswordLabel
             // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(171, 10);
+            this.PasswordLabel.Location = new System.Drawing.Point(171, 0);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(67, 20);
+            this.PasswordLabel.Size = new System.Drawing.Size(67, 30);
             this.PasswordLabel.TabIndex = 13;
             this.PasswordLabel.Text = "Пароль";
+            this.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoginLabel
             // 
-            this.LoginLabel.AutoSize = true;
-            this.LoginLabel.Location = new System.Drawing.Point(4, 8);
+            this.LoginLabel.Location = new System.Drawing.Point(4, 0);
             this.LoginLabel.Name = "LoginLabel";
-            this.LoginLabel.Size = new System.Drawing.Size(55, 20);
+            this.LoginLabel.Size = new System.Drawing.Size(55, 28);
             this.LoginLabel.TabIndex = 12;
             this.LoginLabel.Text = "Логин";
+            this.LoginLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PasswordTextBox
             // 
+            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.PasswordTextBox.Location = new System.Drawing.Point(244, 3);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(100, 26);
@@ -133,6 +128,8 @@
             // 
             // LoginTextBox
             // 
+            this.LoginTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.LoginTextBox.Location = new System.Drawing.Point(65, 5);
             this.LoginTextBox.Name = "LoginTextBox";
             this.LoginTextBox.Size = new System.Drawing.Size(100, 26);
@@ -197,6 +194,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.Controls.Add(this.HotelsPanel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.treeView1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -214,10 +212,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Узел0";
-            treeNode1.Text = "Города";
+            treeNode2.Name = "Узел0";
+            treeNode2.Text = "Города";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(244, 415);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -229,61 +227,13 @@
             // 
             // CopyRightPanel
             // 
-            this.CopyRightPanel.AccessibleDescription = "Block";
+            this.CopyRightPanel.AccessibleDescription = "Block8";
             this.CopyRightPanel.AutoScroll = true;
-            this.CopyRightPanel.ContextMenuStrip = this.treeCMS;
-            this.CopyRightPanel.Controls.Add(this.InstaPictureBox);
-            this.CopyRightPanel.Controls.Add(this.VKPictureBox);
-            this.CopyRightPanel.Controls.Add(this.SocialLabel);
-            this.CopyRightPanel.Controls.Add(this.CopyRightLabel);
             this.CopyRightPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CopyRightPanel.Location = new System.Drawing.Point(0, 456);
             this.CopyRightPanel.Name = "CopyRightPanel";
             this.CopyRightPanel.Size = new System.Drawing.Size(948, 35);
             this.CopyRightPanel.TabIndex = 17;
-            this.CopyRightPanel.Resize += new System.EventHandler(this.CopyRightPanel_Resize);
-            // 
-            // InstaPictureBox
-            // 
-            this.InstaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("InstaPictureBox.Image")));
-            this.InstaPictureBox.Location = new System.Drawing.Point(289, 0);
-            this.InstaPictureBox.Name = "InstaPictureBox";
-            this.InstaPictureBox.Size = new System.Drawing.Size(42, 35);
-            this.InstaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.InstaPictureBox.TabIndex = 3;
-            this.InstaPictureBox.TabStop = false;
-            this.InstaPictureBox.Click += new System.EventHandler(this.InstaPictureBox_Click);
-            // 
-            // VKPictureBox
-            // 
-            this.VKPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("VKPictureBox.Image")));
-            this.VKPictureBox.Location = new System.Drawing.Point(212, 0);
-            this.VKPictureBox.Name = "VKPictureBox";
-            this.VKPictureBox.Size = new System.Drawing.Size(35, 35);
-            this.VKPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.VKPictureBox.TabIndex = 2;
-            this.VKPictureBox.TabStop = false;
-            this.VKPictureBox.Click += new System.EventHandler(this.VKPictureBox_Click);
-            // 
-            // SocialLabel
-            // 
-            this.SocialLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SocialLabel.Location = new System.Drawing.Point(0, 0);
-            this.SocialLabel.Name = "SocialLabel";
-            this.SocialLabel.Size = new System.Drawing.Size(165, 35);
-            this.SocialLabel.TabIndex = 1;
-            this.SocialLabel.Text = "Наши соцсети";
-            this.SocialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CopyRightLabel
-            // 
-            this.CopyRightLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CopyRightLabel.Location = new System.Drawing.Point(751, 0);
-            this.CopyRightLabel.Name = "CopyRightLabel";
-            this.CopyRightLabel.Size = new System.Drawing.Size(197, 35);
-            this.CopyRightLabel.TabIndex = 0;
-            this.CopyRightLabel.Text = "@Михаил Абрамов, 2020";
-            this.CopyRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -303,9 +253,6 @@
             this.treeCMS.ResumeLayout(false);
             this.designCMS.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.CopyRightPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.InstaPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,10 +276,6 @@
         private System.Windows.Forms.ContextMenuStrip treeCMS;
         private System.Windows.Forms.ToolStripMenuItem treeDesignMenuItem;
         private System.Windows.Forms.Panel CopyRightPanel;
-        private System.Windows.Forms.PictureBox InstaPictureBox;
-        private System.Windows.Forms.PictureBox VKPictureBox;
-        private System.Windows.Forms.Label SocialLabel;
-        private System.Windows.Forms.Label CopyRightLabel;
     }
 }
 

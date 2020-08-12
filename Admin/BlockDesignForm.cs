@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 namespace Booking3.Admin
 {
-    public partial class TreeDesignForm : Form
+    /// <summary>
+    /// Настрока параметров блоков
+    /// </summary>
+    public partial class BlockDesignForm : Form
     {
         /// <summary>
         /// Наш блок
@@ -22,7 +25,7 @@ namespace Booking3.Admin
         /// </summary>
         public Control parent;
 
-        public TreeDesignForm(Control _ctrl)
+        public BlockDesignForm(Control _ctrl)
         {
             //Ищем родительскую форму/UserControl
             parent = _ctrl;
@@ -42,28 +45,16 @@ namespace Booking3.Admin
             WidthTextBox.Text = ctrl.Size.Width.ToString();
             HeightTextBox.Text = ctrl.Size.Height.ToString();
 
-            CopyRightCLB.Visible = (ctrl.Name == "CopyRightPanel");
-            if (ctrl.Name == "CopyRightPanel")
+            CopyRightCLB.Visible = (ctrl.Name == "SocialUC" || ctrl.Name == "CopyRightPanel");
+            if (ctrl.Name == "SocialUC" || ctrl.Name == "CopyRightPanel")
             {
                 try
                 {
-                    string vk =
-                        SQLClass.Select(
-                            "SELECT value FROM " + SQLClass.BLOCK_DESIGN +
-                        " WHERE parameter='VK'" +
-                        " AND name='" + ctrl.Name + "'" +
-                        " AND form='" + parent.Name + "'")[0];
-
+                    string vk = SelectBlockParam("VK", ctrl, parent);
                     if (vk == "1")
                         CopyRightCLB.SetItemChecked(0, true);
 
-                    string insta =
-                        SQLClass.Select(
-                            "SELECT value FROM " + SQLClass.BLOCK_DESIGN +
-                        " WHERE parameter='Insta'" +
-                        " AND name='" + ctrl.Name + "'" +
-                        " AND form='" + parent.Name + "'")[0];
-
+                    string insta = SelectBlockParam("Insta", ctrl, parent);
                     if (insta == "1")
                         CopyRightCLB.SetItemChecked(1, true);
                 }
@@ -85,6 +76,25 @@ namespace Booking3.Admin
                 " WHERE name='" + ctrl.Name + "'" +
                 " AND form='" + parent.Name + "'" +
                 " AND parameter='" + par + "'");
+        }
+
+        /// <summary>
+        /// Значение параметра
+        /// </summary>
+        public static string SelectBlockParam(string par, Control ctrl, Control parent)
+        {
+            string insta = "";
+            try
+            {
+                insta = SQLClass.Select(
+                    "SELECT value FROM " + SQLClass.BLOCK_DESIGN +
+                    " WHERE parameter='" + par + "'" +
+                    " AND name='" + ctrl.Name + "'" +
+                    " AND form='" + parent.Name + "'")[0];
+            }
+            catch (Exception) { }
+
+            return insta;
         }
 
         /// <summary>

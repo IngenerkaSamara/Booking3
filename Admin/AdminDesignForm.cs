@@ -14,6 +14,10 @@ namespace Booking3.Admin
     {
         #region ContextMenu
         /// <summary>
+        /// Меню блоков
+        /// </summary>
+        public static ContextMenuStrip BLOCK_CMS;
+        /// <summary>
         /// Меню кнопок
         /// </summary>
         public static ContextMenuStrip BUTTON_CMS;
@@ -158,10 +162,10 @@ namespace Booking3.Admin
         /// <summary>
         /// ЧТение дизайна блока из БД
         /// </summary>
-        public static void ReadBlockDesign(Control btn)
+        public static void ReadBlockDesign(Control block)
         {
             //Ищем родительскую форму/UserControl
-            Control parent = btn;
+            Control parent = block;
             while (!(parent is Form || parent is UserControl))
             {
                 parent = parent.Parent;
@@ -171,23 +175,15 @@ namespace Booking3.Admin
             //Размеры
             try
             {
-                string width =
-                    SQLClass.Select("SELECT value FROM " + SQLClass.BLOCK_DESIGN +
-                    " WHERE parameter='WIDTH'" +
-                    " AND name='" + btn.Name + "'" +
-                    " AND form='" + parent.Name + "'")[0];
-                string height =
-                    SQLClass.Select("SELECT value FROM " + SQLClass.BLOCK_DESIGN +
-                    " WHERE parameter='HEIGHT'" +
-                    " AND name='" + btn.Name + "'" +
-                    " AND form='" + parent.Name + "'")[0];
+                string width = BlockDesignForm.SelectBlockParam("WIDTH", block, parent);
+                string height = BlockDesignForm.SelectBlockParam("HEIGHT", block, parent);
 
                 int Width = Convert.ToInt32(width);
                 int Height = Convert.ToInt32(height);
 
 
                 //Ищем родительскую панель
-                Control parent2 = btn;
+                Control parent2 = block;
                 while (!(parent2 is Panel || parent2 is TableLayoutPanel ||
                     parent2 is UserControl || parent2 is Form))
                 {
@@ -203,7 +199,7 @@ namespace Booking3.Admin
                     {
                         //ТейблПанель, на которой дерево лежит
                         TableLayoutPanel b = (TableLayoutPanel)parent2;
-                        TableLayoutPanelCellPosition pos = b.GetPositionFromControl(btn);
+                        TableLayoutPanelCellPosition pos = b.GetPositionFromControl(block);
 
                         //Применяем дизайн
                         b.ColumnStyles[pos.Column].Width = Width;
@@ -222,6 +218,23 @@ namespace Booking3.Admin
             }
             catch (Exception) { }
 
+            //Соцсети
+            if (block.Name == "SocialUC")
+            {
+                try
+                {
+                    UserControls.SocialUC social = (UserControls.SocialUC)block;
+
+                    social.VKPictureBox.Visible = false;
+                    string vk = BlockDesignForm.SelectBlockParam("VK", block, parent);
+                    social.VKPictureBox.Visible = (vk == "1");
+
+                    social.InstaPictureBox.Visible = false;
+                    string insta = BlockDesignForm.SelectBlockParam("Insta", block, parent);
+                    social.InstaPictureBox.Visible = (insta == "1");                    
+                }
+                catch (Exception) { }
+            }
         }
 
         /// <summary>

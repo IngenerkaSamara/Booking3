@@ -31,11 +31,22 @@ namespace Booking3
         public MainForm()
         {
             InitializeComponent();
+
+            Admin.AdminDesignForm.BUTTON_CMS = designCMS;
+            Admin.AdminDesignForm.BLOCK_CMS = treeCMS;
             
             //Отображаем список гостиниц
             listUC.Dock = DockStyle.Fill;
             HotelsPanel.Controls.Clear();
             HotelsPanel.Controls.Add(listUC);
+
+            //СОцсети
+            UserControls.SocialUC social = new UserControls.SocialUC();
+            social.Dock = DockStyle.Fill;
+            CopyRightPanel.Controls.Clear();
+            CopyRightPanel.Controls.Add(social);
+
+
 
             //Скрываем кнопку личного кабинета
             Login = "1";
@@ -74,7 +85,6 @@ namespace Booking3
             }
 
             Admin.AdminDesignForm.ApplyDesign(this);
-            Admin.AdminDesignForm.BUTTON_CMS = designCMS;
             Admin.AdminDesignForm.ApplyMenu(this);
         }
         
@@ -320,6 +330,7 @@ namespace Booking3
 
                 Admin.UniqueButton f = new Admin.UniqueButton(btn, parent);
                 f.ShowDialog();
+                Admin.AdminDesignForm.ApplyDesign(this);
             }
             catch (Exception) { }
         }
@@ -340,40 +351,17 @@ namespace Booking3
             }
 
             //ФОрма с дизйном блока
-            Admin.TreeDesignForm f = new Admin.TreeDesignForm(btn);
+            Admin.BlockDesignForm f = new Admin.BlockDesignForm(btn);
             f.ShowDialog();
-
-            //Применяем дизайн
-            if (parent is TableLayoutPanel)
-            { 
-                try
-                {
-                    //ТейблПанель, на которой дерево лежит
-                    TableLayoutPanel b = (TableLayoutPanel)parent;
-                    TableLayoutPanelCellPosition pos = b.GetPositionFromControl(btn);
-
-                    //Применяем дизайн
-                    b.ColumnStyles[pos.Column].Width = f.ctrl.Width;
-                    b.RowStyles[pos.Row].Height = f.ctrl.Height;
-                }
-                catch (Exception) { }
-            }
-            else
-            {
-                try
-                {
-                    parent.Size = f.ctrl.Size;
-                }
-                catch (Exception) { }
-            }
+            Admin.AdminDesignForm.ApplyDesign(this);
         }
-        
+
         #endregion
 
-        private void CopyRightPanel_Resize(object sender, EventArgs e)
+        private void AuthPanel_Resize(object sender, EventArgs e)
         {
-            InstaPictureBox.Size = new Size(CopyRightLabel.Size.Height, CopyRightLabel.Size.Height);
-            VKPictureBox.Size = InstaPictureBox.Size;
+            foreach (Control ctrl in AuthPanel.Controls)
+                ctrl.Size = new Size(ctrl.Size.Width, AuthPanel.Height);
         }
     }
 }

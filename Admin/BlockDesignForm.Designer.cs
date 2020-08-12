@@ -1,6 +1,6 @@
 ﻿namespace Booking3.Admin
 {
-    partial class TreeDesignForm
+    partial class BlockDesignForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,7 @@
             this.WidthTextBox.Location = new System.Drawing.Point(6, 34);
             this.WidthTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.WidthTextBox.Name = "WidthTextBox";
-            this.WidthTextBox.Size = new System.Drawing.Size(148, 26);
+            this.WidthTextBox.Size = new System.Drawing.Size(193, 26);
             this.WidthTextBox.TabIndex = 1;
             // 
             // HeightTextBox
@@ -59,7 +59,7 @@
             this.HeightTextBox.Location = new System.Drawing.Point(7, 98);
             this.HeightTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HeightTextBox.Name = "HeightTextBox";
-            this.HeightTextBox.Size = new System.Drawing.Size(148, 26);
+            this.HeightTextBox.Size = new System.Drawing.Size(192, 26);
             this.HeightTextBox.TabIndex = 4;
             // 
             // label2
