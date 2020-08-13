@@ -17,6 +17,16 @@ namespace Booking3
         /// </summary>
         public static bool IsAdmin = false;
 
+        /// <summary>
+        /// Старая валюта
+        /// </summary>
+        public static string OldValute = "Рубли";
+
+        /// <summary>
+        /// Новая валюта
+        /// </summary>
+        public static string NewValute = "Рубли";
+
         #region Юзерконтролы
         /// <summary>
         /// Список гостиниц
@@ -51,6 +61,9 @@ namespace Booking3
             //Скрываем кнопку личного кабинета
             Login = "1";
             LoginClick(null, null);
+
+            ValuteClass.FillVals();
+            ValuteComboBox.SelectedIndex = 0;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -108,6 +121,7 @@ namespace Booking3
                     //Компоненты на форме
                     AuthPanel.Controls.Clear();
 
+                    AuthPanel.Controls.Add(ValuteComboBox);
                     AuthPanel.Controls.Add(HelloLabel);
                     HelloLabel.Text = "Привет, " + Login;
 
@@ -144,6 +158,7 @@ namespace Booking3
                 AuthPanel.Controls.Add(LoginTextBox);
                 AuthPanel.Controls.Add(PasswordLabel);
                 AuthPanel.Controls.Add(PasswordTextBox);
+                AuthPanel.Controls.Add(ValuteComboBox);
                 AuthPanel.Controls.Add(LoginButton);
                 AuthPanel.Controls.Add(buttonDefaultDesign);
                 LoginButton.Text = "Вход";
@@ -362,6 +377,30 @@ namespace Booking3
         {
             foreach (Control ctrl in AuthPanel.Controls)
                 ctrl.Size = new Size(ctrl.Size.Width, AuthPanel.Height);
+        }
+
+        /// <summary>
+        /// Меняем курс валют
+        /// </summary>
+        private void ValuteComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OldValute = NewValute;
+            NewValute = ValuteComboBox.Text;
+
+            double coeff = ValuteClass.vals[OldValute] / ValuteClass.vals[NewValute];
+
+            try
+            {
+                var priceLabels = this.Controls.Find("PriceLabel", true);
+
+                foreach (Label lbl in priceLabels)
+                {
+                    double price = Convert.ToDouble(lbl.Text.Replace(" рублей", ""));
+                    price = Math.Round(price * coeff * 100) / 100;
+                    lbl.Text = price + " рублей";
+                }
+            }
+            catch (Exception) { }
         }
     }
 }

@@ -153,6 +153,7 @@ namespace Booking3.UserControls
                 HotelsPanel.Controls.Add(pb);
 
                 Label lbl2 = new Label();
+                lbl2.Name = "PriceLabel";
                 lbl2.Location = new Point(x, 170);
                 lbl2.Size = new Size(200, 30);
                 lbl2.Text = hotels[i + 6] + " рублей";

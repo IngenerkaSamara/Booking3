@@ -39,3 +39,5 @@ C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.UniqueButt
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.AdminDesignForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.Admin.BlockDesignForm.resources
 C:\Users\Abra\source\repos\Booking2\Booking3\obj\Debug\Booking3.UserControls.SocialUC.resources
+C:\Users\Abra\source\repos\Booking2\Booking3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Abra\source\repos\Booking2\Booking3\bin\Debug\Newtonsoft.Json.xml

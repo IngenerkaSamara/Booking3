@@ -48,6 +48,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CopyRightPanel = new System.Windows.Forms.Panel();
+            this.ValuteComboBox = new System.Windows.Forms.ComboBox();
             this.AuthPanel.SuspendLayout();
             this.treeCMS.SuspendLayout();
             this.designCMS.SuspendLayout();
@@ -59,6 +60,7 @@
             this.AuthPanel.AccessibleDescription = "Block";
             this.AuthPanel.AutoScroll = true;
             this.AuthPanel.ContextMenuStrip = this.treeCMS;
+            this.AuthPanel.Controls.Add(this.ValuteComboBox);
             this.AuthPanel.Controls.Add(this.buttonDefaultDesign);
             this.AuthPanel.Controls.Add(this.PasswordLabel);
             this.AuthPanel.Controls.Add(this.LoginLabel);
@@ -235,6 +237,23 @@
             this.CopyRightPanel.Size = new System.Drawing.Size(948, 35);
             this.CopyRightPanel.TabIndex = 17;
             // 
+            // ValuteComboBox
+            // 
+            this.ValuteComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ValuteComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ValuteComboBox.FormattingEnabled = true;
+            this.ValuteComboBox.Items.AddRange(new object[] {
+            "Рубли",
+            "Доллары",
+            "Евро",
+            "Фунты"});
+            this.ValuteComboBox.Location = new System.Drawing.Point(824, 3);
+            this.ValuteComboBox.Name = "ValuteComboBox";
+            this.ValuteComboBox.Size = new System.Drawing.Size(121, 28);
+            this.ValuteComboBox.TabIndex = 17;
+            this.ValuteComboBox.SelectedIndexChanged += new System.EventHandler(this.ValuteComboBox_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -276,6 +295,7 @@
         private System.Windows.Forms.ContextMenuStrip treeCMS;
         private System.Windows.Forms.ToolStripMenuItem treeDesignMenuItem;
         private System.Windows.Forms.Panel CopyRightPanel;
+        private System.Windows.Forms.ComboBox ValuteComboBox;
     }
 }
 
