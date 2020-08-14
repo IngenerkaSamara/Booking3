@@ -40,14 +40,17 @@ namespace Booking3.Admin
             MessageBox.Show("Сохранено");
         }
 
+        /// <summary>
+        /// Рисование компонентов
+        /// </summary>
         private void AdminHotelsForm_Load(object sender, EventArgs e)
         {
             List<string> hotels_list = SQLClass.Select(
-                "SELECT Name, City, Rating FROM " + SQLClass.HOTELS);
+                "SELECT Name, City, Rating, id FROM " + SQLClass.HOTELS);
 
             panel2.Controls.Clear();
             int y = 15;
-            for (int i = 0; i < hotels_list.Count; i += 3)
+            for (int i = 0; i < hotels_list.Count; i += 4)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(0, y);
@@ -74,9 +77,100 @@ namespace Booking3.Admin
                 btn.Click += new EventHandler(DeleteHotel);
                 panel2.Controls.Add(btn);
 
+                Button btn2 = new Button();
+                btn2.Text = "Обновить";
+                btn2.Tag = hotels_list[i+3];
+                btn2.Location = new Point(500, y);
+                btn2.Size = new Size(100, 30);
+                btn2.Click += new EventHandler(RefreshHotel);
+                panel2.Controls.Add(btn2);
+
                 y += 30;
             }
         }
+
+        /// <summary>
+        /// Обновление цены
+        /// </summary>
+        private void RefreshHotel(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            Read(btn.Tag.ToString());
+        }
+
+        /// <summary>
+        /// Цены на отели
+        /// </summary>
+        public static void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            WebBrowser webBrowser = (WebBrowser)sender;
+            string sReadData = webBrowser.Document.Body.InnerHtml;
+
+            string[] parts = sReadData.Split(
+                new string[] { "hprt-roomtype-link" },
+                StringSplitOptions.None);
+
+            for (int i = 1; i < parts.Length; i++)
+            {
+                #region Поиск названия
+                string[] roomParts = parts[i].Split(new char[] { '\n' });
+
+                string id = roomParts[0];
+                int pos1 = id.IndexOf("href");
+                int pos2 = id.IndexOf(" ", pos1 + 1);
+                id = id.Substring(pos1 + 7, pos2 - pos1 - 8);
+                string room = roomParts[2];
+                #endregion
+
+
+                #region Поиск цены
+                string[] priceParts = parts[i].Split(
+                    new string[] { "bui-price-display__value prco-text-nowrap-helper prco-font16-helper" },
+                    StringSplitOptions.None);
+                int Price = 10000;
+
+                for (int j = 1; j < priceParts.Length; j++)
+                {
+                    pos1 = priceParts[j].IndexOf("\n");
+                    pos2 = priceParts[j].IndexOf("&nbsp", pos1 + 1);
+                    try
+                    {
+                        string price = priceParts[j].Substring(pos1 + 1, pos2 - pos1 - 1);
+                        int currentPrice = Convert.ToInt32(price.Replace(" ", ""));
+                        if (currentPrice < Price)
+                            Price = currentPrice;
+                    }
+                    catch (Exception) { }
+                }
+                #endregion
+
+                SQLClass.Update("UPDATE " + SQLClass.ROOM +
+                    " SET Name = '" + room + "'" +
+                    ", Price = " + Price +
+                    " WHERE IdBooking = '" + id + "'");
+            }
+
+            MessageBox.Show("OK");
+            webBrowser.Dispose();
+        }
+
+        /// <summary>
+        /// Цены на отели
+        /// </summary>
+        public static void Read(string hotelId)
+        {
+            string link = SQLClass.Select("SELECT link FROM " + SQLClass.HOTELS +
+                " WHERE id=" + hotelId)[0];
+
+            if (link != "")
+            {
+                WebBrowser webBrowser = new WebBrowser();
+                webBrowser.DocumentCompleted += webBrowser1_DocumentCompleted;
+                webBrowser.Navigate(link);
+            }
+        }
+
+
 
         private void DeleteHotel(object sender, EventArgs e)
         {
