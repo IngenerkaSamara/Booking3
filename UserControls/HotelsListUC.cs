@@ -77,12 +77,14 @@ namespace Booking3.UserControls
         {
             HotelsPanel.Controls.Clear();
             string command =
-                "SELECT hotels.id, hotels.name, hotels.image, hotels.rating, " +
-                        "room.id, room.name, room.price, room.image" +
-                " FROM " + SQLClass.ROOM + " room" +
-                " JOIN " + SQLClass.HOTELS + " hotels" +
-                " ON room.hotel_id = hotels.id" +
-                " WHERE 1";
+                "SELECT * FROM"+
+                    "(SELECT hotels.id hid, hotels.name hname, hotels.image himage, " +
+                            "hotels.rating hrating, hotels.city hcity, " +
+                            "room.id, room.name, room.price, room.image" +
+                    " FROM " + SQLClass.ROOM + " room" +
+                    " JOIN " + SQLClass.HOTELS + " hotels" +
+                    " ON room.hotel_id = hotels.id" +
+                    " WHERE 1";
 
             #region Поиск
             if (CityComboBox.Text != "")
@@ -105,20 +107,22 @@ namespace Booking3.UserControls
             }
             #endregion
 
+            command += " ORDER BY price ASC) C";
+
             if (SortComboBox.SelectedIndex == 0)
-                command += " GROUP BY hotels.id, hotels.name, hotels.image, hotels.rating" +
-                            " HAVING room.price = MIN(price) ORDER BY room.Price ASC";
+                command += " GROUP BY hid" +
+                            " HAVING price = MIN(price) ORDER BY price ASC";
             else if (SortComboBox.SelectedIndex == 1)
-                command += " GROUP BY hotels.id, hotels.name, hotels.image, hotels.rating" +
-                            " HAVING room.price = MIN(price) ORDER BY room.Price DESC";
+                command += " GROUP BY hid" +
+                            " HAVING price = MIN(price) ORDER BY price DESC";
             else if (SortComboBox.SelectedIndex == 2)
-                command += " GROUP BY hotels.id, hotels.name, hotels.image, hotels.rating" +
-                            " HAVING room.price = MIN(price) ORDER BY hotels.rating DESC";
+                command += " GROUP BY hid" +
+                            " HAVING price = MIN(price) ORDER BY hrating DESC";
 
             List<string> hotels = SQLClass.Select(command);
 
             int x = 15;
-            for (int i = 0; i < hotels.Count; i += 8)
+            for (int i = 0; i < hotels.Count; i += 9)
             {
                 #region Гостиница                
                 Label lbl = new Label();
@@ -130,12 +134,11 @@ namespace Booking3.UserControls
                 HotelsPanel.Controls.Add(lbl);
                 #endregion
 
-
                 #region Номер
                 PictureBox pb = new PictureBox();
                 try
                 {
-                    pb.Load("../../Pictures/" + hotels[i + 7]);
+                    pb.Load("../../Pictures/" + hotels[i + 8]);
                 }
                 catch (Exception)
                 {
@@ -148,7 +151,7 @@ namespace Booking3.UserControls
                 pb.Location = new Point(x, 40);
                 pb.Size = new Size(190, 120);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.Tag = hotels[i + 4];
+                pb.Tag = hotels[i + 5];
                 pb.Click += new EventHandler(OpenRoom);
                 HotelsPanel.Controls.Add(pb);
 
@@ -156,10 +159,32 @@ namespace Booking3.UserControls
                 lbl2.Name = "PriceLabel";
                 lbl2.Location = new Point(x, 170);
                 lbl2.Size = new Size(200, 30);
-                lbl2.Text = hotels[i + 6] + " рублей";
-                lbl2.Tag = hotels[i + 4];
+                lbl2.Text = hotels[i + 7] + " рублей";
+                lbl2.Tag = hotels[i + 5];
                 lbl2.Click += new EventHandler(OpenRoom);
                 HotelsPanel.Controls.Add(lbl2);
+
+                Label lbl3 = new Label();
+                lbl3.Location = new Point(x, 140);
+                lbl3.Size = new Size(200, 30);
+                lbl3.Font = new Font("Arial", 10);
+                lbl3.Text = hotels[i + 6];
+                lbl3.Tag = hotels[i + 5];
+                lbl3.Click += new EventHandler(OpenRoom);
+                HotelsPanel.Controls.Add(lbl3);
+                #endregion
+
+
+                #region Город  
+                Label city = new Label();
+                city.TextAlign = ContentAlignment.MiddleRight;
+                city.Location = new Point(x + 80, 40);
+                city.Size = new Size(120, 30);
+                city.Text = hotels[i + 4];
+                city.Tag = hotels[i];
+                city.Click += new EventHandler(OpenHotel);
+                HotelsPanel.Controls.Add(city);
+                city.BringToFront();
                 #endregion
 
                 x += 205;

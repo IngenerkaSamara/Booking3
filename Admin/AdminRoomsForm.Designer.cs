@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.OptionsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,11 +52,13 @@
             this.panel2.Location = new System.Drawing.Point(13, 14);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(581, 180);
+            this.panel2.Size = new System.Drawing.Size(679, 180);
             this.panel2.TabIndex = 3;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.OptionsCheckedListBox);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox3);
@@ -68,7 +72,7 @@
             this.panel1.Location = new System.Drawing.Point(13, 225);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(581, 178);
+            this.panel1.Size = new System.Drawing.Size(681, 178);
             this.panel1.TabIndex = 2;
             // 
             // comboBox1
@@ -85,7 +89,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.Location = new System.Drawing.Point(0, 143);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(581, 35);
+            this.button1.Size = new System.Drawing.Size(681, 35);
             this.button1.TabIndex = 9;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
@@ -165,17 +169,41 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(453, 30);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Опции";
+            // 
+            // OptionsCheckedListBox
+            // 
+            this.OptionsCheckedListBox.BackColor = System.Drawing.SystemColors.Control;
+            this.OptionsCheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionsCheckedListBox.FormattingEnabled = true;
+            this.OptionsCheckedListBox.Items.AddRange(new object[] {
+            "Отдельный номер",
+            "Свой санузел",
+            "Для некурящих",
+            "Wi-Fi"});
+            this.OptionsCheckedListBox.Location = new System.Drawing.Point(517, 31);
+            this.OptionsCheckedListBox.Name = "OptionsCheckedListBox";
+            this.OptionsCheckedListBox.Size = new System.Drawing.Size(162, 84);
+            this.OptionsCheckedListBox.TabIndex = 17;
+            // 
             // AdminRoomsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 414);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminRoomsForm";
-            this.Text = "Управление номерами";
+            this.Size = new System.Drawing.Size(712, 414);
             this.Load += new System.EventHandler(this.AdminRoomsForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -199,5 +227,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckedListBox OptionsCheckedListBox;
     }
 }

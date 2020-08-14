@@ -261,7 +261,7 @@
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HotelsPanel.Location = new System.Drawing.Point(0, 180);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(684, 173);
+            this.HotelsPanel.Size = new System.Drawing.Size(684, 209);
             this.HotelsPanel.TabIndex = 2;
             // 
             // HotelsListUC
@@ -273,7 +273,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "HotelsListUC";
-            this.Size = new System.Drawing.Size(684, 353);
+            this.Size = new System.Drawing.Size(684, 389);
             this.FilterPanel.ResumeLayout(false);
             this.FilterPanel.PerformLayout();
             this.ResumeLayout(false);

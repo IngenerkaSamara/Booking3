@@ -102,7 +102,7 @@
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HotelsPanel.Location = new System.Drawing.Point(3, 3);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(651, 140);
+            this.HotelsPanel.Size = new System.Drawing.Size(683, 140);
             this.HotelsPanel.TabIndex = 12;
             // 
             // label2
@@ -200,7 +200,7 @@
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.InfoPanel.Location = new System.Drawing.Point(0, 0);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(665, 233);
+            this.InfoPanel.Size = new System.Drawing.Size(697, 233);
             this.InfoPanel.TabIndex = 11;
             // 
             // OpinionPanel
@@ -211,7 +211,7 @@
             this.OpinionPanel.Controls.Add(this.numericUpDown1);
             this.OpinionPanel.Controls.Add(this.textBox1);
             this.OpinionPanel.Controls.Add(this.label6);
-            this.OpinionPanel.Location = new System.Drawing.Point(260, 116);
+            this.OpinionPanel.Location = new System.Drawing.Point(292, 116);
             this.OpinionPanel.Name = "OpinionPanel";
             this.OpinionPanel.Size = new System.Drawing.Size(402, 112);
             this.OpinionPanel.TabIndex = 5;
@@ -247,7 +247,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 233);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(665, 179);
+            this.tabControl1.Size = new System.Drawing.Size(697, 179);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -256,7 +256,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(657, 146);
+            this.tabPage1.Size = new System.Drawing.Size(689, 146);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Номера";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -280,7 +280,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "HotelUC";
-            this.Size = new System.Drawing.Size(665, 412);
+            this.Size = new System.Drawing.Size(697, 412);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.HotelsPanel.ResumeLayout(false);

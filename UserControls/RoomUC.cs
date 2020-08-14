@@ -15,7 +15,7 @@ namespace Booking3.UserControls
             InitializeComponent();
 
             List<string> room_data = SQLClass.Select(
-                "SELECT hotels.name, room.name, room.price, room.image, room.quantity" +
+                "SELECT hotels.name, room.name, room.price, room.image, room.quantity, room.hotel_id" +
                 " FROM " + SQLClass.ROOM + " room" +
                 " JOIN " + SQLClass.HOTELS + " hotels" +
                 " ON room.hotel_id = hotels.id" +
@@ -24,7 +24,9 @@ namespace Booking3.UserControls
             Text = room_data[0] + ": " + room_data[1];
             qty = Convert.ToInt32(room_data[4]);
             label2.Text = room_data[1];
-            label4.Text = room_data[0];
+            HotelLabel.Text = room_data[0];
+            HotelLabel.Tag = room_data[5];
+            toolTip1.SetToolTip(HotelLabel, "Посмотреть другие номера");
             label6.Text = room_data[2] + " руб.";
 
             try
@@ -75,6 +77,18 @@ namespace Booking3.UserControls
                 "'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'," +
                 id + ")");
             MessageBox.Show("Успешно");
+        }
+
+        /// <summary>
+        /// Открытие гостиницы
+        /// </summary>
+        private void OpenHotel(object sender, EventArgs e)
+        {            
+            Control pb = (Control)sender;
+            HotelUC hf = new HotelUC(pb.Tag.ToString());
+            Controls.Clear();
+            Controls.Add(hf);
+            hf.Dock = DockStyle.Fill;
         }
     }
 }

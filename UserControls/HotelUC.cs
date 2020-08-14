@@ -82,7 +82,7 @@ namespace Booking3.UserControls
                     catch (Exception) { }
                 }
                 pb.Location = new Point(x, 10);
-                pb.Size = new Size(190, 120);
+                pb.Size = new Size(160, 100);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = rooms[i];
                 pb.Click += new EventHandler(pictureBox7_Click);
@@ -90,26 +90,36 @@ namespace Booking3.UserControls
 
                 Label lbl = new Label();
                 lbl.Font = new Font("Arial", 10);
-                lbl.Location = new Point(x, 140);
-                lbl.Size = new Size(200, 30);
-                lbl.Text = rooms[i + 1] + " (" + rooms[i + 2] + ")";
+                lbl.Location = new Point(x, 110);
+                lbl.Size = new Size(170, 30);
+                lbl.Text = rooms[i + 1];
                 lbl.Tag = rooms[i];
                 lbl.Click += new EventHandler(label3_Click);
                 HotelsPanel.Controls.Add(lbl);
+
+                Label price = new Label();
+                price.Name = "PriceLabel";
+                price.Font = new Font("Arial", 10);
+                price.Location = new Point(x, 140);
+                price.Size = new Size(170, 30);
+                price.Text = rooms[i + 2] + " руб";
+                price.Tag = rooms[i];
+                price.Click += new EventHandler(label3_Click);
+                HotelsPanel.Controls.Add(price);
 
                 if (MainForm.IsAdmin)
                 {
                     TextBox lbl2 = new TextBox();
                     lbl2.Font = new Font("Arial", 10);
                     lbl2.Location = new Point(x, 170);
-                    lbl2.Size = new Size(200, 30);
+                    lbl2.Size = new Size(170, 30);
                     lbl2.Text = rooms[i + 4] + " штук";
                     lbl2.Tag = rooms[i];
                     lbl2.KeyDown += new KeyEventHandler(textBox4_KeyDown);
                     HotelsPanel.Controls.Add(lbl2);
                 }
 
-                x += 205;
+                x += 175;
             }
             #endregion
 

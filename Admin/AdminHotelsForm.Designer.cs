@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminHotelsForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -61,7 +62,7 @@
             this.panel1.Location = new System.Drawing.Point(18, 234);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 173);
+            this.panel1.Size = new System.Drawing.Size(653, 173);
             this.panel1.TabIndex = 0;
             // 
             // button1
@@ -69,7 +70,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.Location = new System.Drawing.Point(0, 138);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(537, 35);
+            this.button1.Size = new System.Drawing.Size(653, 35);
             this.button1.TabIndex = 9;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,6 +92,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(324, 46);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(161, 86);
@@ -157,7 +159,7 @@
             this.panel2.Location = new System.Drawing.Point(18, 36);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(537, 162);
+            this.panel2.Size = new System.Drawing.Size(653, 162);
             this.panel2.TabIndex = 1;
             // 
             // openFileDialog1
@@ -177,14 +179,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 406);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AdminHotelsForm";
-            this.Text = "Управление гостиницами";
+            this.Size = new System.Drawing.Size(693, 406);
             this.Load += new System.EventHandler(this.AdminHotelsForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

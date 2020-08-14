@@ -48,10 +48,18 @@ namespace Booking3.Admin
         {
             string[] parts = comboBox1.Text.Split(new char[] { '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
 
+            string bath = "0", nosmoking="0";
+            foreach (object item in OptionsCheckedListBox.CheckedItems)
+            {
+                if (item.ToString() == "Для некурящих") nosmoking = "1";
+                if (item.ToString() == "Свой санузел") bath = "1";
+            }
+
+
             SQLClass.Update(
-                "INSERT INTO room(Name, hotel, hotel_id, price, Image)" +
+                "INSERT INTO room(Name, hotel, hotel_id, price, Image, NoSmoking, Bath)" +
                 " VALUES('" + textBox1.Text + "', '" + parts[0] + "', '" + parts[1] + "', '" +
-                                textBox3.Text + "', '" + address + "')");
+                                textBox3.Text + "', '" + address + "'" + nosmoking + "," + bath + ")");
             MessageBox.Show("Сохранено");
             AdminRoomsForm_Load(sender, e);
         }
